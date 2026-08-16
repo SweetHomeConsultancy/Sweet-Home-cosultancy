@@ -65,7 +65,7 @@ export function Footer() {
 
   return (
     <footer className="relative border-t border-white/10 bg-brand-charcoal text-brand-gray/80">
-      <div className="container-custom grid gap-12 pb-16 pt-20 md:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_0.9fr_1.1fr]">
+      <div className="container-custom grid gap-10 pb-16 pt-16 md:grid-cols-2 md:gap-12 lg:grid-cols-[1.3fr_0.8fr_0.9fr_1.1fr]">
         {/* Brand */}
         <div className="flex flex-col gap-5">
           <Logo light />
@@ -104,7 +104,7 @@ export function Footer() {
           <h4 className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-white">
             Explore
           </h4>
-          <ul className="flex flex-col gap-3 text-sm font-light">
+          <ul className="flex flex-col gap-3 border-l border-white/10 pl-5 text-sm font-light">
             {quickLinks.map((link) => (
               <li key={link.name}>
                 <Link
@@ -124,7 +124,7 @@ export function Footer() {
           <h4 className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-white">
             Services
           </h4>
-          <ul className="flex flex-col gap-3 text-sm font-light">
+          <ul className="flex flex-col gap-3 border-l border-white/10 pl-5 text-sm font-light">
             {servicesLinks.map((link) => (
               <li key={link.name}>
                 <Link
@@ -144,7 +144,7 @@ export function Footer() {
           <h4 className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-white">
             Contact Info
           </h4>
-          <ul className="flex flex-col gap-4 text-sm font-light">
+          <ul className="flex flex-col gap-4 border-l border-white/10 pl-5 text-sm font-light">
             <li className="flex items-start gap-3">
               <MapPin size={16} className="mt-0.5 shrink-0 text-brand-accent" />
               <span className="leading-relaxed text-brand-gray/70">
@@ -165,13 +165,13 @@ export function Footer() {
               <Mail size={16} className="shrink-0 text-brand-accent" />
               <a
                 href={`mailto:${contactInfo.email}`}
-                className="text-brand-gray/70 transition-colors duration-300 hover:text-brand-accent-light"
+                className="break-all text-brand-gray/70 transition-colors duration-300 hover:text-brand-accent-light"
               >
                 {contactInfo.email}
               </a>
             </li>
           </ul>
-          <Button asChild variant="gold" className="mt-2 h-12 w-max">
+          <Button asChild variant="gold" className="mt-2 h-12 w-full md:w-max">
             <Link href="/contact">
               Get a Quote <ArrowUpRight size={14} />
             </Link>

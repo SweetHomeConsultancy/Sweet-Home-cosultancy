@@ -225,6 +225,39 @@
   }
 }
 
+/* Glossy top highlight for premium gold buttons */
+@utility btn-gloss {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0.16) 40%,
+      rgba(255, 255, 255, 0.02) 58%,
+      rgba(255, 255, 255, 0) 60%
+    );
+    border-radius: inherit;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 1px;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent 5%, rgba(255, 255, 255, 0.95) 50%, transparent 95%);
+  }
+}
+
 /* Diagonal light sheen that sweeps across filled buttons on hover */
 @utility btn-sheen {
   position: relative;

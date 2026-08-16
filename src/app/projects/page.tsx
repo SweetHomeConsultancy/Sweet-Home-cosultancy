@@ -34,7 +34,7 @@ export default function ProjectsPage() {
   return (
     <div className="flex flex-col min-h-screen bg-brand-ivory">
       {/* Header */}
-      <section className="relative overflow-hidden bg-brand-charcoal pb-20 pt-36 text-white md:pb-24 md:pt-44">
+      <section className="relative overflow-hidden bg-brand-charcoal pb-16 pt-24 text-white md:pb-24 md:pt-40">
         <div className="container-custom relative">
           <div className="grid items-end gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
             <motion.div initial="hidden" animate="visible" variants={fadeUp}>
@@ -84,7 +84,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* Gallery */}
-      <section className="section-padding bg-brand-ivory">
+      <section className="bg-brand-ivory py-8 md:py-14">
         <div className="container-custom">
           {/* Filters */}
           <motion.div
@@ -207,7 +207,7 @@ export default function ProjectsPage() {
           )}
 
           {/* CTA */}
-          <div className="mt-20 border-t border-brand-stone pt-16 text-center md:mt-28">
+          <div className="mt-12 border-t border-brand-stone pt-10 text-center md:mt-20">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
               <h3
                 className="mx-auto max-w-2xl text-balance font-semibold leading-tight tracking-tight text-brand-charcoal"

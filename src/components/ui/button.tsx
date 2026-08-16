@@ -20,7 +20,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           {
             "btn-line btn-sheen border border-brand-charcoal bg-brand-charcoal text-brand-ivory hover:-translate-y-[2px] hover:border-brand-accent hover:shadow-[0_16px_34px_rgba(27,25,22,0.28)] hover:text-white active:translate-y-0 active:shadow-none":
               variant === "default",
-            "btn-sheen border border-brand-accent bg-brand-accent text-white hover:-translate-y-[2px] hover:border-brand-accent-deep hover:bg-brand-accent-deep hover:shadow-[0_16px_34px_rgba(28,21,12,0.32)] active:translate-y-0 active:shadow-none":
+            "btn-gloss btn-sheen border border-brand-accent-light/70 bg-gradient-to-b from-brand-accent-light via-brand-accent to-brand-accent-deep text-white shadow-[0_8px_24px_rgba(143,112,64,0.35)] hover:-translate-y-[3px] hover:border-brand-accent-light hover:from-brand-accent hover:via-brand-accent-light hover:to-brand-accent hover:shadow-[0_18px_44px_rgba(143,112,64,0.5)] active:translate-y-0 active:shadow-[0_6px_16px_rgba(143,112,64,0.3)]":
               variant === "gold",
             "btn-sheen border border-brand-ivory bg-brand-ivory text-brand-charcoal hover:-translate-y-[2px] hover:border-white hover:bg-white hover:shadow-[0_18px_40px_rgba(0,0,0,0.35)] active:translate-y-0 active:shadow-none":
               variant === "ivory",

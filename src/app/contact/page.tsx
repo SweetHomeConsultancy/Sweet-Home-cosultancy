@@ -97,7 +97,7 @@ export default function ContactPage() {
   return (
     <div className="flex min-h-screen flex-col bg-brand-ivory">
       {/* Header */}
-      <section className="relative overflow-hidden bg-brand-charcoal pb-20 pt-36 text-white md:pb-24 md:pt-44">
+      <section className="relative overflow-hidden bg-brand-charcoal pb-16 pt-24 text-white md:pb-24 md:pt-40">
         <div className="pointer-events-none absolute inset-x-0 top-0 mx-auto h-80 max-w-3xl bg-[radial-gradient(closest-side,rgba(215,188,141,0.10),transparent)]" aria-hidden="true" />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-accent/60 to-transparent" aria-hidden="true" />
         <div className="container-custom relative">
@@ -161,7 +161,7 @@ export default function ContactPage() {
       </section>
 
       {/* Split content */}
-      <section className="section-padding bg-brand-ivory">
+      <section className="bg-brand-ivory py-8 md:py-14">
         <div className="container-custom">
           {/* How it works */}
           <motion.div

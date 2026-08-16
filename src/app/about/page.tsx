@@ -22,7 +22,7 @@ export default function AboutPage() {
   return (
     <div className="flex min-h-screen flex-col bg-brand-ivory">
       {/* Header */}
-      <section className="relative overflow-hidden bg-brand-charcoal pb-20 pt-36 text-white md:pb-24 md:pt-44">
+      <section className="relative overflow-hidden bg-brand-charcoal pb-16 pt-24 text-white md:pb-24 md:pt-40">
         <div className="container-custom relative">
           <div className="grid items-end gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
             <motion.div initial="hidden" animate="visible" variants={fadeUp}>
@@ -70,7 +70,7 @@ export default function AboutPage() {
       </section>
 
       {/* Intro */}
-      <section className="section-padding bg-brand-ivory">
+      <section className="bg-brand-ivory py-8 md:py-14">
         <div className="container-custom">
           <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-24">
             <motion.div
@@ -146,7 +146,7 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="section-padding relative overflow-hidden bg-brand-charcoal text-white">
+      <section className="relative overflow-hidden bg-brand-charcoal py-8 text-white md:py-16">
         <div className="container-custom relative">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mx-auto flex max-w-3xl flex-col items-center text-center">
             <SectionHeading
@@ -167,7 +167,7 @@ export default function AboutPage() {
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
-            className="mt-16 grid gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-3"
+            className="mt-10 grid gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-3"
           >
             {whyChooseUs.map((item, index) => (
               <motion.div key={index} variants={fadeUp} className="group border-t border-white/15 pt-8 transition-colors duration-300 hover:border-brand-accent">

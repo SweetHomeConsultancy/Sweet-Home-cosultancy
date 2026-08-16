@@ -198,31 +198,33 @@ export default function Home() {
 
       {/* ================= SERVICES TICKER ================= */}
       <div
-        className="group relative overflow-hidden border-y border-white/10 bg-gradient-to-r from-brand-charcoal via-brand-charcoal-soft to-brand-charcoal py-4"
+        className="group relative overflow-hidden border-y border-brand-accent/30 bg-brand-charcoal py-5"
         aria-hidden="true"
       >
-        <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-brand-accent/60 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-brand-accent/60 to-transparent" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_150%_at_50%_0%,rgba(215,188,141,0.09),transparent)]" />
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-brand-charcoal to-transparent md:w-32" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-brand-charcoal to-transparent md:w-32" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-brand-charcoal via-brand-charcoal-soft to-brand-charcoal" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-brand-accent to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-brand-accent to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_160%_at_50%_-20%,rgba(215,188,141,0.14),transparent)] opacity-80" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,transparent_8%,rgba(173,138,84,0.06)_50%,transparent_92%)]" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-brand-charcoal to-transparent md:w-36" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-brand-charcoal to-transparent md:w-36" />
         <div className="animate-marquee will-change-transform motion-reduce:animate-none group-hover:[animation-play-state:paused] flex w-max select-none items-center whitespace-nowrap">
           {[0, 1].map((rep) => (
             <div key={rep} className="flex items-center">
               {["Architecture", "Interior Design", "Construction", "Project Management", "Turnkey Solutions", "Design • Inspire • Build"].map((term) => (
                 <span key={`${rep}-${term}`} className="flex items-center">
                   {term === "Design • Inspire • Build" ? (
-                    <span className="mx-8 font-serif text-sm italic tracking-[0.14em] text-brand-accent-light md:text-base">
+                    <span className="mx-9 font-serif text-sm italic tracking-[0.14em] text-brand-accent-light [text-shadow:0_0_24px_rgba(215,188,141,0.45)] md:text-base">
                       Design &#183; Inspire &#183; Build
                     </span>
                   ) : (
-                    <span className="mx-8 text-[0.7rem] font-bold uppercase tracking-[0.34em] text-white/75 md:text-[0.72rem]">
+                    <span className="mx-9 text-[0.7rem] font-bold uppercase tracking-[0.34em] text-white/80 [text-shadow:0_0_18px_rgba(215,188,141,0.25)] md:text-[0.74rem]">
                       {term}
                     </span>
                   )}
-                  <span className="relative inline-flex h-[7px] w-[7px] shrink-0 items-center justify-center">
-                    <span className="inline-block h-[7px] w-[7px] rotate-45 border border-brand-accent-light/60" />
-                    <span className="absolute inline-block h-[2px] w-[2px] rotate-45 bg-brand-accent-light" />
+                  <span className="relative inline-flex h-[9px] w-[9px] shrink-0 items-center justify-center">
+                    <span className="inline-block h-[9px] w-[9px] rotate-45 bg-gradient-to-br from-brand-accent-light to-brand-accent opacity-80 shadow-[0_0_10px_rgba(215,188,141,0.6)]" />
+                    <span className="absolute inline-block h-[2.5px] w-[2.5px] rotate-45 bg-brand-charcoal" />
                   </span>
                 </span>
               ))}
@@ -232,7 +234,7 @@ export default function Home() {
       </div>
 
       {/* ================= ABOUT ================= */}
-      <section className="section-padding relative overflow-hidden bg-brand-ivory">
+      <section id="about" className="relative overflow-hidden bg-brand-ivory py-8 md:py-12">
         <div className="container-custom">
           <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-24">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger}>
@@ -321,7 +323,7 @@ export default function Home() {
       </section>
 
       {/* ================= SERVICES ================= */}
-      <section id="services" className="relative scroll-mt-24 overflow-hidden bg-brand-gray py-12 md:py-16">
+      <section id="services" className="relative scroll-mt-24 overflow-hidden bg-brand-gray py-8 md:py-12">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -right-[20rem] -top-[16rem] h-[36rem] w-[36rem] rounded-full bg-[radial-gradient(circle,rgba(173,138,84,0.14)_0%,transparent_65%)]"
@@ -431,7 +433,7 @@ export default function Home() {
       </section>
 
       {/* ================= MARQUEE GALLERY ================= */}
-      <section className="relative overflow-hidden border-b border-brand-stone bg-brand-charcoal py-12 md:py-16">
+      <section className="relative overflow-hidden border-b border-brand-stone bg-brand-charcoal py-8 md:py-12">
         <div className="container-custom">
           <motion.div {...motionProps(0)} className="mx-auto flex max-w-3xl flex-col items-center text-center">
             <SectionHeading
@@ -453,7 +455,7 @@ export default function Home() {
       </section>
 
       {/* ================= PROCESS ================= */}
-      <section id="process" className="relative scroll-mt-24 overflow-hidden border-y border-brand-stone bg-brand-ivory py-16 md:py-24">
+      <section id="process" className="relative scroll-mt-24 overflow-hidden border-y border-brand-stone bg-brand-ivory py-8 md:py-12">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute right-0 top-0 h-80 w-80 translate-x-1/3 -translate-y-1/3 rounded-full bg-[radial-gradient(circle,rgba(173,138,84,0.10)_0%,transparent_65%)]"
@@ -476,7 +478,7 @@ export default function Home() {
           </motion.div>
 
           {/* Desktop timeline */}
-          <div className="relative mt-20 hidden lg:block">
+          <div className="relative mt-12 hidden lg:block">
             <div className="absolute inset-x-0 top-5 h-px bg-brand-stone" />
             <motion.div
               initial={{ scaleX: 0 }}
@@ -515,7 +517,7 @@ export default function Home() {
           </div>
 
           {/* Mobile / tablet: vertical timeline */}
-          <div className="mx-auto mt-14 max-w-md lg:hidden">
+          <div className="mx-auto mt-10 max-w-md lg:hidden">
             <div className="relative border-l border-brand-stone pl-10">
               <motion.div
                 initial={{ scaleY: 0 }}
@@ -547,7 +549,7 @@ export default function Home() {
 
           <motion.div
             {...motionProps(0.1)}
-            className="mx-auto mt-14 flex max-w-2xl items-center justify-center gap-4 text-center"
+            className="mx-auto mt-10 flex max-w-2xl items-center justify-center gap-4 text-center"
           >
             <span className="hidden h-px w-12 bg-brand-accent/40 sm:block" />
             <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-muted">
@@ -559,7 +561,7 @@ export default function Home() {
       </section>
 
       {/* ================= WHY CHOOSE US ================= */}
-      <section className="section-padding relative overflow-hidden bg-brand-charcoal text-white">
+      <section id="why-choose-us" className="relative overflow-hidden bg-brand-charcoal py-8 text-white md:py-12">
         <div className="pointer-events-none absolute inset-x-0 top-0 mx-auto h-72 max-w-3xl bg-[radial-gradient(closest-side,rgba(215,188,141,0.10),transparent)]" aria-hidden="true" />
         <div className="container-custom relative">
           <motion.div {...motionProps(0)} className="mx-auto flex max-w-3xl flex-col items-center text-center">
@@ -581,7 +583,7 @@ export default function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
-            className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+            className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
           >
             {whyChooseUs.map((feature, i) => (
               <motion.div
@@ -626,7 +628,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/70 via-transparent to-brand-charcoal/40" />
         </div>
 
-        <div className="container-custom relative z-10 py-28 text-center md:py-36">
+        <div className="container-custom relative z-10 py-14 text-center md:py-20">
           <motion.div {...motionProps(0)} className="mx-auto flex max-w-3xl flex-col items-center">
             <span className="eyebrow-light mb-6 justify-center">Begin Today</span>
             <h2

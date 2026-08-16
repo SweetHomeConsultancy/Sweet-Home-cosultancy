@@ -123,18 +123,7 @@ export function Navbar() {
           </nav>
 
           {/* Right side */}
-          <div className="flex items-center gap-3 md:gap-5">
-            <Link
-              href={`tel:${contactInfo.tel1}`}
-              className={cn(
-                "hidden items-center gap-2 text-[0.7rem] font-bold uppercase tracking-[0.18em] transition-colors duration-300 xl:flex",
-                isHeroState ? "text-white/80 hover:text-white" : "text-brand-muted hover:text-brand-accent"
-              )}
-            >
-              <Phone size={15} className={cn(isHeroState ? "text-brand-accent-light" : "text-brand-accent")} />
-              {contactInfo.phone1}
-            </Link>
-
+          <div className="flex items-center gap-3 md:gap-4">
             <Button
               asChild
               variant="gold"
@@ -144,10 +133,10 @@ export function Navbar() {
                   "border-brand-accent-light/60 bg-transparent hover:border-brand-accent-light hover:bg-brand-accent"
               )}
             >
-              <Link href="/contact">
-                Get a Quote
-                <ArrowUpRight size={14} />
-              </Link>
+              <a href={`tel:${contactInfo.tel1}`}>
+                Contact Now
+                <Phone size={14} />
+              </a>
             </Button>
 
             <button
@@ -184,18 +173,32 @@ export function Navbar() {
                     initial={{ opacity: 0, x: 24 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.08 + i * 0.06 }}
-                    className="border-b border-brand-stone"
+                    className="group border-b border-brand-stone"
                   >
                     <Link
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={cn(
-                        "flex w-full items-center justify-between py-[1.15rem] font-heading text-[1.7rem] font-semibold tracking-wide transition-colors",
-                        activeLink === link.href ? "text-brand-accent-deep" : "text-brand-charcoal"
+                        "flex w-full items-center justify-between gap-4 py-4 transition-all duration-300 active:scale-[0.985] md:py-5",
+                        activeLink === link.href ? "text-brand-accent-deep" : "text-brand-charcoal hover:text-brand-accent-deep"
                       )}
                     >
-                      {link.name}
-                      <ArrowUpRight className={cn("h-5 w-5", activeLink === link.href ? "text-brand-accent" : "text-brand-muted")} />
+                      <span className="flex items-baseline gap-3">
+                        <span className="font-serif text-xs italic text-brand-accent/60 transition-colors duration-300 group-hover:text-brand-accent">
+                          0{i + 1}
+                        </span>
+                        <span className="font-heading text-2xl font-semibold tracking-wide md:text-[1.7rem]">
+                          {link.name}
+                        </span>
+                      </span>
+                      <span
+                        className={cn(
+                          "flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-300 group-hover:border-brand-accent group-hover:bg-brand-accent group-hover:text-white",
+                          activeLink === link.href ? "border-brand-accent bg-brand-accent text-white" : "border-brand-stone text-brand-muted"
+                        )}
+                      >
+                        <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </span>
                     </Link>
                   </motion.div>
                 ))}
@@ -205,27 +208,24 @@ export function Navbar() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.45 }}
-                className="space-y-4 px-6 pb-12 pt-8"
+                className="space-y-5 border-t border-brand-stone px-6 pb-10 pt-6"
               >
+                <p className="text-center text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-brand-muted">
+                  Ready to build? Reach us directly.
+                </p>
                 <Button
                   asChild
                   size="lg"
-                  className="w-full"
+                  variant="gold"
+                  className="w-full shadow-[0_16px_36px_rgba(143,112,64,0.28)]"
                 >
-                  <Link
-                    href="/contact"
+                  <a
+                    href={`tel:${contactInfo.tel1}`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Get a Quote <ArrowUpRight size={15} />
-                  </Link>
+                    Contact Now <Phone size={16} />
+                  </a>
                 </Button>
-                <a
-                  href={`tel:${contactInfo.tel1}`}
-                  className="flex items-center justify-center gap-2 text-sm font-medium tracking-widest text-brand-muted"
-                >
-                  <Phone size={14} className="text-brand-accent" />
-                  {contactInfo.phone1}
-                </a>
               </motion.div>
             </div>
           </motion.div>
