@@ -43,7 +43,7 @@ const motionProps = (delay = 0) => ({
   transition: delay ? ({ delay, duration: 0.7, ease: EASE } as const) : undefined,
 });
 
-const homeFeatured = featuredProjects;
+const homeFeatured = featuredProjects.slice(6, 10);
 
 export default function Home() {
   return (
@@ -63,13 +63,13 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/70 via-transparent to-brand-charcoal/20" />
         </div>
 
-        <div className="container-custom relative z-10 pb-12 pt-36 md:pb-16 md:pt-40">
+        <div className="container-custom relative z-10 pb-10 pt-24 md:pb-16 md:pt-40">
           <div className="max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="mb-8 flex items-center gap-3"
+              className="mb-6 flex items-center gap-3"
             >
               <span className="inline-flex flex-wrap items-center gap-3 text-[0.65rem] font-bold uppercase tracking-[0.28em] text-brand-accent-light sm:text-[0.7rem] sm:tracking-[0.32em]">
                 <span className="hidden h-px w-10 bg-brand-accent-light sm:block" />
@@ -100,7 +100,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.55 }}
-              className="mt-8 max-w-xl"
+              className="mt-7 max-w-xl"
             >
               <p className="text-base font-light leading-relaxed text-white/80 md:text-lg">
                 An integrated architecture &amp; construction studio in Kolkata —
@@ -113,7 +113,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.7 }}
-              className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center"
+              className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center"
             >
               <Button
                 asChild
@@ -321,156 +321,144 @@ export default function Home() {
       </section>
 
       {/* ================= SERVICES ================= */}
-      <section id="services" className="section-padding scroll-mt-24 bg-brand-gray">
-        <div className="container-custom">
-          <div className="grid items-end gap-10 lg:grid-cols-2">
-            <motion.div {...motionProps(0)}>
-              <SectionHeading
-                eyebrow="Our Expertise"
-                title={
-                  <>
-                    Integrated services, one{" "}
-                    <em className="font-serif italic font-normal text-brand-accent-deep">accountable</em> partner.
-                  </>
-                }
-              />
-            </motion.div>
-            <motion.p {...motionProps(0.1)} className="max-w-xl text-base font-light leading-relaxed text-brand-muted lg:justify-self-end">
+      <section id="services" className="relative scroll-mt-24 overflow-hidden bg-brand-gray py-12 md:py-16">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-[20rem] -top-[16rem] h-[36rem] w-[36rem] rounded-full bg-[radial-gradient(circle,rgba(173,138,84,0.14)_0%,transparent_65%)]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-[18rem] -left-[18rem] h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,rgba(173,138,84,0.10)_0%,transparent_65%)]"
+        />
+        <div className="container-custom relative">
+          <motion.div {...motionProps(0)} className="max-w-2xl">
+            <SectionHeading
+              eyebrow="Our Expertise"
+              title={
+                <>
+                  Integrated services, one{" "}
+                  <em className="font-serif italic font-normal">accountable</em> partner.
+                </>
+              }
+            />
+            <p className="mt-4 max-w-xl text-base font-light leading-relaxed text-brand-muted">
               We own every discipline — design, engineering, construction and management — so
               nothing is lost between consultant and contractor.
-            </motion.p>
-          </div>
+            </p>
+          </motion.div>
 
           <motion.div
             variants={stagger}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
-            className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4 md:gap-7"
+            className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4 md:gap-6"
           >
             {services.map((service, i) => (
               <motion.article
                 key={service.title}
                 variants={fadeUp}
-                className="group relative flex flex-col border border-brand-stone bg-white p-5 transition-all duration-500 hover:-translate-y-2 hover:border-brand-accent/40 hover:shadow-[0_30px_70px_rgba(27,25,22,0.12)] hover:ring-1 hover:ring-inset hover:ring-brand-accent/20"
+                className="group relative flex flex-col overflow-hidden bg-brand-gray p-7 shadow-[0_18px_45px_rgba(27,25,22,0.10),0_2px_6px_rgba(27,25,22,0.05)] ring-1 ring-inset ring-brand-stone/40 transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[0_28px_70px_rgba(27,25,22,0.16),0_4px_10px_rgba(27,25,22,0.06)] hover:ring-brand-accent/40"
               >
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl">
-                  <Image
-                    src={service.image}
-                    alt={`${service.title} service — ${service.tagline}`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
-                    className="object-cover grayscale-[0.45] transition-all duration-[1.1s] ease-out group-hover:scale-[1.07] group-hover:grayscale-0"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/65 via-brand-charcoal/10 to-transparent" />
-                  <span className="absolute right-3 top-3 rounded-full bg-brand-charcoal/40 px-2.5 py-1 font-serif text-xs italic text-brand-accent-light backdrop-blur-sm">
-                    0{i + 1}
-                  </span>
-                  <span className="absolute bottom-3 left-3 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-accent text-white shadow-[0_-6px_24px_rgba(28,21,12,0.35)] transition-all duration-300 group-hover:bg-brand-accent-deep">
-                    <service.icon size={20} strokeWidth={1.6} />
-                  </span>
-                </div>
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-gradient-to-r from-transparent via-brand-accent to-transparent transition-transform duration-500 ease-out group-hover:scale-x-100"
+                />
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(173,138,84,0.12)_0%,transparent_65%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                />
 
-                <div className="flex flex-1 flex-col p-3 pt-6">
-                  <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-brand-stone bg-brand-beige px-3 py-1 text-[0.56rem] font-bold uppercase tracking-[0.22em] text-brand-accent-deep transition-colors duration-300 group-hover:border-brand-accent/40 group-hover:bg-brand-accent/10">
-                    <span className="inline-block h-[4px] w-[4px] rotate-45 bg-brand-accent" />
-                    {service.tagline}
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute right-6 top-6 font-serif text-5xl italic leading-none text-brand-stone transition-colors duration-500 group-hover:text-brand-accent/30"
+                >
+                  0{i + 1}
+                </span>
+
+                <span className="flex h-13 w-13 items-center justify-center rounded-full border border-brand-accent/35 bg-gradient-to-br from-brand-accent/12 to-brand-accent/4 text-brand-accent-deep shadow-[inset_0_1px_2px_rgba(255,255,255,0.6)] transition-all duration-500 group-hover:border-brand-accent group-hover:from-brand-accent group-hover:to-brand-accent-deep group-hover:text-white group-hover:shadow-[0_12px_30px_rgba(143,112,64,0.4)]">
+                  <service.icon size={22} strokeWidth={1.4} />
+                </span>
+
+                <span className="mt-7 inline-flex w-fit items-center gap-1.5 text-[0.56rem] font-bold uppercase tracking-[0.24em] text-brand-muted transition-colors duration-300 group-hover:text-brand-accent-deep">
+                  <span className="inline-block h-[5px] w-[5px] rotate-45 bg-brand-accent" />
+                  {service.tagline}
+                </span>
+
+                <h3 className="mt-3 font-heading text-xl font-semibold tracking-tight text-brand-charcoal">
+                  {service.title}
+                </h3>
+
+                <p className="mt-2.5 text-[0.84rem] font-light leading-relaxed text-brand-muted">
+                  {service.description}
+                </p>
+
+                <ul className="mt-6 grid flex-1 grid-cols-1 content-start gap-y-2.5 border-t border-brand-stone/70 pt-6">
+                  {service.items.map((item) => (
+                    <li key={item} className="flex items-center gap-2.5 text-[0.8rem] font-light text-brand-charcoal/75 transition-colors duration-300 group-hover:text-brand-charcoal">
+                      <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-brand-accent/15 text-brand-accent-deep transition-colors duration-300 group-hover:bg-brand-accent group-hover:text-white">
+                        <svg
+                          viewBox="0 0 12 12"
+                          className="h-2 w-2"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          aria-hidden="true"
+                        >
+                          <path d="M2 6.5 4.8 9 10 3" />
+                        </svg>
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  href="/contact"
+                  className="group/link mt-7 inline-flex items-center gap-2 text-[0.7rem] font-bold uppercase tracking-[0.22em] text-brand-charcoal transition-colors duration-300 hover:text-brand-accent-deep"
+                >
+                  <span className="relative">Explore Service</span>
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full border border-brand-stone bg-brand-ivory transition-all duration-300 group-hover/link:border-brand-accent group-hover/link:shadow-[0_8px_20px_rgba(143,112,64,0.35)]">
+                    <ArrowRight size={12} className="text-brand-accent-deep transition-transform duration-300 group-hover/link:translate-x-0.5" />
                   </span>
-                  <h3 className="mt-3 font-heading text-lg font-semibold tracking-tight text-brand-charcoal md:text-xl">
-                    {service.title}
-                  </h3>
-                  <p className="mt-2 text-[0.84rem] font-light leading-relaxed text-brand-muted">
-                    {service.description}
-                  </p>
-
-                  <ul className="mt-5 grid flex-1 grid-cols-1 content-start gap-y-2.5 border-t border-brand-stone pt-5">
-                    {service.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2.5 text-[0.8rem] text-brand-charcoal/85 transition-colors duration-300 hover:text-brand-accent-deep">
-                        <span className="mt-[5px] inline-block h-[6px] w-[6px] shrink-0 rotate-45 bg-brand-accent/80" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <Link
-                    href="/contact"
-                    className="mt-6 flex items-center justify-between gap-4 text-[0.7rem] font-bold uppercase tracking-[0.2em] text-brand-charcoal transition-colors duration-300 hover:text-brand-accent-deep"
-                  >
-                    <span>Explore Service</span>
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-brand-stone bg-brand-ivory transition-all duration-300 group-hover:border-brand-accent group-hover:bg-brand-accent group-hover:text-white">
-                      <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5" />
-                    </span>
-                  </Link>
-                </div>
+                </Link>
               </motion.article>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* ================= PROJECTS ================= */}
-      <section className="section-padding overflow-hidden bg-brand-ivory">
+      {/* ================= MARQUEE GALLERY ================= */}
+      <section className="relative overflow-hidden border-b border-brand-stone bg-brand-charcoal py-12 md:py-16">
         <div className="container-custom">
-          <div className="grid items-end gap-8 lg:grid-cols-2">
-            <motion.div {...motionProps(0)}>
-              <SectionHeading
-                eyebrow="Selected Works"
-                title={
-                  <>
-                    Work that speaks for{" "}
-                    <em className="font-serif italic font-normal text-brand-accent-deep">itself.</em>
-                  </>
-                }
-              />
-            </motion.div>
-            <motion.div {...motionProps(0.1)} className="lg:justify-self-end">
-              <Button asChild variant="outline" className="group">
-                <Link href="/projects" className="flex items-center gap-2.5">
-                  View All Projects
-                  <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </Link>
-              </Button>
-            </motion.div>
-          </div>
+          <motion.div {...motionProps(0)} className="mx-auto flex max-w-3xl flex-col items-center text-center">
+            <SectionHeading
+              eyebrow="Our Projects"
+              light
+              align="center"
+              title={
+                <>
+                  A look at{" "}
+                  <em className="font-serif italic font-normal text-brand-accent-light">our projects.</em>
+                </>
+              }
+            />
+          </motion.div>
         </div>
 
-        {/* Mobile: swipeable gallery */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          variants={stagger}
-          className="relative mt-12"
-        >
-          <div className="flex snap-x snap-proximity gap-5 overflow-x-auto pb-4 pl-6 pr-8 md:hidden">
-            {homeFeatured.map((project) => (
-              <motion.div key={project.id} variants={fadeUp} className="w-[76vw] shrink-0 snap-start">
-                <ProjectCard project={project} />
-              </motion.div>
-            ))}
-          </div>
-          <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-10 bg-gradient-to-l from-brand-ivory to-transparent md:hidden" aria-hidden="true" />
-        </motion.div>
-
-        {/* Desktop: editorial masonry */}
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="mt-14 hidden gap-8 md:columns-2 xl:columns-3 md:space-y-8"
-        >
-          {homeFeatured.map((project) => (
-            <motion.div key={project.id} variants={fadeUp} className="mb-8 break-inside-avoid">
-              <ProjectCard project={project} />
-            </motion.div>
-          ))}
-        </motion.div>
+        <MarqueeRow projects={homeFeatured} reverse={false} />
+        <MarqueeRow projects={[...homeFeatured].reverse()} reverse={true} />
       </section>
 
       {/* ================= PROCESS ================= */}
-      <section id="process" className="section-padding scroll-mt-24 border-y border-brand-stone bg-brand-ivory">
-        <div className="container-custom">
+      <section id="process" className="relative scroll-mt-24 overflow-hidden border-y border-brand-stone bg-brand-ivory py-16 md:py-24">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute right-0 top-0 h-80 w-80 translate-x-1/3 -translate-y-1/3 rounded-full bg-[radial-gradient(circle,rgba(173,138,84,0.10)_0%,transparent_65%)]"
+        />
+        <div className="container-custom relative">
           <motion.div {...motionProps(0)} className="mx-auto flex max-w-3xl flex-col items-center text-center">
             <SectionHeading
               eyebrow="How We Work"
@@ -482,17 +470,20 @@ export default function Home() {
                 </>
               }
             />
+            <p className="mt-5 max-w-xl text-base font-light leading-relaxed text-brand-muted">
+              Six refined stages, meticulously supervised — so every project lands exactly as promised.
+            </p>
           </motion.div>
 
           {/* Desktop timeline */}
-          <div className="relative mt-24 hidden lg:block">
-            <div className="absolute inset-x-0 top-4 h-px bg-brand-stone" />
+          <div className="relative mt-20 hidden lg:block">
+            <div className="absolute inset-x-0 top-5 h-px bg-brand-stone" />
             <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1.3, delay: 0.15, ease: EASE }}
-              className="absolute inset-x-0 top-4 h-px origin-left bg-gradient-to-r from-brand-accent/0 via-brand-accent to-brand-accent/0"
+              transition={{ duration: 1.4, delay: 0.2, ease: EASE }}
+              className="absolute inset-x-0 top-5 h-px origin-left bg-gradient-to-r from-brand-accent-light/0 via-brand-accent to-brand-accent-light/0"
             />
             <motion.div
               variants={stagger}
@@ -502,37 +493,51 @@ export default function Home() {
               className="grid grid-cols-6 gap-6"
             >
               {processSteps.map((step) => (
-                <motion.div key={step.num} variants={fadeUp} className="group relative pt-8">
-                  <span className="absolute left-0 top-0 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-lg border-2 border-brand-accent bg-brand-ivory font-serif text-[0.72rem] italic text-brand-accent-deep transition-colors duration-300 group-hover:border-brand-accent group-hover:bg-brand-accent group-hover:text-white">
+                <motion.div key={step.num} variants={fadeUp} className="group relative pt-14">
+                  <span className="absolute left-0 top-0 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-brand-accent/40 bg-brand-ivory font-serif text-sm italic text-brand-accent-deep shadow-[0_6px_18px_rgba(27,25,22,0.06)] transition-all duration-500 group-hover:border-brand-accent group-hover:bg-gradient-to-br group-hover:from-brand-accent-light group-hover:via-brand-accent group-hover:to-brand-accent-deep group-hover:text-white group-hover:shadow-[0_10px_28px_rgba(143,112,64,0.35)]">
                     {step.num}
                   </span>
-                  <h3 className="mt-6 font-heading text-lg font-semibold tracking-tight text-brand-charcoal transition-colors duration-300 group-hover:text-brand-accent-deep">
-                    {step.title}
-                  </h3>
-                  <p className="mt-2.5 text-sm font-light leading-relaxed text-brand-muted">
-                    {step.description}
-                  </p>
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-5 top-0 block h-2 w-2 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-brand-accent/50 transition-colors duration-500 group-hover:bg-brand-accent"
+                  />
+                  <div className="transition-all duration-500 group-hover:-translate-y-1 group-hover:pl-2">
+                    <h3 className="font-heading text-lg font-semibold tracking-tight text-brand-charcoal transition-colors duration-300 group-hover:text-brand-accent-deep">
+                      {step.title}
+                    </h3>
+                    <p className="mt-2.5 text-[0.88rem] font-normal leading-relaxed text-brand-charcoal/70">
+                      {step.description}
+                    </p>
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
           </div>
 
           {/* Mobile / tablet: vertical timeline */}
-          <div className="mt-16 lg:hidden">
-            <div className="relative border-l border-brand-stone pl-12 md:pl-13">
+          <div className="mx-auto mt-14 max-w-md lg:hidden">
+            <div className="relative border-l border-brand-stone pl-10">
+              <motion.div
+                initial={{ scaleY: 0 }}
+                whileInView={{ scaleY: 1 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 1.4, delay: 0.2, ease: EASE }}
+                className="absolute inset-y-0 left-0 w-px origin-top bg-gradient-to-b from-brand-accent-light/0 via-brand-accent to-brand-accent-light/0"
+              />
               {processSteps.map((step, i) => (
                 <motion.div
                   key={step.num}
-                  {...motionProps(i * 0.05)}
-                  className="relative pb-11 last:pb-0"
+                  {...motionProps(i * 0.06)}
+                  className="group relative pb-9 last:pb-0"
                 >
-                  <span className="absolute left-0 top-0 flex h-9 w-9 -translate-x-1/2 items-center justify-center rounded-lg border-2 border-brand-accent bg-brand-ivory font-serif text-xs italic text-brand-accent-deep">
+                  <span className="absolute left-0 top-0 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full border border-brand-accent/40 bg-brand-ivory font-serif text-xs italic text-brand-accent-deep shadow-[0_6px_16px_rgba(27,25,22,0.06)] transition-all duration-500 group-hover:border-brand-accent group-hover:bg-brand-accent group-hover:text-white">
                     {step.num}
                   </span>
-                  <h3 className="font-heading text-xl font-semibold tracking-tight text-brand-charcoal">
+                  <h3 className="flex items-center gap-2.5 font-heading text-base font-semibold tracking-tight text-brand-charcoal md:text-lg">
+                    <span className="h-px w-5 shrink-0 bg-brand-accent/70" />
                     {step.title}
                   </h3>
-                  <p className="mt-2 text-sm font-light leading-relaxed text-brand-muted">
+                  <p className="ml-[1.875rem] mt-2.5 text-[0.88rem] font-normal leading-relaxed text-brand-charcoal/70">
                     {step.description}
                   </p>
                 </motion.div>
@@ -542,7 +547,7 @@ export default function Home() {
 
           <motion.div
             {...motionProps(0.1)}
-            className="mx-auto mt-16 flex max-w-2xl items-center justify-center gap-4 text-center"
+            className="mx-auto mt-14 flex max-w-2xl items-center justify-center gap-4 text-center"
           >
             <span className="hidden h-px w-12 bg-brand-accent/40 sm:block" />
             <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-muted">
@@ -660,47 +665,63 @@ export default function Home() {
   );
 }
 
-function ProjectCard({
-  project,
+function MarqueeRow({
+  projects: rowProjects,
+  reverse = false,
 }: {
-  project: (typeof projects)[number];
+  projects: (typeof projects)[number][];
+  reverse?: boolean;
 }) {
+  const doubled = [...rowProjects, ...rowProjects];
+  return (
+    <div className="mt-8 overflow-hidden md:mt-12">
+      <div
+        className={
+          reverse
+            ? "flex w-max animate-marquee-reverse gap-5 px-5 md:gap-7 hover:[animation-play-state:paused]"
+            : "flex w-max animate-marquee gap-5 px-5 md:gap-7 hover:[animation-play-state:paused]"
+        }
+      >
+        {doubled.map((project, i) => (
+          <MarqueeCard key={`${project.id}-${i}`} project={project} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function MarqueeCard({ project }: { project: (typeof projects)[number] }) {
   return (
     <Link
       href="/projects"
-      className="group block"
       aria-label={`${project.title} — ${project.category}, ${project.location}`}
+      className="group block w-[58vw] shrink-0 sm:w-[48vw] md:w-[34vw] lg:w-[27vw] xl:w-[23rem]"
     >
-      <div className={`relative w-full overflow-hidden bg-brand-gray ${project.aspect}`}>
+      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-brand-charcoal-soft ring-1 ring-white/10 transition-all duration-500 group-hover:ring-brand-accent/60">
         <Image
           src={project.image}
           alt={`${project.title} — ${project.category.toLowerCase()} project in ${project.location}`}
           fill
-          sizes="(max-width: 767px) 76vw, (max-width: 1279px) 50vw, 33vw"
-          className="object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.06]"
+          sizes="(max-width: 640px) 58vw, (max-width: 768px) 48vw, (max-width: 1024px) 34vw, 23rem"
+          className="object-cover opacity-90 transition-all duration-[1.4s] ease-out group-hover:scale-[1.06] group-hover:opacity-100"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/85 via-brand-charcoal/15 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-95" />
-        <span className="absolute left-4 top-4 border border-white/20 bg-white/10 px-3 py-1 text-[0.6rem] font-bold uppercase tracking-[0.22em] text-white backdrop-blur-sm">
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/15 to-transparent" />
+        <span className="absolute left-3 top-3 rounded-full border border-white/15 bg-black/30 px-2.5 py-1 text-[0.52rem] font-bold uppercase tracking-[0.18em] text-white/85 backdrop-blur-sm">
           {project.category}
         </span>
-        <span className="absolute right-4 top-4 font-serif text-lg italic text-white/70">
-          {project.id}
-        </span>
-
-        <div className="absolute inset-x-0 bottom-0 p-6">
-          <div className="translate-y-1 transition-transform duration-500 group-hover:translate-y-0">
-            <h3 className="font-heading text-xl font-semibold tracking-tight text-white md:text-[1.35rem]">
-              {project.title}
-            </h3>
-            <div className="mt-2 flex items-center justify-between gap-3">
-              <p className="flex items-center gap-1.5 text-xs font-light tracking-wide text-white/75">
-                <MapPin size={12} className="text-brand-accent-light" />
-                {project.location}
-              </p>
-              <span className="flex h-8 w-8 items-center justify-center border border-white/30 text-white opacity-0 transition-all duration-500 group-hover:opacity-100">
-                <ArrowUpRight size={14} />
-              </span>
-            </div>
+        <div className="absolute inset-x-0 bottom-0 p-4 md:p-5">
+          <h3 className="font-heading text-sm font-semibold tracking-tight text-white md:text-base">
+            {project.title}
+          </h3>
+          <div className="mt-1.5 flex items-center justify-between gap-3">
+            <p className="flex items-center gap-1.5 text-[0.65rem] font-light tracking-wide text-white/65">
+              <MapPin size={11} className="text-brand-accent-light" />
+              {project.location}
+            </p>
+            <ArrowUpRight
+              size={13}
+              className="text-brand-accent-light opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100"
+            />
           </div>
         </div>
       </div>

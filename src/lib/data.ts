@@ -147,7 +147,7 @@ export const projects: Project[] = [
 ];
 
 export const featuredProjects = projects.filter((p) =>
-  ["01", "08", "12", "16", "18", "02"].includes(p.id)
+  ["01", "08", "12", "16", "18", "02", "13", "17", "03", "20"].includes(p.id)
 );
 
 export interface ProcessStep {
