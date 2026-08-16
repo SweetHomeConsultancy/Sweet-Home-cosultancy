@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "default" | "outline" | "ghost" | "link";
+  variant?: "default" | "gold" | "ivory" | "outline" | "outline-light" | "ghost" | "link";
   size?: "default" | "sm" | "lg" | "icon";
   asChild?: boolean;
 }
@@ -16,16 +16,29 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp
         ref={ref}
         className={cn(
-          "inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-accent disabled:pointer-events-none disabled:opacity-50",
+          "group relative inline-flex select-none items-center justify-center gap-2.5 whitespace-nowrap rounded-full font-semibold uppercase leading-none transition-all duration-300 will-change-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/80 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-ivory disabled:pointer-events-none disabled:opacity-40 dark:focus-visible:ring-offset-brand-charcoal",
           {
-            "bg-brand-charcoal text-white hover:bg-brand-accent": variant === "default",
-            "border border-brand-stone bg-transparent hover:border-brand-charcoal hover:bg-brand-charcoal hover:text-white": variant === "outline",
-            "hover:bg-brand-gray text-brand-charcoal": variant === "ghost",
-            "text-brand-charcoal underline-offset-4 hover:underline hover:text-brand-accent": variant === "link",
-            "h-11 px-8 py-2": size === "default",
-            "h-9 px-4": size === "sm",
-            "h-14 px-10 text-base uppercase tracking-widest": size === "lg",
-            "h-11 w-11": size === "icon",
+            "btn-line btn-sheen border border-brand-charcoal bg-brand-charcoal text-brand-ivory hover:-translate-y-[2px] hover:border-brand-accent hover:shadow-[0_16px_34px_rgba(27,25,22,0.28)] hover:text-white active:translate-y-0 active:shadow-none":
+              variant === "default",
+            "btn-sheen border border-brand-accent bg-brand-accent text-white hover:-translate-y-[2px] hover:border-brand-accent-deep hover:bg-brand-accent-deep hover:shadow-[0_16px_34px_rgba(28,21,12,0.32)] active:translate-y-0 active:shadow-none":
+              variant === "gold",
+            "btn-sheen border border-brand-ivory bg-brand-ivory text-brand-charcoal hover:-translate-y-[2px] hover:border-white hover:bg-white hover:shadow-[0_18px_40px_rgba(0,0,0,0.35)] active:translate-y-0 active:shadow-none":
+              variant === "ivory",
+            "border border-brand-charcoal/25 bg-transparent text-brand-charcoal hover:-translate-y-[2px] hover:border-brand-charcoal hover:bg-brand-charcoal hover:text-white hover:shadow-[0_14px_30px_rgba(27,25,22,0.14)] active:translate-y-0 active:shadow-none":
+              variant === "outline",
+            "border border-white/40 bg-transparent text-white hover:-translate-y-[2px] hover:border-white hover:bg-white hover:text-brand-charcoal hover:shadow-[0_14px_30px_rgba(0,0,0,0.25)] active:translate-y-0 active:shadow-none":
+              variant === "outline-light",
+            "bg-transparent text-brand-charcoal hover:bg-brand-accent/10 hover:text-brand-accent-deep":
+              variant === "ghost",
+            "text-brand-charcoal underline-offset-4 hover:text-brand-accent-deep hover:underline":
+              variant === "link",
+          },
+          {
+            "h-12 px-8 text-xs tracking-[0.18em]": size === "default",
+            "h-10 px-6 text-[0.65rem] tracking-[0.18em]": size === "sm",
+            "h-[52px] px-9 text-[0.7rem] tracking-[0.2em] md:h-14 md:px-11":
+              size === "lg",
+            "h-11 w-11 p-0": size === "icon",
           },
           className
         )}

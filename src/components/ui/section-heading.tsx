@@ -1,52 +1,57 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
-interface SectionHeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  title: string;
-  subtitle?: string;
-  align?: "left" | "center" | "right";
+interface SectionHeadingProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "title"> {
+  eyebrow: React.ReactNode;
+  title: React.ReactNode;
+  lead?: React.ReactNode;
+  align?: "left" | "center";
   light?: boolean;
+  as?: "h1" | "h2" | "h3";
 }
 
 export function SectionHeading({
+  eyebrow,
   title,
-  subtitle,
+  lead,
   align = "left",
   light = false,
+  as: Tag = "h2",
   className,
   ...props
 }: SectionHeadingProps) {
   return (
     <div
       className={cn(
-        "flex flex-col gap-3",
-        {
-          "items-start text-left": align === "left",
-          "items-center text-center": align === "center",
-          "items-end text-right": align === "right",
-        },
+        "flex flex-col gap-5",
+        align === "center" && "items-center text-center",
         className
       )}
       {...props}
     >
-      {subtitle && (
-        <span
-          className={cn(
-            "text-sm md:text-base font-bold tracking-[0.2em] uppercase mb-2",
-            light ? "text-brand-gray/60" : "text-brand-accent"
-          )}
-        >
-          {subtitle}
-        </span>
-      )}
-      <h2
+      <span className={cn(align === "center" ? "eyebrow-center" : "eyebrow", light && "eyebrow-light")}>
+        {eyebrow}
+      </span>
+      <Tag
         className={cn(
-          "text-4xl md:text-5xl lg:text-6xl font-bold font-heading leading-[1.1]",
+          "font-semibold leading-[1.05] tracking-[-0.02em] text-balance",
+          align === "center" ? "max-w-3xl" : "max-w-3xl",
           light ? "text-white" : "text-brand-charcoal"
         )}
+        style={{ fontSize: "clamp(2rem, 4.4vw, 3.75rem)" }}
       >
         {title}
-      </h2>
+      </Tag>
+      {lead && (
+        <p
+          className={cn(
+            "max-w-2xl text-base md:text-lg font-light leading-relaxed",
+            light ? "text-brand-gray/70" : "text-brand-muted"
+          )}
+        >
+          {lead}
+        </p>
+      )}
     </div>
   );
 }

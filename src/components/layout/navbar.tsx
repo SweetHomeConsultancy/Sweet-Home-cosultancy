@@ -1,124 +1,164 @@
 "use client";
 
 import * as React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Phone, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { navLinks, contactInfo } from "@/lib/data";
 import { Button } from "@/components/ui/button";
-
-const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Projects", href: "/projects" },
-  { name: "Contact", href: "/contact" },
-];
+import { Logo } from "@/components/ui/logo";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const pathname = usePathname();
+  const [activeLink, setActiveLink] = React.useState<string>(
+    pathname === "/" ? "/" : pathname
+  );
+
+  // Adjust scroll-menu + active state during render when the route changes
+  const [prevPathname, setPrevPathname] = React.useState(pathname);
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
+    setActiveLink(pathname === "/" ? "/" : pathname);
+    setIsMobileMenuOpen(false);
+  }
 
   React.useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 24);
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change
+  // Reset vertical position when navigating between routes
   React.useEffect(() => {
-    setIsMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: "auto" });
   }, [pathname]);
 
-  const isHero = !isScrolled && pathname === "/";
+  // Body scroll lock when the mobile drawer is open
+  React.useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
+  // Scrollspy — keep "Home" highlighted while on the home page
+  React.useEffect(() => {
+    if (pathname !== "/") return;
+    const hero = document.getElementById("home-hero");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) setActiveLink("/");
+      },
+      { rootMargin: "-40% 0px -55% 0px" }
+    );
+    if (hero) observer.observe(hero);
+    return () => observer.disconnect();
+  }, [pathname]);
+
+  // Non-home pages always use the solid bar so text stays legible over any page header
+  const solid = isScrolled || pathname !== "/";
+  const isHeroState = pathname === "/" && !isScrolled && !isMobileMenuOpen;
+
+  const isActiveHref = (href: string) =>
+    href === "/"
+      ? activeLink === "/"
+      : activeLink === href && href.includes("#")
+        ? true
+        : activeLink === href;
 
   return (
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out",
-          isScrolled
-            ? "bg-white/98 backdrop-blur-lg border-b border-brand-stone shadow-[0_1px_20px_rgba(0,0,0,0.06)] py-3"
-            : "bg-gradient-to-b from-black/40 to-transparent border-b border-white/10 py-5"
+          "fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-out",
+          solid
+            ? "bg-brand-ivory/95 backdrop-blur-md border-b border-brand-stone shadow-[0_1px_30px_rgba(27,25,22,0.06)]"
+            : "border-b border-transparent bg-transparent"
         )}
       >
-        <div className="container-custom flex items-center justify-between">
+        <div
+          className={cn(
+            "container-custom flex items-center justify-between transition-all duration-500",
+            solid ? "h-16 md:h-[72px]" : "h-20 md:h-[92px]"
+          )}
+        >
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 shrink-0 group">
-            <div className="relative w-9 h-9 overflow-hidden rounded-sm">
-              <Image
-                src="/logo.png"
-                alt="SWEET HOME"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className={cn(
-                "font-heading font-bold text-lg tracking-[0.18em] transition-colors duration-300",
-                isHero ? "text-white" : "text-brand-charcoal"
-              )}>
-                SWEET HOME
-              </span>
-              <span className={cn(
-                "text-[0.6rem] tracking-[0.22em] uppercase font-medium transition-colors duration-300 mt-0.5",
-                isHero ? "text-white/60" : "text-brand-muted"
-              )}>
-                Design &bull; Inspire &bull; Build
-              </span>
-            </div>
-          </Link>
+          <Logo light={isHeroState} />
 
-          {/* Center Nav */}
-          <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
+          {/* Desktop nav */}
+          <nav className="hidden items-center gap-9 lg:flex" aria-label="Primary">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+              const active = isActiveHref(link.href);
               return (
                 <Link
                   key={link.name}
                   href={link.href}
+                  aria-current={active ? "page" : undefined}
                   className={cn(
-                    "relative text-[0.75rem] font-bold tracking-[0.18em] uppercase pb-0.5 transition-all duration-300",
-                    "after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:bg-brand-accent after:transition-all after:duration-300",
-                    isActive
-                      ? (isHero ? "text-white after:w-full after:bg-white" : "text-brand-charcoal after:w-full")
-                      : (isHero
-                        ? "text-white/75 hover:text-white after:w-0 hover:after:w-full after:bg-white"
-                        : "text-brand-muted hover:text-brand-charcoal after:w-0 hover:after:w-full")
+                    "group relative pb-1 text-[0.72rem] font-bold uppercase tracking-[0.18em] transition-colors duration-300",
+                    active
+                      ? isHeroState
+                        ? "text-white"
+                        : "text-brand-charcoal"
+                      : isHeroState
+                        ? "text-white/70 hover:text-white"
+                        : "text-brand-muted hover:text-brand-charcoal"
                   )}
                 >
                   {link.name}
+                  <span
+                    className={cn(
+                      "absolute -bottom-0.5 left-1/2 h-[2px] -translate-x-1/2 bg-brand-accent transition-all duration-300",
+                      active ? "w-6" : "w-0 group-hover:w-6"
+                    )}
+                  />
                 </Link>
               );
             })}
           </nav>
 
-          {/* Right: CTA + Mobile Toggle */}
-          <div className="flex items-center gap-3">
+          {/* Right side */}
+          <div className="flex items-center gap-3 md:gap-5">
             <Link
-              href="/contact"
+              href={`tel:${contactInfo.tel1}`}
               className={cn(
-                "hidden lg:flex items-center gap-2 px-6 py-2.5 text-[0.65rem] font-bold tracking-[0.2em] uppercase border transition-all duration-300",
-                isHero
-                  ? "text-white border-white/50 hover:bg-white hover:text-brand-charcoal"
-                  : "text-white bg-brand-charcoal border-brand-charcoal hover:bg-brand-accent hover:border-brand-accent"
+                "hidden items-center gap-2 text-[0.7rem] font-bold uppercase tracking-[0.18em] transition-colors duration-300 xl:flex",
+                isHeroState ? "text-white/80 hover:text-white" : "text-brand-muted hover:text-brand-accent"
               )}
             >
-              Get a Quote
+              <Phone size={15} className={cn(isHeroState ? "text-brand-accent-light" : "text-brand-accent")} />
+              {contactInfo.phone1}
             </Link>
 
-            <button
+            <Button
+              asChild
+              variant="gold"
               className={cn(
-                "lg:hidden p-2 transition-colors",
-                isHero && !isMobileMenuOpen ? "text-white" : "text-brand-charcoal"
+                "hidden h-11 lg:inline-flex",
+                isHeroState &&
+                  "border-brand-accent-light/60 bg-transparent hover:border-brand-accent-light hover:bg-brand-accent"
               )}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle navigation"
+            >
+              <Link href="/contact">
+                Get a Quote
+                <ArrowUpRight size={14} />
+              </Link>
+            </Button>
+
+            <button
+              type="button"
+              className={cn(
+                "flex h-11 w-11 items-center justify-center transition-colors duration-300 lg:hidden",
+                isHeroState ? "text-white" : "text-brand-charcoal"
+              )}
+              onClick={() => setIsMobileMenuOpen((v) => !v)}
+              aria-label={isMobileMenuOpen ? "Close navigation" : "Open navigation"}
+              aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
@@ -126,63 +166,67 @@ export function Navbar() {
         </div>
       </header>
 
-      {/* Mobile Drawer */}
+      {/* Mobile drawer */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="fixed inset-0 z-40 bg-white flex flex-col lg:hidden"
+            className="fixed inset-0 z-40 bg-brand-ivory lg:hidden"
           >
-            <div className="flex items-center justify-between px-6 py-5 border-b border-brand-stone">
-              <Link href="/" className="flex items-center gap-3" onClick={() => setIsMobileMenuOpen(false)}>
-                <div className="relative w-8 h-8">
-                  <Image src="/logo.png" alt="SWEET HOME" fill className="object-contain" />
-                </div>
-                <span className="font-heading font-bold text-base tracking-widest text-brand-charcoal">SWEET HOME</span>
-              </Link>
-              <button onClick={() => setIsMobileMenuOpen(false)} className="text-brand-charcoal p-1">
-                <X size={22} />
-              </button>
-            </div>
-            <div className="flex flex-col flex-1 px-6 py-8 gap-1">
-              {navLinks.map((link, i) => {
-                const isActive = pathname === link.href;
-                return (
+            <div className="flex min-h-full flex-col pt-16 md:pt-20">
+              <nav className="flex flex-1 flex-col px-6 pt-6" aria-label="Mobile">
+                {navLinks.map((link, i) => (
                   <motion.div
                     key={link.name}
-                    initial={{ opacity: 0, x: 20 }}
+                    initial={{ opacity: 0, x: 24 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.06 }}
+                    transition={{ delay: 0.08 + i * 0.06 }}
+                    className="border-b border-brand-stone"
                   >
                     <Link
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={cn(
-                        "block text-2xl font-heading font-semibold tracking-wide py-4 border-b border-brand-stone/50 transition-colors",
-                        isActive ? "text-brand-accent" : "text-brand-charcoal hover:text-brand-accent"
+                        "flex w-full items-center justify-between py-[1.15rem] font-heading text-[1.7rem] font-semibold tracking-wide transition-colors",
+                        activeLink === link.href ? "text-brand-accent-deep" : "text-brand-charcoal"
                       )}
                     >
                       {link.name}
+                      <ArrowUpRight className={cn("h-5 w-5", activeLink === link.href ? "text-brand-accent" : "text-brand-muted")} />
                     </Link>
                   </motion.div>
-                );
-              })}
-            </div>
-            <div className="px-6 pb-10 flex flex-col gap-4">
-              <Link
-                href="/contact"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center h-13 bg-brand-charcoal text-white text-xs font-bold tracking-[0.2em] uppercase hover:bg-brand-accent transition-colors"
+                ))}
+              </nav>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.45 }}
+                className="space-y-4 px-6 pb-12 pt-8"
               >
-                Start Your Project
-              </Link>
-              <a href="tel:9007567100" className="flex items-center justify-center gap-2 text-brand-muted text-sm">
-                <Phone size={14} />
-                <span className="tracking-widest">9007567100</span>
-              </a>
+                <Button
+                  asChild
+                  size="lg"
+                  className="w-full"
+                >
+                  <Link
+                    href="/contact"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Get a Quote <ArrowUpRight size={15} />
+                  </Link>
+                </Button>
+                <a
+                  href={`tel:${contactInfo.tel1}`}
+                  className="flex items-center justify-center gap-2 text-sm font-medium tracking-widest text-brand-muted"
+                >
+                  <Phone size={14} className="text-brand-accent" />
+                  {contactInfo.phone1}
+                </a>
+              </motion.div>
             </div>
           </motion.div>
         )}
