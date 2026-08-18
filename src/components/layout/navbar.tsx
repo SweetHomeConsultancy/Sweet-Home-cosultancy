@@ -46,7 +46,7 @@ export function Navbar() {
     };
   }, [isMobileMenuOpen]);
 
-  // Scrollspy — keep "Home" highlighted while on the home page
+  // Scrollspy — keep the home page highlighted while on the home page
   React.useEffect(() => {
     if (pathname !== "/") return;
     const hero = document.getElementById("home-hero");
@@ -126,12 +126,8 @@ export function Navbar() {
           <div className="flex items-center gap-3 md:gap-4">
             <Button
               asChild
-              variant="gold"
-              className={cn(
-                "hidden h-11 lg:inline-flex",
-                isHeroState &&
-                  "border-brand-accent-light/60 bg-transparent hover:border-brand-accent-light hover:bg-brand-accent"
-              )}
+              variant={isHeroState ? "gold-glossy" : "gold"}
+              className="hidden h-11 lg:inline-flex"
             >
               <a href={`tel:${contactInfo.tel1}`}>
                 Contact Now
@@ -217,7 +213,7 @@ export function Navbar() {
                   asChild
                   size="lg"
                   variant="gold"
-                  className="w-full shadow-[0_16px_36px_rgba(143,112,64,0.28)]"
+                  className="w-full shadow-[0_16px_36px_rgba(160,120,0,0.38)]"
                 >
                   <a
                     href={`tel:${contactInfo.tel1}`}

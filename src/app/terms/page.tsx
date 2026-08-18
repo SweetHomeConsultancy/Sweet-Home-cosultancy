@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 export const metadata = {
-  title: "Terms & Conditions | SWEET HOME",
-  description: "Terms and conditions for consulting and construction services provided by SWEET HOME.",
+  title: "Terms & Conditions | Sweet Home Consultancy Services",
+  description: "Terms and conditions for consulting and construction services provided by Sweet Home Consultancy Services.",
 };
 
 export default function TermsPage() {

@@ -23,9 +23,9 @@ export function Logo({ light = false, className }: LogoProps) {
         width={538}
         height={464}
         priority
-        sizes="(max-width: 768px) 132px, 168px"
+        sizes="(max-width: 768px) 168px, (max-width: 1024px) 192px, 216px"
         className={cn(
-          "h-10 w-auto object-contain transition-all duration-500 md:h-12",
+          "h-14 w-auto object-contain transition-all duration-500 md:h-16 lg:h-18",
           light
             ? "drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)] [filter:brightness(0)_invert(1)_drop-shadow(0_2px_10px_rgba(0,0,0,0.55))]"
             : ""

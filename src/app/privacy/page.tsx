@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 export const metadata = {
-  title: "Privacy Policy | SWEET HOME",
-  description: "Privacy policy for SWEET HOME.",
+  title: "Privacy Policy | Sweet Home Consultancy Services",
+  description: "Privacy policy for Sweet Home Consultancy Services.",
 };
 
 export default function PrivacyPage() {

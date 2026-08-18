@@ -16,7 +16,6 @@ import { motion, type Variants } from "framer-motion";
 import {
   services,
   projects,
-  featuredProjects,
   processSteps,
   whyChooseUs,
   stats,
@@ -43,7 +42,13 @@ const motionProps = (delay = 0) => ({
   transition: delay ? ({ delay, duration: 0.7, ease: EASE } as const) : undefined,
 });
 
-const homeFeatured = featuredProjects.slice(6, 10);
+const homeRow1 = projects.filter((p) =>
+  ["P01", "P02", "P04", "P06", "P10", "P17", "P20", "P28"].includes(p.id)
+);
+
+const homeRow2 = projects.filter((p) =>
+  ["P03", "P05", "P13", "P16", "P21", "P25", "P30", "P33"].includes(p.id)
+);
 
 export default function Home() {
   return (
@@ -73,8 +78,8 @@ export default function Home() {
             >
               <span className="inline-flex flex-wrap items-center gap-3 text-[0.65rem] font-bold uppercase tracking-[0.28em] text-brand-accent-light sm:text-[0.7rem] sm:tracking-[0.32em]">
                 <span className="hidden h-px w-10 bg-brand-accent-light sm:block" />
-                Architecture &middot; Interior &middot; Construction
-                <span className="hidden md:inline">&middot; Project Management</span>
+                Architecture &middot; Interior Design &middot; Construction
+                <span className="hidden md:inline">&middot; Project Management &middot; Real Estate Consultancy</span>
               </span>
             </motion.div>
 
@@ -103,9 +108,9 @@ export default function Home() {
               className="mt-7 max-w-xl"
             >
               <p className="text-base font-light leading-relaxed text-white/80 md:text-lg">
-                An integrated architecture &amp; construction studio in Kolkata —
-                designing with precision, building with integrity, and delivering spaces
-                that endure.
+                An integrated architecture, interior design, construction and real estate
+                consultancy in Kolkata — transforming ideas into functional, aesthetically
+                pleasing and value-driven spaces.
               </p>
             </motion.div>
 
@@ -211,7 +216,7 @@ export default function Home() {
         <div className="animate-marquee will-change-transform motion-reduce:animate-none group-hover:[animation-play-state:paused] flex w-max select-none items-center whitespace-nowrap">
           {[0, 1].map((rep) => (
             <div key={rep} className="flex items-center">
-              {["Architecture", "Interior Design", "Construction", "Project Management", "Turnkey Solutions", "Design • Inspire • Build"].map((term) => (
+              {["Architecture", "Interior Design", "Construction", "Project Management", "Real Estate Consultancy", "Turnkey Solutions", "Design • Inspire • Build"].map((term) => (
                 <span key={`${rep}-${term}`} className="flex items-center">
                   {term === "Design • Inspire • Build" ? (
                     <span className="mx-9 font-serif text-sm italic tracking-[0.14em] text-brand-accent-light [text-shadow:0_0_24px_rgba(215,188,141,0.45)] md:text-base">
@@ -251,14 +256,16 @@ export default function Home() {
               </motion.div>
               <motion.div variants={fadeUp} className="mt-8 max-w-xl space-y-6">
                 <p className="text-lg font-light leading-relaxed text-brand-muted md:text-xl">
-                  SWEET HOME operates at the intersection of visionary design and flawless
-                  execution. Based in Kolkata, our integrated studio bridges the gap between
-                  architectural concept and structural reality.
+                  Sweet Home Consultancy Services is a professional Architectural, Interior
+                  Design, Construction, and Project Management consultancy dedicated to
+                  delivering high-quality design and construction solutions.
                 </p>
                 <p className="font-light leading-relaxed text-brand-muted">
-                  From first sketch to final handover, one accountable team of architects,
-                  interior designers and engineers delivers your project with trust, precision
-                  and creativity.
+                  With extensive industry experience in India and the Gulf region, we provide
+                  practical, cost-effective, and client-focused services for residential,
+                  commercial, and renovation projects. Our goal is to transform ideas into
+                  functional, aesthetically pleasing, and value-driven spaces while ensuring
+                  quality, timely execution, and customer satisfaction.
                 </p>
               </motion.div>
               <motion.div variants={fadeUp} className="mt-10 flex flex-wrap items-center gap-6">
@@ -344,8 +351,9 @@ export default function Home() {
               }
             />
             <p className="mt-4 max-w-xl text-base font-light leading-relaxed text-brand-muted">
-              We own every discipline — design, engineering, construction and management — so
-              nothing is lost between consultant and contractor.
+              We own every discipline — architecture, interior design, construction,
+              project management and real estate — so nothing is lost between consultant
+              and contractor.
             </p>
           </motion.div>
 
@@ -378,7 +386,7 @@ export default function Home() {
                   0{i + 1}
                 </span>
 
-                <span className="flex h-13 w-13 items-center justify-center rounded-full border border-brand-accent/35 bg-gradient-to-br from-brand-accent/12 to-brand-accent/4 text-brand-accent-deep shadow-[inset_0_1px_2px_rgba(255,255,255,0.6)] transition-all duration-500 group-hover:border-brand-accent group-hover:from-brand-accent group-hover:to-brand-accent-deep group-hover:text-white group-hover:shadow-[0_12px_30px_rgba(143,112,64,0.4)]">
+                <span className="flex h-13 w-13 items-center justify-center rounded-full border border-brand-accent/35 bg-gradient-to-br from-brand-accent/12 to-brand-accent/4 text-brand-accent-deep shadow-[inset_0_1px_2px_rgba(255,255,255,0.6)] transition-all duration-500 group-hover:border-brand-accent group-hover:from-brand-accent group-hover:to-brand-accent-deep group-hover:text-white group-hover:shadow-[0_12px_30px_rgba(160,120,0,0.45)]">
                   <service.icon size={22} strokeWidth={1.4} />
                 </span>
 
@@ -422,7 +430,7 @@ export default function Home() {
                   className="group/link mt-7 inline-flex items-center gap-2 text-[0.7rem] font-bold uppercase tracking-[0.22em] text-brand-charcoal transition-colors duration-300 hover:text-brand-accent-deep"
                 >
                   <span className="relative">Explore Service</span>
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full border border-brand-stone bg-brand-ivory transition-all duration-300 group-hover/link:border-brand-accent group-hover/link:shadow-[0_8px_20px_rgba(143,112,64,0.35)]">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full border border-brand-stone bg-brand-ivory transition-all duration-300 group-hover/link:border-brand-accent group-hover/link:shadow-[0_8px_20px_rgba(160,120,0,0.38)]">
                     <ArrowRight size={12} className="text-brand-accent-deep transition-transform duration-300 group-hover/link:translate-x-0.5" />
                   </span>
                 </Link>
@@ -450,8 +458,8 @@ export default function Home() {
           </motion.div>
         </div>
 
-        <MarqueeRow projects={homeFeatured} reverse={false} />
-        <MarqueeRow projects={[...homeFeatured].reverse()} reverse={true} />
+        <MarqueeRow projects={homeRow1} reverse={false} />
+        <MarqueeRow projects={homeRow2} reverse={true} />
       </section>
 
       {/* ================= PROCESS ================= */}
@@ -496,7 +504,7 @@ export default function Home() {
             >
               {processSteps.map((step) => (
                 <motion.div key={step.num} variants={fadeUp} className="group relative pt-14">
-                  <span className="absolute left-0 top-0 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-brand-accent/40 bg-brand-ivory font-serif text-sm italic text-brand-accent-deep shadow-[0_6px_18px_rgba(27,25,22,0.06)] transition-all duration-500 group-hover:border-brand-accent group-hover:bg-gradient-to-br group-hover:from-brand-accent-light group-hover:via-brand-accent group-hover:to-brand-accent-deep group-hover:text-white group-hover:shadow-[0_10px_28px_rgba(143,112,64,0.35)]">
+                  <span className="absolute left-0 top-0 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-brand-accent/40 bg-brand-ivory font-serif text-sm italic text-brand-accent-deep shadow-[0_6px_18px_rgba(27,25,22,0.06)] transition-all duration-500 group-hover:border-brand-accent group-hover:bg-gradient-to-br group-hover:from-brand-accent-light group-hover:via-brand-accent group-hover:to-brand-accent-deep group-hover:text-white group-hover:shadow-[0_10px_28px_rgba(160,120,0,0.45)]">
                     {step.num}
                   </span>
                   <span

@@ -21,7 +21,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, type Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { contactInfo, projects } from "@/lib/data";
+import { contactInfo } from "@/lib/data";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -39,17 +39,6 @@ const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 };
-
-const fadeUpDelay: Variants = {
-  hidden: { opacity: 0, y: 32 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.12, ease: [0.22, 1, 0.36, 1] } },
-};
-
-const statItems = [
-  { value: "24h", label: "Average response" },
-  { value: `${projects.length}`, label: "Projects delivered" },
-  { value: "100%", label: "Turnkey delivery" },
-];
 
 const steps = [
   { title: "Share Your Brief", description: "Tell us about your plot, home or commercial space and rough budget." },
@@ -89,74 +78,32 @@ export default function ContactPage() {
     href?: string;
   }> = [
     { icon: MapPin, title: "Visit Our Studio", body: [contactInfo.addressLine1, contactInfo.addressLine2], href: "https://www.google.com/maps/search/?api=1&query=Titagarh,+Kolkata" },
-    { icon: Phone, title: "Call Us", body: [contactInfo.phone1, contactInfo.phone2], href: `tel:${contactInfo.tel1}` },
+    { icon: Phone, title: "Call Us", body: ["Contact Now"], href: `tel:${contactInfo.tel1}` },
     { icon: Mail, title: "Email Us", body: [contactInfo.email], href: `mailto:${contactInfo.email}` },
-    { icon: Clock, title: "Working Hours", body: [contactInfo.hours, contactInfo.closed] },
+    { icon: Clock, title: "Working Hours", body: [contactInfo.hours, contactInfo.closed, contactInfo.consultation] },
   ];
 
   return (
     <div className="flex min-h-screen flex-col bg-brand-ivory">
       {/* Header */}
-      <section className="relative overflow-hidden bg-brand-charcoal pb-16 pt-24 text-white md:pb-24 md:pt-40">
-        <div className="pointer-events-none absolute inset-x-0 top-0 mx-auto h-80 max-w-3xl bg-[radial-gradient(closest-side,rgba(215,188,141,0.10),transparent)]" aria-hidden="true" />
+      <section className="relative overflow-hidden bg-brand-charcoal pb-10 pt-20 text-white md:pb-14 md:pt-24">
+        <div className="pointer-events-none absolute inset-x-0 top-0 mx-auto h-56 max-w-3xl bg-[radial-gradient(closest-side,rgba(215,188,141,0.10),transparent)]" aria-hidden="true" />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-accent/60 to-transparent" aria-hidden="true" />
         <div className="container-custom relative">
-          <div className="grid items-end gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-            <motion.div initial="hidden" animate="visible" variants={fadeUp}>
-              <span className="eyebrow-light mb-6">Get In Touch</span>
-              <h1
-                className="max-w-4xl text-balance font-semibold tracking-tight text-white"
-                style={{ fontSize: "clamp(2.4rem, 5.4vw, 4.6rem)" }}
-              >
-                Let&apos;s talk about your{" "}
-                <em className="font-serif italic font-normal text-brand-accent-light">next build.</em>
-              </h1>
-            </motion.div>
-
-            <motion.div initial="hidden" animate="visible" variants={fadeUpDelay} className="lg:justify-self-end">
-              <p className="max-w-xl text-base font-light leading-relaxed text-white/70 md:text-lg">
-                Ready to bring your vision to life? Speak with a senior architect — not a
-                sales desk — about your plot, home or commercial space.
-              </p>
-
-              <dl className="mt-10 grid grid-cols-3 divide-x divide-white/10 border-y border-white/10">
-                {statItems.map((stat) => (
-                  <div key={stat.label} className="px-3 py-5 first:pl-0 md:px-6">
-                    <dt className="sr-only">{stat.label}</dt>
-                    <dd className="font-serif text-3xl italic leading-none text-brand-accent-light md:text-4xl">
-                      {stat.value}
-                    </dd>
-                    <dd className="mt-2.5 text-[0.58rem] font-semibold uppercase tracking-[0.18em] text-white/45 md:text-[0.6rem]">
-                      {stat.label}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-
-              <div className="mt-7 flex flex-wrap items-center gap-3">
-                <Button
-                  asChild
-                  size="sm"
-                  variant="gold"
-                  className="shadow-[0_14px_34px_rgba(0,0,0,0.35)]"
-                >
-                  <a href={contactInfo.whatsappLink} target="_blank" rel="noopener noreferrer">
-                    WhatsApp Us <ArrowUpRight size={14} />
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  size="sm"
-                  variant="outline-light"
-                  className="border-white/40 bg-white/[0.05] backdrop-blur-[8px] hover:bg-white"
-                >
-                  <a href={`tel:${contactInfo.tel1}`}>
-                    <Phone size={14} /> {contactInfo.phone1}
-                  </a>
-                </Button>
-              </div>
-            </motion.div>
-          </div>
+          <motion.div initial="hidden" animate="visible" variants={fadeUp} className="max-w-4xl">
+            <span className="eyebrow-light mb-4">Get In Touch</span>
+            <h1
+              className="max-w-4xl text-balance font-semibold tracking-tight text-white"
+              style={{ fontSize: "clamp(1.9rem, 4vw, 3.2rem)" }}
+            >
+              Let&apos;s talk about your{" "}
+              <em className="font-serif italic font-normal text-brand-accent-light">next build.</em>
+            </h1>
+            <p className="mt-4 max-w-2xl text-base font-light leading-relaxed text-white/70 md:text-lg">
+              Ready to bring your vision to life? Speak with a senior architect — not a
+              sales desk — about your plot, home or commercial space.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -206,13 +153,14 @@ export default function ContactPage() {
                   Our Office
                 </h2>
                 <p className="font-light text-brand-muted">
-                  Speak with a senior architect, not a sales desk.
+                  Architecture | Interior Design | Construction Consultancy
                 </p>
               </div>
 
               <address className="grid gap-4 not-italic sm:grid-cols-2">
                 {infoItems.map((item, idx) => {
                   const IconComp = item.icon;
+                  const href = item.href;
                   const content = (
                     <div className="group relative flex h-full flex-col gap-5 border border-brand-stone bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-accent/60 hover:shadow-[0_20px_45px_rgba(27,25,22,0.10)]">
                       <span className="absolute right-5 top-5 font-serif text-lg italic leading-none text-brand-accent/40 transition-colors duration-300 group-hover:text-brand-accent-deep">
@@ -240,8 +188,14 @@ export default function ContactPage() {
                       )}
                     </div>
                   );
-                  return item.href ? (
-                    <a key={item.title} href={item.href} target="_blank" rel="noopener noreferrer" className="block h-full">
+                  const isExternal = href?.startsWith("http") ?? false;
+                  return href ? (
+                    <a
+                      key={item.title}
+                      href={href}
+                      {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      className="block h-full"
+                    >
                       {content}
                     </a>
                   ) : (

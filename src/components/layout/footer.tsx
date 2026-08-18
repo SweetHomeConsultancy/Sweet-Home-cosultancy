@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MapPin, Phone, Mail, ArrowUpRight } from "lucide-react";
-import { contactInfo } from "@/lib/data";
+import { contactInfo, brand } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/ui/logo";
 
@@ -17,6 +17,9 @@ const servicesLinks = [
   { name: "Interior Design", href: "/#services" },
   { name: "Construction", href: "/#services" },
   { name: "Project Management", href: "/#services" },
+  { name: "Estimation & BOQ", href: "/#services" },
+  { name: "CAD & BIM", href: "/#services" },
+  { name: "Real Estate Consultancy", href: "/#services" },
   { name: "How We Work", href: "/#process" },
 ];
 
@@ -70,8 +73,9 @@ export function Footer() {
         <div className="flex flex-col gap-5">
           <Logo light />
           <p className="max-w-sm text-sm font-light leading-relaxed text-brand-gray/70">
-            Premium architecture, interior design, construction and project management in
-            Kolkata — one accountable studio from first sketch to final handover.
+            Architecture, interior design, construction, project management and real
+            estate consultancy in Kolkata — one accountable studio from first sketch to
+            final handover.
           </p>
           <div className="flex items-center gap-3">
             {social.map((s) => (
@@ -158,7 +162,7 @@ export function Footer() {
             <li className="flex items-center gap-3">
               <Phone size={16} className="shrink-0 text-brand-accent" />
               <span className="text-brand-gray/70">
-                {contactInfo.phone1} / {contactInfo.phone2}
+                {contactInfo.phone1}
               </span>
             </li>
             <li className="flex items-center gap-3">
@@ -182,10 +186,10 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10">
         <div className="container-custom flex flex-col items-center justify-between gap-3 py-7 text-xs font-light text-brand-gray/50 md:flex-row">
-          <p>&copy; {currentYear} SWEET HOME. All rights reserved.</p>
+          <p>&copy; {currentYear} Sweet Home Consultancy Services. All rights reserved.</p>
           <p className="flex items-center gap-2">
             <span className="text-brand-accent">&bull;</span>
-            Design &middot; Inspire &middot; Build
+            {brand.motto}
             <span className="text-brand-accent">&bull;</span>
           </p>
         </div>

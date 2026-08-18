@@ -20,31 +20,34 @@ import { FloatingContact } from "@/components/layout/floating-contact";
 
 export const metadata: Metadata = {
   title: {
-    default: "SWEET HOME — Architecture, Interior Design & Construction | Kolkata",
-    template: "%s | SWEET HOME",
+    default: "Sweet Home Consultancy Services — Architecture, Interior Design, Construction & Real Estate | Kolkata",
+    template: "%s | Sweet Home Consultancy Services",
   },
   description:
-    "SWEET HOME is a premium architecture, interior design, construction and project management studio in Kolkata. DESIGN • INSPIRE • BUILD — trust, precision and quality in every detail.",
+    "Sweet Home Consultancy Services is a professional architecture, interior design, construction, project management and real estate consultancy in Kolkata. Designing better spaces, building better futures.",
   keywords: [
     "architecture",
     "interior design",
     "construction",
     "project management",
+    "real estate consultancy",
     "Kolkata",
+    "Barrackpore",
+    "North 24 Parganas",
   ],
   openGraph: {
-    title: "SWEET HOME — Architecture, Interior Design & Construction",
+    title: "Sweet Home Consultancy Services — Architecture, Interior Design & Construction",
     description:
-      "Design, Inspire, Build — a premium architecture and construction studio in Kolkata.",
+      "Architecture • Interior Design • Construction • Project Management • Real Estate Consultancy in Kolkata. Designing better spaces, building better futures.",
     type: "website",
     locale: "en_IN",
-    siteName: "SWEET HOME",
+    siteName: "Sweet Home Consultancy Services",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SWEET HOME — Design • Inspire • Build",
+    title: "Sweet Home Consultancy Services — Design • Inspire • Build",
     description:
-      "Premium architecture, interior design, construction and project management in Kolkata.",
+      "Architecture, interior design, construction, project management and real estate consultancy in Kolkata.",
   },
 };
 
