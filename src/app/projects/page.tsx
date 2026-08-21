@@ -134,7 +134,7 @@ export default function ProjectsPage() {
                   onClick={() => changeCategory(category)}
                   aria-pressed={active}
                   className={cn(
-                    "group inline-flex items-center gap-2.5 rounded-full border px-5 py-2.5 text-[0.62rem] font-bold uppercase tracking-[0.18em] transition-all duration-300",
+                    "group inline-flex cursor-pointer items-center gap-2.5 rounded-full border px-5 py-2.5 text-[0.62rem] font-bold uppercase tracking-[0.18em] transition-all duration-300",
                     active
                       ? "border-brand-charcoal bg-brand-charcoal text-white shadow-[0_14px_30px_rgba(27,25,22,0.25)]"
                       : "border-brand-stone bg-white text-brand-muted hover:-translate-y-0.5 hover:border-brand-charcoal hover:text-brand-charcoal hover:shadow-[0_10px_24px_rgba(27,25,22,0.08)]"
@@ -186,12 +186,12 @@ export default function ProjectsPage() {
                   <button
                     type="button"
                     onClick={() => openLightbox(project)}
-                    className="group block w-full text-left"
+                    className="group block w-full cursor-pointer text-left"
                     aria-label={`View gallery of ${project.title}`}
                   >
                     <div
                       className={cn(
-                        "relative w-full overflow-hidden bg-brand-gray ring-1 ring-brand-stone/40 transition-all duration-500 group-hover:ring-brand-accent/60",
+                        "relative w-full overflow-hidden rounded-xl bg-brand-gray ring-1 ring-brand-stone/60 shadow-sm transition-all duration-500 group-hover:shadow-lg group-hover:ring-[#BE9026]/70",
                         project.aspect
                       )}
                     >
@@ -204,39 +204,43 @@ export default function ProjectsPage() {
                         priority={idx === 0}
                         loading={idx < 6 ? "eager" : "lazy"}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/95 via-brand-charcoal/15 to-brand-charcoal/5 opacity-80 transition-opacity duration-500 group-hover:opacity-100" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/95 via-brand-charcoal/20 to-brand-charcoal/10 opacity-80 transition-opacity duration-500 group-hover:opacity-95" />
 
-                      <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 text-[0.58rem] font-bold uppercase tracking-[0.2em] text-white backdrop-blur-sm">
+                      {/* Category Badge */}
+                      <span className="absolute left-3.5 top-3.5 rounded-full border border-white/20 bg-black/40 px-3 py-1 text-[0.62rem] font-bold uppercase tracking-[0.18em] text-white shadow-xs backdrop-blur-md">
                         {project.category}
                       </span>
-                      <span className="absolute right-4 top-4 flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[0.58rem] font-bold text-white backdrop-blur-sm">
+
+                      {/* Photos Count Badge */}
+                      <span className="absolute right-3.5 top-3.5 flex items-center gap-1.5 rounded-full border border-white/20 bg-black/40 px-3 py-1 text-[0.62rem] font-bold text-white shadow-xs backdrop-blur-md">
                         <Images size={12} className="text-brand-accent-light" />
-                        {project.images.length}
+                        {project.images.length} {project.images.length === 1 ? "Photo" : "Photos"}
                       </span>
 
-                      <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6">
-                        <div className="translate-y-1 transition-transform duration-500 group-hover:translate-y-0">
-                          <h2 className="font-heading text-xl font-semibold tracking-tight text-white md:text-[1.4rem]">
-                            {project.title}
-                          </h2>
-                          <p className="mt-2 flex items-center gap-1.5 text-xs font-light tracking-wide text-white/75">
-                            <MapPin size={12} className="text-brand-accent-light" />
+                      {/* Bottom Info inside Image */}
+                      <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 sm:p-6">
+                        <div className="translate-y-0.5 transition-transform duration-500 group-hover:translate-y-0">
+                          <p className="flex items-center gap-1.5 text-xs sm:text-sm font-medium tracking-wide text-white/95 drop-shadow-sm">
+                            <MapPin size={14} className="text-[#D7BC8D] shrink-0" />
                             {project.location}
                           </p>
                         </div>
-                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-sm transition-all duration-500 group-hover:rotate-45 group-hover:border-brand-accent group-hover:bg-brand-accent">
+                        <span className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full border border-white/30 bg-black/30 text-white backdrop-blur-md transition-all duration-500 group-hover:rotate-45 group-hover:border-[#BE9026] group-hover:bg-[#BE9026] group-hover:shadow-md">
                           <ArrowUpRight size={16} />
                         </span>
                       </div>
 
-                      <span className="absolute inset-x-0 bottom-0 h-[2px] origin-left scale-x-0 bg-gradient-to-r from-brand-accent via-brand-accent-light to-brand-accent transition-transform duration-500 group-hover:scale-x-100" />
+                      <span className="absolute inset-x-0 bottom-0 h-[2.5px] origin-left scale-x-0 bg-gradient-to-r from-brand-accent via-brand-accent-light to-brand-accent transition-transform duration-500 group-hover:scale-x-100" />
                     </div>
 
-                    {/* Editorial footer under the card */}
-                    <div className="flex items-center justify-between border-b border-brand-stone pt-4 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-brand-muted transition-colors duration-300 group-hover:text-brand-accent-deep">
-                      <span>View gallery</span>
-                      <span className="flex items-center gap-1.5 transition-transform duration-300 group-hover:translate-x-1">
-                        Explore <ArrowRight size={12} />
+                    {/* Clean, High-Contrast, Responsive Action Bar */}
+                    <div className="mt-3 flex items-center justify-between rounded-lg border border-brand-stone/90 bg-[#FAF9F5] px-4 py-2.5 shadow-2xs transition-all duration-300 group-hover:border-[#BE9026]/60 group-hover:bg-white group-hover:shadow-md">
+                      <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-charcoal">
+                        <span className="h-2 w-2 rounded-full bg-[#BE9026]" />
+                        View Gallery
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.16em] text-[#8C6D23] transition-all duration-300 group-hover:text-[#BE9026] group-hover:translate-x-1">
+                        Explore <ArrowRight size={13} className="text-[#BE9026]" />
                       </span>
                     </div>
                   </button>
@@ -331,7 +335,7 @@ export default function ProjectsPage() {
                 <button
                   onClick={closeLightbox}
                   aria-label="Close gallery"
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition-all duration-300 hover:border-brand-accent hover:bg-brand-accent"
+                  className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition-all duration-300 hover:border-brand-accent hover:bg-brand-accent"
                 >
                   <X size={18} />
                 </button>
@@ -393,14 +397,14 @@ export default function ProjectsPage() {
                     <button
                       onClick={() => step(-1)}
                       aria-label="Previous image"
-                      className="absolute left-0 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-all duration-300 hover:border-brand-accent hover:bg-brand-accent md:-left-6 md:h-14 md:w-14"
+                      className="absolute left-0 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-all duration-300 hover:border-brand-accent hover:bg-brand-accent md:-left-6 md:h-14 md:w-14"
                     >
                       <ChevronLeft size={22} />
                     </button>
                     <button
                       onClick={() => step(1)}
                       aria-label="Next image"
-                      className="absolute right-0 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-all duration-300 hover:border-brand-accent hover:bg-brand-accent md:-right-6 md:h-14 md:w-14"
+                      className="absolute right-0 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-all duration-300 hover:border-brand-accent hover:bg-brand-accent md:-right-6 md:h-14 md:w-14"
                     >
                       <ChevronRight size={22} />
                     </button>
@@ -427,7 +431,7 @@ export default function ProjectsPage() {
                         aria-label={`View image ${i + 1}`}
                         aria-current={i === activeIndex}
                         className={cn(
-                          "relative h-16 w-24 shrink-0 overflow-hidden rounded-lg border-2 transition-all duration-300 md:h-[4.5rem] md:w-[6.5rem]",
+                          "relative h-16 w-24 shrink-0 cursor-pointer overflow-hidden rounded-lg border-2 transition-all duration-300 md:h-[4.5rem] md:w-[6.5rem]",
                           i === activeIndex
                             ? "border-brand-accent shadow-[0_0_0_4px_rgba(215,188,141,0.25)]"
                             : "border-white/10 opacity-60 hover:opacity-100"

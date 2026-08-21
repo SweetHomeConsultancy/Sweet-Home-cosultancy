@@ -161,9 +161,15 @@ export function Footer() {
             </li>
             <li className="flex items-center gap-3">
               <Phone size={16} className="shrink-0 text-brand-accent" />
-              <span className="text-brand-gray/70">
-                {contactInfo.phone1}
-              </span>
+              <div className="flex flex-wrap items-center gap-1.5 text-brand-gray/70">
+                <a href={`tel:${contactInfo.tel1}`} className="hover:text-brand-accent-light transition-colors">
+                  {contactInfo.phone1}
+                </a>
+                <span>/</span>
+                <a href={`tel:${contactInfo.tel2}`} className="hover:text-brand-accent-light transition-colors">
+                  {contactInfo.phone2}
+                </a>
+              </div>
             </li>
             <li className="flex items-center gap-3">
               <Mail size={16} className="shrink-0 text-brand-accent" />

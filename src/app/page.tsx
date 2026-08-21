@@ -11,6 +11,7 @@ import {
   Phone,
   Compass,
   MoveDown,
+  Check,
 } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import {
@@ -238,90 +239,129 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ================= ABOUT ================= */}
-      <section id="about" className="relative overflow-hidden bg-brand-ivory py-8 md:py-12">
-        <div className="container-custom">
-          <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-24">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger}>
+      {/* ================= ABOUT SWEET HOME ================= */}
+      <section id="about" className="relative overflow-hidden bg-brand-ivory py-10 md:py-14">
+        {/* Subtle background ambient element */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-32 top-0 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(215,188,141,0.12)_0%,transparent_70%)]"
+        />
+
+        <div className="container-custom relative">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+            {/* Left Content */}
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} variants={stagger}>
               <motion.div variants={fadeUp}>
-                <SectionHeading
-                  eyebrow="About SWEET HOME"
-                  title={
-                    <>
-                      Precision in every{" "}
-                      <em className="font-serif italic font-normal text-brand-accent-deep">detail.</em>
-                    </>
-                  }
-                />
+                <div className="inline-flex items-center gap-2 rounded-full border border-brand-accent/30 bg-white/80 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-brand-accent-deep shadow-xs backdrop-blur-sm">
+                  <span className="h-1.5 w-1.5 rounded-full bg-brand-accent" />
+                  About SWEET HOME
+                </div>
+                <h2 className="mt-3 font-heading text-2xl font-bold tracking-tight text-brand-charcoal sm:text-3xl lg:text-4xl">
+                  Precision in Every Detail.{" "}
+                  <span className="font-serif italic font-normal text-brand-accent-deep block sm:inline">
+                    Built to Inspire.
+                  </span>
+                </h2>
               </motion.div>
-              <motion.div variants={fadeUp} className="mt-8 max-w-xl space-y-6">
-                <p className="text-lg font-light leading-relaxed text-brand-muted md:text-xl">
-                  Sweet Home Consultancy Services is a professional Architectural, Interior
-                  Design, Construction, and Project Management consultancy dedicated to
-                  delivering high-quality design and construction solutions.
+
+              <motion.div variants={fadeUp} className="mt-4 max-w-xl space-y-3.5">
+                <p className="text-base font-normal leading-relaxed text-brand-charcoal/90 sm:text-lg">
+                  <strong className="font-semibold text-brand-charcoal">Sweet Home Consultancy Services</strong> is a professional Architectural, Interior Design, Construction, and Project Management consultancy dedicated to delivering high-quality design and construction solutions.
                 </p>
-                <p className="font-light leading-relaxed text-brand-muted">
-                  With extensive industry experience in India and the Gulf region, we provide
-                  practical, cost-effective, and client-focused services for residential,
-                  commercial, and renovation projects. Our goal is to transform ideas into
-                  functional, aesthetically pleasing, and value-driven spaces while ensuring
-                  quality, timely execution, and customer satisfaction.
+                <p className="text-sm font-light leading-relaxed text-brand-muted sm:text-base">
+                  With extensive industry experience in <strong className="font-medium text-brand-charcoal">India and the Gulf region</strong>, we provide practical, cost-effective, and client-focused services for residential, commercial, and renovation projects while ensuring timely execution and complete satisfaction.
                 </p>
               </motion.div>
-              <motion.div variants={fadeUp} className="mt-10 flex flex-wrap items-center gap-6">
-                <Button asChild size="lg" variant="outline" className="group">
-                  <Link href="/about" className="flex items-center gap-2.5">
-                    Discover Our Process
-                    <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-                  </Link>
-                </Button>
+
+              {/* Key Highlights / Badges - Modern & Compact */}
+              <motion.div variants={fadeUp} className="mt-5 grid grid-cols-2 gap-2.5 sm:flex sm:flex-wrap">
+                {[
+                  "Architectural Design",
+                  "Interior & Turnkey",
+                  "India & Gulf Experience",
+                  "On-Time Handover",
+                ].map((tag) => (
+                  <span
+                    key={tag}
+                    className="inline-flex items-center gap-1.5 rounded-md border border-brand-stone bg-white/90 px-2.5 py-1.5 text-xs font-medium text-brand-charcoal shadow-2xs"
+                  >
+                    <span className="h-1 w-1 rounded-full bg-brand-accent" />
+                    {tag}
+                  </span>
+                ))}
+              </motion.div>
+
+              {/* Action & Direct Call / WhatsApp Row */}
+              <motion.div variants={fadeUp} className="mt-6 flex flex-wrap items-center gap-3 sm:gap-4">
+                {/* Calling Action Button */}
                 <a
                   href={`tel:${contactInfo.tel1}`}
-                  className="flex items-center gap-3 text-brand-charcoal transition-colors hover:text-brand-accent-deep"
+                  className="group inline-flex items-center gap-2 rounded-lg bg-brand-charcoal px-4 py-2.5 text-xs font-semibold tracking-wider text-white shadow-md transition-all duration-300 hover:bg-brand-accent-deep hover:shadow-lg sm:text-sm"
+                  title="Call SWEET HOME directly"
                 >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full border border-brand-stone bg-white">
-                    <Phone size={16} className="text-brand-accent" />
-                  </span>
-                  <span className="text-sm font-semibold tracking-widest">{contactInfo.phone1}</span>
+                  <Phone size={15} className="text-brand-accent-light transition-transform duration-300 group-hover:scale-110" />
+                  <span>Call: <strong className="font-bold tracking-normal">{contactInfo.phone1}</strong></span>
                 </a>
+
+                {/* WhatsApp Action Button */}
+                <a
+                  href={contactInfo.whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-4 py-2.5 text-xs font-semibold tracking-wider text-white shadow-md transition-all duration-300 hover:bg-[#1eb457] hover:shadow-lg sm:text-sm"
+                  title="Chat on WhatsApp"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:scale-110">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                  </svg>
+                  <span>WhatsApp: <strong className="font-bold tracking-normal">{contactInfo.phone1}</strong></span>
+                </a>
+
+                {/* About Link */}
+                <Button asChild size="sm" variant="outline" className="group h-10 px-3.5 text-xs font-semibold rounded-xl">
+                  <Link href="/about" className="flex items-center gap-1.5">
+                    Discover Process
+                    <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
+                </Button>
               </motion.div>
             </motion.div>
 
-            {/* Imagery */}
+            {/* Right Visual Image Card - Compact & Modern */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.96, y: 20 }}
+              initial={{ opacity: 0, scale: 0.97, y: 16 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="relative mx-auto w-full max-w-md lg:max-w-none"
             >
-              <div className="relative aspect-[4/5] w-full overflow-hidden bg-brand-gray">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-brand-gray shadow-xl sm:aspect-[16/11]">
                 <Image
-                  src="/images/about/main.jpg"
-                  alt="A signature SWEET HOME residence at dusk"
+                  src="/images/cta/Sweet_Home_section_image_aboutpage.jpeg"
+                  alt="SWEET HOME Architectural & Interior Design Project"
                   fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-[1.5s] ease-out hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  className="object-cover transition-transform duration-[1.2s] ease-out hover:scale-105"
                 />
-                <div className="absolute inset-0 ring-1 ring-inset ring-brand-charcoal/10" />
-              </div>
-              <div className="absolute -bottom-8 -left-8 hidden w-[42%] overflow-hidden border-4 border-brand-ivory shadow-xl sm:block">
-                <div className="aspect-[4/3] w-full relative">
-                  <Image
-                    src="/images/about/detail.jpg"
-                    alt="Architectural detail — elevated entrance"
-                    fill
-                    sizes="280px"
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-              <div className="absolute -top-8 right-0 hidden border border-brand-stone bg-white p-5 shadow-[0_22px_60px_rgba(27,25,22,0.10)] md:block">
-                <div className="text-[0.6rem] font-bold uppercase tracking-[0.28em] text-brand-muted">
-                  Est. Kolkata
-                </div>
-                <div className="mt-1 font-heading text-3xl font-semibold tracking-tight text-brand-charcoal">
-                  SWEET HOME
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/65 via-transparent to-transparent" />
+                
+                {/* Overlay Badge at bottom of image */}
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between rounded-md bg-brand-charcoal/85 p-3 backdrop-blur-md text-white border border-white/10 sm:bottom-4 sm:left-4 sm:right-4">
+                  <div>
+                    <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-brand-accent-light">
+                      SWEET HOME
+                    </p>
+                    <p className="text-xs font-semibold text-white sm:text-sm">
+                      Kolkata • India & Gulf
+                    </p>
+                  </div>
+                  <a
+                    href={`tel:${contactInfo.tel1}`}
+                    className="flex items-center gap-1.5 rounded bg-brand-accent px-2.5 py-1.5 text-[0.7rem] font-bold text-brand-charcoal transition-colors hover:bg-brand-accent-light"
+                  >
+                    <Phone size={12} />
+                    <span>{contactInfo.phone1}</span>
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -329,8 +369,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= SERVICES ================= */}
-      <section id="services" className="relative scroll-mt-24 overflow-hidden bg-brand-gray py-8 md:py-12">
+      {/* ================= SERVICES / OUR EXPERTISE ================= */}
+      <section id="services" className="relative scroll-mt-24 overflow-hidden bg-brand-gray py-12 md:py-16">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -right-[20rem] -top-[16rem] h-[36rem] w-[36rem] rounded-full bg-[radial-gradient(circle,rgba(173,138,84,0.14)_0%,transparent_65%)]"
@@ -340,17 +380,17 @@ export default function Home() {
           className="pointer-events-none absolute -bottom-[18rem] -left-[18rem] h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,rgba(173,138,84,0.10)_0%,transparent_65%)]"
         />
         <div className="container-custom relative">
-          <motion.div {...motionProps(0)} className="max-w-2xl">
+          <motion.div {...motionProps(0)} className="max-w-3xl">
             <SectionHeading
               eyebrow="Our Expertise"
               title={
                 <>
                   Integrated services, one{" "}
-                  <em className="font-serif italic font-normal">accountable</em> partner.
+                  <em className="font-serif italic font-normal text-brand-accent-deep">accountable</em> partner.
                 </>
               }
             />
-            <p className="mt-4 max-w-xl text-base font-light leading-relaxed text-brand-muted">
+            <p className="mt-4 max-w-2xl text-base font-normal leading-relaxed text-brand-muted sm:text-lg">
               We own every discipline — architecture, interior design, construction,
               project management and real estate — so nothing is lost between consultant
               and contractor.
@@ -362,78 +402,84 @@ export default function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
-            className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4 md:gap-6"
+            className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 md:gap-5 lg:gap-6"
           >
             {services.map((service, i) => (
               <motion.article
                 key={service.title}
                 variants={fadeUp}
-                className="group relative flex flex-col overflow-hidden bg-brand-gray p-7 shadow-[0_18px_45px_rgba(27,25,22,0.10),0_2px_6px_rgba(27,25,22,0.05)] ring-1 ring-inset ring-brand-stone/40 transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[0_28px_70px_rgba(27,25,22,0.16),0_4px_10px_rgba(27,25,22,0.06)] hover:ring-brand-accent/40"
+                className="group relative flex flex-col justify-between overflow-hidden border border-stone-200/80 bg-[#FAF9F5] shadow-xs transition-all duration-400 ease-out hover:-translate-y-1 hover:border-[#BE9026]/50 hover:shadow-lg"
               >
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-gradient-to-r from-transparent via-brand-accent to-transparent transition-transform duration-500 ease-out group-hover:scale-x-100"
-                />
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(173,138,84,0.12)_0%,transparent_65%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                />
+                {/* Top Image & Number Badge */}
+                <div className="relative w-full">
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-brand-stone/20">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                  </div>
+                  {/* Number Badge Half on Image, Half Below, Space from Right */}
+                  <div className="absolute -bottom-4 right-4 z-10 flex h-9 w-11 items-center justify-center bg-[#BE9026] text-sm font-bold tracking-wider text-white shadow-md sm:-bottom-5 sm:right-5 sm:h-10 sm:w-12 sm:text-base">
+                    0{i + 1}
+                  </div>
+                </div>
 
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute right-6 top-6 font-serif text-5xl italic leading-none text-brand-stone transition-colors duration-500 group-hover:text-brand-accent/30"
-                >
-                  0{i + 1}
-                </span>
+                {/* Card Content */}
+                <div className="flex flex-1 flex-col justify-between p-5 pt-6 sm:p-6 sm:pt-7">
+                  <div>
+                    {/* Eyebrow / Tagline */}
+                    <div className="flex items-center gap-2 text-[0.62rem] font-bold uppercase tracking-[0.2em] text-[#8C6D23] sm:text-[0.65rem]">
+                      <span className="inline-block h-1.5 w-1.5 rotate-45 bg-[#BE9026]" />
+                      <span>{service.tagline}</span>
+                    </div>
 
-                <span className="flex h-13 w-13 items-center justify-center rounded-full border border-brand-accent/35 bg-gradient-to-br from-brand-accent/12 to-brand-accent/4 text-brand-accent-deep shadow-[inset_0_1px_2px_rgba(255,255,255,0.6)] transition-all duration-500 group-hover:border-brand-accent group-hover:from-brand-accent group-hover:to-brand-accent-deep group-hover:text-white group-hover:shadow-[0_12px_30px_rgba(160,120,0,0.45)]">
-                  <service.icon size={22} strokeWidth={1.4} />
-                </span>
+                    {/* Title */}
+                    <h3 className="mt-2.5 font-heading text-lg font-bold tracking-tight text-brand-charcoal sm:text-xl">
+                      {service.title}
+                    </h3>
 
-                <span className="mt-7 inline-flex w-fit items-center gap-1.5 text-[0.56rem] font-bold uppercase tracking-[0.24em] text-brand-muted transition-colors duration-300 group-hover:text-brand-accent-deep">
-                  <span className="inline-block h-[5px] w-[5px] rotate-45 bg-brand-accent" />
-                  {service.tagline}
-                </span>
+                    {/* Description Paragraph */}
+                    <p className="mt-2.5 text-xs font-normal leading-relaxed text-brand-charcoal/75 sm:text-[0.85rem]">
+                      {service.description}
+                    </p>
 
-                <h3 className="mt-3 font-heading text-xl font-semibold tracking-tight text-brand-charcoal">
-                  {service.title}
-                </h3>
+                    {/* Divider */}
+                    <div className="my-4 h-px w-full bg-stone-200/80 sm:my-5" />
 
-                <p className="mt-2.5 text-[0.84rem] font-light leading-relaxed text-brand-muted">
-                  {service.description}
-                </p>
-
-                <ul className="mt-6 grid flex-1 grid-cols-1 content-start gap-y-2.5 border-t border-brand-stone/70 pt-6">
-                  {service.items.map((item) => (
-                    <li key={item} className="flex items-center gap-2.5 text-[0.8rem] font-light text-brand-charcoal/75 transition-colors duration-300 group-hover:text-brand-charcoal">
-                      <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-brand-accent/15 text-brand-accent-deep transition-colors duration-300 group-hover:bg-brand-accent group-hover:text-white">
-                        <svg
-                          viewBox="0 0 12 12"
-                          className="h-2 w-2"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.8"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          aria-hidden="true"
+                    {/* Deliverables / Bullet Points */}
+                    <ul className="flex flex-col gap-2">
+                      {service.items.map((item) => (
+                        <li
+                          key={item}
+                          className="flex items-start gap-2 text-xs font-medium leading-snug text-brand-charcoal/85 sm:text-[0.8rem]"
                         >
-                          <path d="M2 6.5 4.8 9 10 3" />
-                        </svg>
-                      </span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                          <span className="mt-0.5 flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#BE9026] text-white shadow-2xs">
+                            <Check size={9} strokeWidth={3.5} />
+                          </span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-                <Link
-                  href="/contact"
-                  className="group/link mt-7 inline-flex items-center gap-2 text-[0.7rem] font-bold uppercase tracking-[0.22em] text-brand-charcoal transition-colors duration-300 hover:text-brand-accent-deep"
-                >
-                  <span className="relative">Explore Service</span>
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full border border-brand-stone bg-brand-ivory transition-all duration-300 group-hover/link:border-brand-accent group-hover/link:shadow-[0_8px_20px_rgba(160,120,0,0.38)]">
-                    <ArrowRight size={12} className="text-brand-accent-deep transition-transform duration-300 group-hover/link:translate-x-0.5" />
-                  </span>
-                </Link>
+                  {/* Card Action Link */}
+                  <div className="mt-4 pt-1">
+                    <Link
+                      href="/contact"
+                      className="group/btn relative flex w-full items-center justify-between rounded-lg border border-stone-300/80 bg-white/90 px-3 py-1 shadow-2xs transition-all duration-300 ease-out hover:border-[#BE9026] hover:bg-gradient-to-r hover:from-[#BE9026] hover:to-[#A97E1B] hover:text-white hover:shadow-md active:scale-[0.98] sm:px-3.5 sm:py-1.5"
+                    >
+                      <span className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-brand-charcoal transition-colors duration-300 group-hover/btn:text-white sm:text-[0.68rem]">
+                        Explore Service
+                      </span>
+                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#FAF6EE] text-[#BE9026] shadow-2xs transition-all duration-300 group-hover/btn:bg-white/20 group-hover/btn:text-white group-hover/btn:translate-x-1 sm:h-5 sm:w-5">
+                        <ArrowRight size={10} strokeWidth={2.5} />
+                      </span>
+                    </Link>
+                  </div>
+                </div>
               </motion.article>
             ))}
           </motion.div>
@@ -705,7 +751,7 @@ function MarqueeCard({ project }: { project: (typeof projects)[number] }) {
     <Link
       href="/projects"
       aria-label={`${project.title} — ${project.category}, ${project.location}`}
-      className="group block w-[58vw] shrink-0 sm:w-[48vw] md:w-[34vw] lg:w-[27vw] xl:w-[23rem]"
+      className="group block w-[58vw] shrink-0 cursor-pointer sm:w-[48vw] md:w-[34vw] lg:w-[27vw] xl:w-[23rem]"
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-brand-charcoal-soft ring-1 ring-white/10 transition-all duration-500 group-hover:ring-brand-accent/60">
         <Image
@@ -720,10 +766,7 @@ function MarqueeCard({ project }: { project: (typeof projects)[number] }) {
           {project.category}
         </span>
         <div className="absolute inset-x-0 bottom-0 p-4 md:p-5">
-          <h3 className="font-heading text-sm font-semibold tracking-tight text-white md:text-base">
-            {project.title}
-          </h3>
-          <div className="mt-1.5 flex items-center justify-between gap-3">
+          <div className="flex items-center justify-between gap-3">
             <p className="flex items-center gap-1.5 text-[0.65rem] font-light tracking-wide text-white/65">
               <MapPin size={11} className="text-brand-accent-light" />
               {project.location}

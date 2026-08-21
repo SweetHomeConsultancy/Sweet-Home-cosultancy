@@ -78,7 +78,7 @@ export default function ContactPage() {
     href?: string;
   }> = [
     { icon: MapPin, title: "Visit Our Studio", body: [contactInfo.addressLine1, contactInfo.addressLine2], href: "https://www.google.com/maps/search/?api=1&query=Titagarh,+Kolkata" },
-    { icon: Phone, title: "Call Us", body: ["Contact Now"], href: `tel:${contactInfo.tel1}` },
+    { icon: Phone, title: "Call Us", body: [`+91 ${contactInfo.phone1}`, `+91 ${contactInfo.phone2}`], href: `tel:${contactInfo.tel1}` },
     { icon: Mail, title: "Email Us", body: [contactInfo.email], href: `mailto:${contactInfo.email}` },
     { icon: Clock, title: "Working Hours", body: [contactInfo.hours, contactInfo.closed, contactInfo.consultation] },
   ];

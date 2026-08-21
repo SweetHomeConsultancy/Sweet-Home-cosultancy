@@ -32,10 +32,12 @@ export const contactInfo = {
   addressLine1: "75, G. C. Road, Titagarh",
   addressLine2: "(Near Safdar Palace)",
   city: "Kolkata-700119, West Bengal",
-  phone1: "9804725100",
-  tel1: "+919804725100",
-  whatsapp: "919804725100",
-  whatsappLink: "https://wa.me/919804725100",
+  phone1: "9007567100",
+  tel1: "+919007567100",
+  phone2: "9804725100",
+  tel2: "+919804725100",
+  whatsapp: "919007567100",
+  whatsappLink: "https://wa.me/919007567100",
   email: "info@sweethomeprojects.com",
   hours: "Mon – Sat: 9:00 AM – 7:00 PM",
   closed: "Sunday: By Appointment",
@@ -97,11 +99,11 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    title: "Architecture",
+    title: "Architecture & Lanscaping",
     tagline: "Design & Engineering",
     description:
       "House planning, working drawings and municipal-ready documentation — precise, buildable and compliant architectural design.",
-    image: "/images/services/architecture.jpg",
+    image: "/images/Our_Expertise/Architecture_Lanscaping.jpeg",
     icon: Building2,
     items: [
       "House Planning & Building Design",
@@ -117,11 +119,12 @@ export const services: Service[] = [
     tagline: "Space & Styling",
     description:
       "Functional layouts and 3D visualizations that turn every home and office into a beautiful, usable space.",
-    image: "/images/services/interior.jpg",
+    image: "/images/Our_Expertise/Interior.png",
     icon: DraftingCompass,
     items: [
       "Home Interior Design",
       "Office Interior Design",
+      "Cafe & Restaurant",
       "Modular Kitchen Design",
       "Bedroom & Living Room Design",
       "False Ceiling Design",
@@ -136,7 +139,7 @@ export const services: Service[] = [
     tagline: "Execution & Quality",
     description:
       "Expert supervision, transparent estimates and rigorous quality control that keep your build on track and on budget.",
-    image: "/images/services/construction.jpg",
+    image: "/images/Our_Expertise/Construction.png",
     icon: HardHat,
     items: [
       "Building Construction Supervision",
@@ -152,7 +155,7 @@ export const services: Service[] = [
     tagline: "Oversight & Delivery",
     description:
       "End-to-end planning, monitoring and coordination so your project is delivered on schedule, without surprises.",
-    image: "/images/services/project-management.jpg",
+    image: "/images/Our_Expertise/Project_Management.png",
     icon: ClipboardCheck,
     items: [
       "Project Planning & Scheduling",
@@ -169,13 +172,14 @@ export const services: Service[] = [
     tagline: "Property & Advisory",
     description:
       "Trusted guidance for property purchase, plot development and residential investment across Kolkata and its suburbs.",
-    image: "/images/services/construction.jpg",
+    image: "/images/Our_Expertise/Real_Estate_Consultancy.png",
     icon: LandPlot,
     items: [
       "Property Consultation",
       "Plot Development Guidance",
       "Residential Project Consultation",
       "Property Investment Guidance",
+      "Urban Development",
     ],
   },
   {
@@ -183,7 +187,7 @@ export const services: Service[] = [
     tagline: "Cost & Quantities",
     description:
       "Accurate quantity take-offs, transparent BOQ preparation and tender-ready documentation that keep your budget honest.",
-    image: "/images/services/construction.jpg",
+    image: "/images/Our_Expertise/Estimation_BOQ.jpeg",
     icon: Calculator,
     items: [
       "Quantity Take-Off",
@@ -197,7 +201,7 @@ export const services: Service[] = [
     tagline: "Digital Drafting & Modeling",
     description:
       "Precise AutoCAD drafting and Revit modeling — from shop drawings to accurate as-built documentation.",
-    image: "/images/services/architecture.jpg",
+    image: "/images/Our_Expertise/CAD_BIM.jpeg",
     icon: PencilRuler,
     items: [
       "AutoCAD Drafting",
@@ -228,16 +232,16 @@ export const projectCategories = [
 ] as const;
 
 export const projects: Project[] = [
-  { id: "P01", title: "3D Architectual View Of Apartments Kolkata, year 2018-2014", category: "Residential", location: "Kolkata", image: "/images/projects/3D%20Architectual%20View%20Of%20Apartments%20Kolkata%2C%20year%202018-2014/Screenshot%202026-08-18%20124050.png", images: ["/images/projects/3D%20Architectual%20View%20Of%20Apartments%20Kolkata%2C%20year%202018-2014/Screenshot%202026-08-18%20124050.png", "/images/projects/3D%20Architectual%20View%20Of%20Apartments%20Kolkata%2C%20year%202018-2014/Screenshot%202026-08-18%20124058.png", "/images/projects/3D%20Architectual%20View%20Of%20Apartments%20Kolkata%2C%20year%202018-2014/Screenshot%202026-08-18%20124104.png", "/images/projects/3D%20Architectual%20View%20Of%20Apartments%20Kolkata%2C%20year%202018-2014/Screenshot%202026-08-18%20124112.png"], aspect: "aspect-[4/3]" },
+  { id: "P01", title: "3D Architectual View Of Apartments Kolkata, year 2018-2014", category: "Residential", location: "Kolkata", image: "/images/projects/3D%20Architectual%20View%20Of%20Apartments%20Kolkata%2C%20year%202018-2014/Kolkata_Residential1.png", images: ["/images/projects/3D%20Architectual%20View%20Of%20Apartments%20Kolkata%2C%20year%202018-2014/Kolkata_Residential1.png", "/images/projects/3D%20Architectual%20View%20Of%20Apartments%20Kolkata%2C%20year%202018-2014/Kolkata_Residential2.png", "/images/projects/3D%20Architectual%20View%20Of%20Apartments%20Kolkata%2C%20year%202018-2014/Kolkata_Residential3.png", "/images/projects/3D%20Architectual%20View%20Of%20Apartments%20Kolkata%2C%20year%202018-2014/Kolkata_Residential4.png"], aspect: "aspect-[4/3]" },
   { id: "P02", title: "3D Architectual View of House, Barrackpore, Kolkata, year 2018", category: "Residential", location: "Barrackpore, Kolkata", image: "/images/projects/3D%20Architectual%20View%20of%20House%2C%20Barrackpore%2C%20Kolkata%2C%20year%202018/Screenshot%202026-08-18%20124340.png", images: ["/images/projects/3D%20Architectual%20View%20of%20House%2C%20Barrackpore%2C%20Kolkata%2C%20year%202018/Screenshot%202026-08-18%20124340.png", "/images/projects/3D%20Architectual%20View%20of%20House%2C%20Barrackpore%2C%20Kolkata%2C%20year%202018/Screenshot%202026-08-18%20124352.png", "/images/projects/3D%20Architectual%20View%20of%20House%2C%20Barrackpore%2C%20Kolkata%2C%20year%202018/Screenshot%202026-08-18%20124359.png"], aspect: "aspect-[4/3]" },
-  { id: "P03", title: "3D Architecture View Of G+3 Building & Open Tarrace Garden, Khardaha, Kolkata, year 2024", category: "Residential", location: "Khardaha, Kolkata", image: "/images/projects/3D%20Architecture%20View%20Of%20G%2B3%20Building%20%26%20Open%20Tarrace%20Garden%2C%20Khardaha%2C%20Kolkata%2C%20year%202024/Screenshot%202026-08-18%20124613.png", images: ["/images/projects/3D%20Architecture%20View%20Of%20G%2B3%20Building%20%26%20Open%20Tarrace%20Garden%2C%20Khardaha%2C%20Kolkata%2C%20year%202024/Screenshot%202026-08-18%20124613.png", "/images/projects/3D%20Architecture%20View%20Of%20G%2B3%20Building%20%26%20Open%20Tarrace%20Garden%2C%20Khardaha%2C%20Kolkata%2C%20year%202024/Screenshot%202026-08-18%20124619.png", "/images/projects/3D%20Architecture%20View%20Of%20G%2B3%20Building%20%26%20Open%20Tarrace%20Garden%2C%20Khardaha%2C%20Kolkata%2C%20year%202024/Screenshot%202026-08-18%20124626.png"], aspect: "aspect-[4/3]" },
-  { id: "P04", title: "3D Architecture Views Of Hotel & Restaurant & Shop, Al Rass Saudi Arabia year 2014-2015", category: "Commercial", location: "Al Rass, Saudi Arabia", image: "/images/projects/3D%20Architecture%20Views%20Of%20Hotel%20%26%20Restaurant%20%26%20Shop%2C%20Al%20Rass%20Saudi%20Arabia%20year%202014-2015/Screenshot%202026-08-18%20123909.png", images: ["/images/projects/3D%20Architecture%20Views%20Of%20Hotel%20%26%20Restaurant%20%26%20Shop%2C%20Al%20Rass%20Saudi%20Arabia%20year%202014-2015/Screenshot%202026-08-18%20123909.png", "/images/projects/3D%20Architecture%20Views%20Of%20Hotel%20%26%20Restaurant%20%26%20Shop%2C%20Al%20Rass%20Saudi%20Arabia%20year%202014-2015/Screenshot%202026-08-18%20123915.png", "/images/projects/3D%20Architecture%20Views%20Of%20Hotel%20%26%20Restaurant%20%26%20Shop%2C%20Al%20Rass%20Saudi%20Arabia%20year%202014-2015/Screenshot%202026-08-18%20123924.png", "/images/projects/3D%20Architecture%20Views%20Of%20Hotel%20%26%20Restaurant%20%26%20Shop%2C%20Al%20Rass%20Saudi%20Arabia%20year%202014-2015/Screenshot%202026-08-18%20123930.png"], aspect: "aspect-[4/3]" },
+  { id: "P03", title: "3D Architecture View Of G+3 Building & Open Tarrace Garden, Khardaha, Kolkata, year 2024", category: "Residential", location: "Khardaha, Kolkata", image: "/images/projects/3D%20Architecture%20View%20Of%20G%2B3%20Building%20%26%20Open%20Tarrace%20Garden%2C%20Khardaha%2C%20Kolkata%2C%20year%202024/Khardaha_Kolkata1.png", images: ["/images/projects/3D%20Architecture%20View%20Of%20G%2B3%20Building%20%26%20Open%20Tarrace%20Garden%2C%20Khardaha%2C%20Kolkata%2C%20year%202024/Khardaha_Kolkata1.png", "/images/projects/3D%20Architecture%20View%20Of%20G%2B3%20Building%20%26%20Open%20Tarrace%20Garden%2C%20Khardaha%2C%20Kolkata%2C%20year%202024/Khardaha_Kolkata2.png", "/images/projects/3D%20Architecture%20View%20Of%20G%2B3%20Building%20%26%20Open%20Tarrace%20Garden%2C%20Khardaha%2C%20Kolkata%2C%20year%202024/Khardaha_Kolkata3.png"], aspect: "aspect-[4/3]" },
+  { id: "P04", title: "3D Architecture Views Of Hotel & Restaurant & Shop, Al Rass Saudi Arabia year 2014-2015", category: "Commercial", location: "Al Rass, Saudi Arabia", image: "/images/projects/3D%20Architecture%20Views%20Of%20Hotel%20%26%20Restaurant%20%26%20Shop%2C%20Al%20Rass%20Saudi%20Arabia%20year%202014-2015/Commercial1.png", images: ["/images/projects/3D%20Architecture%20Views%20Of%20Hotel%20%26%20Restaurant%20%26%20Shop%2C%20Al%20Rass%20Saudi%20Arabia%20year%202014-2015/Commercial1.png", "/images/projects/3D%20Architecture%20Views%20Of%20Hotel%20%26%20Restaurant%20%26%20Shop%2C%20Al%20Rass%20Saudi%20Arabia%20year%202014-2015/Commercial2.png", "/images/projects/3D%20Architecture%20Views%20Of%20Hotel%20%26%20Restaurant%20%26%20Shop%2C%20Al%20Rass%20Saudi%20Arabia%20year%202014-2015/Commercial3.png", "/images/projects/3D%20Architecture%20Views%20Of%20Hotel%20%26%20Restaurant%20%26%20Shop%2C%20Al%20Rass%20Saudi%20Arabia%20year%202014-2015/Commercial4.png"], aspect: "aspect-[4/3]" },
   { id: "P05", title: "Al Rajhi Bank Clading Design Al Rass in the year of 2013", category: "Commercial", location: "Al Rass, Saudi Arabia", image: "/images/projects/Al%20Rajhi%20Bank%20Clading%20Design%20Al%20Rass%20in%20the%20year%20of%202013/WhatsApp%20Image%202026-08-18%20at%202.28.18%20AM.jpeg", images: ["/images/projects/Al%20Rajhi%20Bank%20Clading%20Design%20Al%20Rass%20in%20the%20year%20of%202013/WhatsApp%20Image%202026-08-18%20at%202.28.18%20AM.jpeg", "/images/projects/Al%20Rajhi%20Bank%20Clading%20Design%20Al%20Rass%20in%20the%20year%20of%202013/WhatsApp%20Image%202026-08-18%20at%202.28.18.1%20AM.jpeg"], aspect: "aspect-[4/3]" },
-  { id: "P06", title: "Axis Bank Interrior Kolkata, India, Upto 2024", category: "Interior", location: "Kolkata, India", image: "/images/projects/Axis%20Bank%20Interrior%20Kolkata%2C%20India%2C%20Upto%202024/Screenshot%202026-08-18%20124834.png", images: ["/images/projects/Axis%20Bank%20Interrior%20Kolkata%2C%20India%2C%20Upto%202024/Screenshot%202026-08-18%20124834.png", "/images/projects/Axis%20Bank%20Interrior%20Kolkata%2C%20India%2C%20Upto%202024/Screenshot%202026-08-18%20124839.png", "/images/projects/Axis%20Bank%20Interrior%20Kolkata%2C%20India%2C%20Upto%202024/Screenshot%202026-08-18%20124846.png", "/images/projects/Axis%20Bank%20Interrior%20Kolkata%2C%20India%2C%20Upto%202024/Screenshot%202026-08-18%20124854.png", "/images/projects/Axis%20Bank%20Interrior%20Kolkata%2C%20India%2C%20Upto%202024/Screenshot%202026-08-18%20124901.png", "/images/projects/Axis%20Bank%20Interrior%20Kolkata%2C%20India%2C%20Upto%202024/Screenshot%202026-08-18%20124907.png"], aspect: "aspect-[4/3]" },
-  { id: "P07", title: "Dinning Room Customer, Al, Rass, K.S.A", category: "Interior", location: "Al Rass, Saudi Arabia", image: "/images/projects/Dinning%20Room%20Customer%2C%20Al%2C%20Rass%2C%20K.S.A/Screenshot%202026-08-18%20135020.png", images: ["/images/projects/Dinning%20Room%20Customer%2C%20Al%2C%20Rass%2C%20K.S.A/Screenshot%202026-08-18%20135020.png", "/images/projects/Dinning%20Room%20Customer%2C%20Al%2C%20Rass%2C%20K.S.A/Screenshot%202026-08-18%20135025.png"], aspect: "aspect-[4/3]" },
-  { id: "P08", title: "Girls Bed Room Customers, Al, Rass, K.S.A", category: "Interior", location: "Al Rass, Saudi Arabia", image: "/images/projects/Girls%20Bed%20Room%20Customers%2C%20Al%2C%20Rass%2C%20K.S.A/Screenshot%202026-08-18%20134936.png", images: ["/images/projects/Girls%20Bed%20Room%20Customers%2C%20Al%2C%20Rass%2C%20K.S.A/Screenshot%202026-08-18%20134936.png", "/images/projects/Girls%20Bed%20Room%20Customers%2C%20Al%2C%20Rass%2C%20K.S.A/Screenshot%202026-08-18%20134941.png"], aspect: "aspect-[4/3]" },
-  { id: "P09", title: "Hospital Reception & Magasal Rl Rass- K.S.A", category: "Commercial", location: "Al Rass, Saudi Arabia", image: "/images/projects/Hospital%20Reception%20%26%20Magasal%20Rl%20Rass-%20K.S.A/Screenshot%202026-08-18%20125203.png", images: ["/images/projects/Hospital%20Reception%20%26%20Magasal%20Rl%20Rass-%20K.S.A/Screenshot%202026-08-18%20125203.png", "/images/projects/Hospital%20Reception%20%26%20Magasal%20Rl%20Rass-%20K.S.A/Screenshot%202026-08-18%20125210.png", "/images/projects/Hospital%20Reception%20%26%20Magasal%20Rl%20Rass-%20K.S.A/Screenshot%202026-08-18%20125217.png"], aspect: "aspect-[4/3]" },
-  { id: "P10", title: "Istraha In Al Rass, Abdul Saleh year 2012", category: "Residential", location: "Al Rass, Saudi Arabia", image: "/images/projects/Istraha%20In%20Al%20Rass%2C%20Abdul%20Saleh%20year%202012/Screenshot%202026-08-18%20120948.png", images: ["/images/projects/Istraha%20In%20Al%20Rass%2C%20Abdul%20Saleh%20year%202012/Screenshot%202026-08-18%20120948.png", "/images/projects/Istraha%20In%20Al%20Rass%2C%20Abdul%20Saleh%20year%202012/Screenshot%202026-08-18%20120953.png", "/images/projects/Istraha%20In%20Al%20Rass%2C%20Abdul%20Saleh%20year%202012/Screenshot%202026-08-18%20121001.png", "/images/projects/Istraha%20In%20Al%20Rass%2C%20Abdul%20Saleh%20year%202012/Screenshot%202026-08-18%20121006.png"], aspect: "aspect-[4/3]" },
+  { id: "P06", title: "Axis Bank Interrior Kolkata, India, Upto 2024", category: "Interior", location: "Kolkata, India", image: "/images/projects/Axis%20Bank%20Interrior%20Kolkata%2C%20India%2C%20Upto%202024/Interior1.png", images: ["/images/projects/Axis%20Bank%20Interrior%20Kolkata%2C%20India%2C%20Upto%202024/Interior1.png", "/images/projects/Axis%20Bank%20Interrior%20Kolkata%2C%20India%2C%20Upto%202024/Interior2.png", "/images/projects/Axis%20Bank%20Interrior%20Kolkata%2C%20India%2C%20Upto%202024/Interior3.png", "/images/projects/Axis%20Bank%20Interrior%20Kolkata%2C%20India%2C%20Upto%202024/Interior4.png", "/images/projects/Axis%20Bank%20Interrior%20Kolkata%2C%20India%2C%20Upto%202024/Interior5.png"], aspect: "aspect-[4/3]" },
+  { id: "P07", title: "Dinning Room Customer, Al, Rass, K.S.A", category: "Interior", location: "Al Rass, Saudi Arabia", image: "/images/projects/Dinning%20Room%20Customer%2C%20Al%2C%20Rass%2C%20K.S.A/Interior6.png", images: ["/images/projects/Dinning%20Room%20Customer%2C%20Al%2C%20Rass%2C%20K.S.A/Interior6.png", "/images/projects/Dinning%20Room%20Customer%2C%20Al%2C%20Rass%2C%20K.S.A/Interior7.png"], aspect: "aspect-[4/3]" },
+  { id: "P08", title: "Girls Bed Room Customers, Al, Rass, K.S.A", category: "Interior", location: "Al Rass, Saudi Arabia", image: "/images/projects/Girls%20Bed%20Room%20Customers%2C%20Al%2C%20Rass%2C%20K.S.A/Interior10.png", images: ["/images/projects/Girls%20Bed%20Room%20Customers%2C%20Al%2C%20Rass%2C%20K.S.A/Interior10.png", "/images/projects/Girls%20Bed%20Room%20Customers%2C%20Al%2C%20Rass%2C%20K.S.A/Interior8.png"], aspect: "aspect-[4/3]" },
+  { id: "P09", title: "Hospital Reception & Magasal Rl Rass- K.S.A", category: "Commercial", location: "Al Rass, Saudi Arabia", image: "/images/projects/Hospital%20Reception%20%26%20Magasal%20Rl%20Rass-%20K.S.A/Commercial1.png", images: ["/images/projects/Hospital%20Reception%20%26%20Magasal%20Rl%20Rass-%20K.S.A/Commercial1.png", "/images/projects/Hospital%20Reception%20%26%20Magasal%20Rl%20Rass-%20K.S.A/Commercial2.png", "/images/projects/Hospital%20Reception%20%26%20Magasal%20Rl%20Rass-%20K.S.A/Commercial3.png"], aspect: "aspect-[4/3]" },
+  { id: "P10", title: "Istraha In Al Rass, Abdul Saleh year 2012", category: "Residential", location: "Al Rass, Saudi Arabia", image: "/images/projects/Istraha%20In%20Al%20Rass%2C%20Abdul%20Saleh%20year%202012/Residential1.png", images: ["/images/projects/Istraha%20In%20Al%20Rass%2C%20Abdul%20Saleh%20year%202012/Residential1.png", "/images/projects/Istraha%20In%20Al%20Rass%2C%20Abdul%20Saleh%20year%202012/Residential2.png", "/images/projects/Istraha%20In%20Al%20Rass%2C%20Abdul%20Saleh%20year%202012/Residential3.png", "/images/projects/Istraha%20In%20Al%20Rass%2C%20Abdul%20Saleh%20year%202012/Residential4.png"], aspect: "aspect-[4/3]" },
   { id: "P11", title: "Kitchen Wardrobe, Doors & TV. Decors works", category: "Interior", location: "Gulf Region", image: "/images/projects/Kitchen%20Wardrobe%2C%20Doors%20%26%20TV.%20Decors%20works/Screenshot%202026-08-18%20135406.png", images: ["/images/projects/Kitchen%20Wardrobe%2C%20Doors%20%26%20TV.%20Decors%20works/Screenshot%202026-08-18%20135406.png", "/images/projects/Kitchen%20Wardrobe%2C%20Doors%20%26%20TV.%20Decors%20works/Screenshot%202026-08-18%20135410.png", "/images/projects/Kitchen%20Wardrobe%2C%20Doors%20%26%20TV.%20Decors%20works/Screenshot%202026-08-18%20135416.png", "/images/projects/Kitchen%20Wardrobe%2C%20Doors%20%26%20TV.%20Decors%20works/Screenshot%202026-08-18%20135423.png"], aspect: "aspect-[4/3]" },
   { id: "P12", title: "Kitchen Wardror, Doors & T.V Decor Works", category: "Interior", location: "Gulf Region", image: "/images/projects/Kitchen%20Wardror%2C%20Doors%20%26%20T.V%20Decor%20Works/Screenshot%202026-08-18%20135556.png", images: ["/images/projects/Kitchen%20Wardror%2C%20Doors%20%26%20T.V%20Decor%20Works/Screenshot%202026-08-18%20135556.png", "/images/projects/Kitchen%20Wardror%2C%20Doors%20%26%20T.V%20Decor%20Works/Screenshot%202026-08-18%20135604.png", "/images/projects/Kitchen%20Wardror%2C%20Doors%20%26%20T.V%20Decor%20Works/Screenshot%202026-08-18%20135610.png", "/images/projects/Kitchen%20Wardror%2C%20Doors%20%26%20T.V%20Decor%20Works/Screenshot%202026-08-18%20135616.png"], aspect: "aspect-[4/3]" },
   { id: "P13", title: "Landscaping Works In Customer, Al Rass 2012", category: "Landscape", location: "Al Rass, Saudi Arabia", image: "/images/projects/Landscaping%20Works%20In%20Customer%2C%20Al%20Rass%202012/Screenshot%202026-08-18%20120829.png", images: ["/images/projects/Landscaping%20Works%20In%20Customer%2C%20Al%20Rass%202012/Screenshot%202026-08-18%20120829.png", "/images/projects/Landscaping%20Works%20In%20Customer%2C%20Al%20Rass%202012/Screenshot%202026-08-18%20120834.png", "/images/projects/Landscaping%20Works%20In%20Customer%2C%20Al%20Rass%202012/Screenshot%202026-08-18%20120840.png", "/images/projects/Landscaping%20Works%20In%20Customer%2C%20Al%20Rass%202012/WhatsApp%20Image%202026-08-18%20at%202.28.18%20AM.jpeg"], aspect: "aspect-[4/3]" },
