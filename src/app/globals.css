@@ -2,7 +2,7 @@
 
 @theme {
   /* Premium Studio Palette — off-white / warm beige / charcoal-navy / bronze */
-  --color-brand-ivory: #FDFCFA;
+  --color-brand-ivory: #EFEBE3;
   --color-brand-beige: #F6F1E9;
   --color-brand-stone: #E7E1D4;
   --color-brand-gray: #EFEBE3;
@@ -15,7 +15,7 @@
   --color-brand-accent-deep: #9A7108;
   --color-brand-accent-light: #F0CC5A;
 
-  --color-background: #FDFCFA;
+  --color-background: #EFEBE3;
   --color-foreground: #1B1916;
 
   --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;

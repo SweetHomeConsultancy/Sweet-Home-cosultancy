@@ -113,7 +113,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* Gallery */}
-      <section className="bg-white py-8 md:py-14">
+      <section className="bg-[#EFEBE3] py-8 md:py-14">
         <div className="container-custom">
           {/* Filters */}
           <motion.div
@@ -137,7 +137,7 @@ export default function ProjectsPage() {
                     "group inline-flex cursor-pointer items-center gap-2.5 rounded-full border px-5 py-2.5 text-[0.62rem] font-bold uppercase tracking-[0.18em] transition-all duration-300",
                     active
                       ? "border-brand-charcoal bg-brand-charcoal text-white shadow-[0_14px_30px_rgba(27,25,22,0.25)]"
-                      : "border-brand-stone bg-white text-brand-muted hover:-translate-y-0.5 hover:border-brand-charcoal hover:text-brand-charcoal hover:shadow-[0_10px_24px_rgba(27,25,22,0.08)]"
+                      : "border-brand-stone bg-[#EFEBE3] text-brand-muted hover:-translate-y-0.5 hover:border-brand-charcoal hover:text-brand-charcoal hover:shadow-[0_10px_24px_rgba(27,25,22,0.08)]"
                   )}
                 >
                   {category}
@@ -234,7 +234,7 @@ export default function ProjectsPage() {
                     </div>
 
                     {/* Clean, High-Contrast, Responsive Action Bar */}
-                    <div className="mt-3 flex items-center justify-between rounded-lg border border-brand-stone/90 bg-[#FAF9F5] px-4 py-2.5 shadow-2xs transition-all duration-300 group-hover:border-[#BE9026]/60 group-hover:bg-white group-hover:shadow-md">
+                    <div className="mt-3 flex items-center justify-between rounded-lg border border-brand-stone/90 bg-[#FAF9F5] px-4 py-2.5 shadow-2xs transition-all duration-300 group-hover:border-[#BE9026]/60 group-hover:bg-[#EFEBE3] group-hover:shadow-md">
                       <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-charcoal">
                         <span className="h-2 w-2 rounded-full bg-[#BE9026]" />
                         View Gallery

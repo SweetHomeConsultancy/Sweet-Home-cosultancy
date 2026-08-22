@@ -45,7 +45,7 @@ export default function PrivacyPage() {
             {policies.map((policy, index) => (
               <li
                 key={index}
-                className="flex items-start gap-5 border border-brand-stone bg-white p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-accent/40 hover:shadow-[0_18px_40px_rgba(27,25,22,0.08)]"
+                className="flex items-start gap-5 border border-brand-stone bg-[#EFEBE3] p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-accent/40 hover:shadow-[0_18px_40px_rgba(27,25,22,0.08)]"
               >
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-brand-stone bg-brand-gray font-serif text-sm italic text-brand-accent-deep">
                   {String(index + 1).padStart(2, "0")}

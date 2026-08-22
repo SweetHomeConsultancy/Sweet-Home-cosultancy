@@ -47,7 +47,7 @@ const steps = [
 ];
 
 const baseInputLight =
-  "w-full rounded-lg border bg-[#FAF8F5] text-brand-charcoal placeholder:text-brand-muted/60 transition-all duration-200 focus:bg-white focus:outline-none focus:ring-2";
+  "w-full rounded-lg border bg-[#FAF8F5] text-brand-charcoal placeholder:text-brand-muted/60 transition-all duration-200 focus:bg-[#EFEBE3] focus:outline-none focus:ring-2";
 const normalInputLight = "border-brand-stone hover:border-brand-sand focus:border-brand-accent focus:ring-brand-accent/25";
 const errorInputLight = "border-red-400 bg-red-50/40 text-brand-charcoal focus:border-red-500 focus:ring-red-300/40";
 
@@ -121,7 +121,7 @@ export default function ContactPage() {
             {steps.map((step, i) => (
               <div
                 key={step.title}
-                className="group relative flex items-start gap-5 bg-white p-6 transition-colors duration-300 hover:bg-brand-beige md:p-7"
+                className="group relative flex items-start gap-5 bg-[#EFEBE3] p-6 transition-colors duration-300 hover:bg-brand-beige md:p-7"
               >
                 <span className="absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-gradient-to-r from-brand-accent via-brand-accent-light to-brand-accent transition-transform duration-500 group-hover:scale-x-100" />
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-brand-stone bg-brand-gray font-serif text-sm italic text-brand-accent-deep transition-all duration-300 group-hover:border-brand-accent group-hover:bg-brand-accent group-hover:text-white">
@@ -162,7 +162,7 @@ export default function ContactPage() {
                   const IconComp = item.icon;
                   const href = item.href;
                   const content = (
-                    <div className="group relative flex h-full flex-col gap-5 border border-brand-stone bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-accent/60 hover:shadow-[0_20px_45px_rgba(27,25,22,0.10)]">
+                    <div className="group relative flex h-full flex-col gap-5 border border-brand-accent bg-[#EFEBE3] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-accent hover:shadow-[0_20px_45px_rgba(27,25,22,0.10)]">
                       <span className="absolute right-5 top-5 font-serif text-lg italic leading-none text-brand-accent/40 transition-colors duration-300 group-hover:text-brand-accent-deep">
                         0{idx + 1}
                       </span>
@@ -211,7 +211,7 @@ export default function ContactPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="relative overflow-hidden border border-brand-stone bg-white p-6 sm:p-8 md:p-12 shadow-[0_20px_50px_rgba(27,25,22,0.06)]"
+              className="relative overflow-hidden border border-brand-stone bg-[#EFEBE3] p-6 sm:p-8 md:p-12 shadow-[0_20px_50px_rgba(27,25,22,0.06)]"
             >
               <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-brand-accent to-transparent" aria-hidden="true" />
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(200,152,14,0.04),transparent_60%)]" aria-hidden="true" />
@@ -324,7 +324,7 @@ export default function ContactPage() {
                             aria-invalid={!!errors.projectType}
                             aria-describedby={errors.projectType ? "projectType-error" : undefined}
                             {...register("projectType")}
-                            className={cn(iconFieldClass, "appearance-none bg-[#FAF8F5] cursor-pointer focus:bg-white [&>option]:bg-white [&>option]:text-brand-charcoal", errors.projectType && errorInputLight)}
+                            className={cn(iconFieldClass, "appearance-none bg-[#FAF8F5] cursor-pointer focus:bg-[#EFEBE3] [&>option]:bg-[#EFEBE3] [&>option]:text-brand-charcoal", errors.projectType && errorInputLight)}
                           >
                             <option value="">Select Project Type</option>
                             <option value="architecture">Architectural Design</option>
@@ -348,7 +348,7 @@ export default function ContactPage() {
                             aria-invalid={!!errors.budget}
                             aria-describedby={errors.budget ? "budget-error" : undefined}
                             {...register("budget")}
-                            className={cn(iconFieldClass, "appearance-none bg-[#FAF8F5] cursor-pointer focus:bg-white [&>option]:bg-white [&>option]:text-brand-charcoal", errors.budget && errorInputLight)}
+                            className={cn(iconFieldClass, "appearance-none bg-[#FAF8F5] cursor-pointer focus:bg-[#EFEBE3] [&>option]:bg-[#EFEBE3] [&>option]:text-brand-charcoal", errors.budget && errorInputLight)}
                           >
                             <option value="">Select Budget Range</option>
                             <option value="under_5l">Under ₹5 Lakhs</option>
@@ -458,7 +458,7 @@ export default function ContactPage() {
               referrerPolicy="no-referrer-when-downgrade"
               title="SWEET HOME office location — Titagarh, Kolkata"
             />
-            <div className="pointer-events-none absolute left-4 top-4 rounded-xl border border-brand-stone bg-white px-4 py-2.5 shadow-lg md:left-6 md:top-6">
+            <div className="pointer-events-none absolute left-4 top-4 rounded-xl border border-brand-stone bg-[#EFEBE3] px-4 py-2.5 shadow-lg md:left-6 md:top-6">
               <p className="flex items-center gap-2 text-[0.62rem] font-bold uppercase tracking-[0.18em] text-brand-charcoal">
                 <MapPin size={13} className="text-brand-accent" />
                 SWEET HOME — Titagarh, Kolkata

@@ -25,7 +25,11 @@ import {
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 36 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+  },
 };
 
 const stagger: Variants = {
@@ -40,22 +44,27 @@ const motionProps = (delay = 0) => ({
   whileInView: "visible" as const,
   viewport: { once: true, margin: "-80px" as const },
   variants: fadeUp,
-  transition: delay ? ({ delay, duration: 0.7, ease: EASE } as const) : undefined,
+  transition: delay
+    ? ({ delay, duration: 0.7, ease: EASE } as const)
+    : undefined,
 });
 
 const homeRow1 = projects.filter((p) =>
-  ["P01", "P02", "P04", "P06", "P10", "P17", "P20", "P28"].includes(p.id)
+  ["P01", "P02", "P04", "P06", "P10", "P17", "P20", "P28"].includes(p.id),
 );
 
 const homeRow2 = projects.filter((p) =>
-  ["P03", "P05", "P13", "P16", "P21", "P25", "P30", "P33"].includes(p.id)
+  ["P03", "P05", "P13", "P16", "P21", "P25", "P30", "P33"].includes(p.id),
 );
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-brand-ivory">
       {/* ================= HERO ================= */}
-      <section id="home-hero" className="relative flex min-h-svh items-end overflow-hidden bg-brand-navy">
+      <section
+        id="home-hero"
+        className="relative flex min-h-svh items-end overflow-hidden bg-brand-navy"
+      >
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/hero-main2.jpeg"
@@ -80,14 +89,20 @@ export default function Home() {
               <span className="inline-flex flex-wrap items-center gap-3 text-[0.65rem] font-bold uppercase tracking-[0.28em] text-brand-accent-light sm:text-[0.7rem] sm:tracking-[0.32em]">
                 <span className="hidden h-px w-10 bg-brand-accent-light sm:block" />
                 Architecture &middot; Interior Design &middot; Construction
-                <span className="hidden md:inline">&middot; Project Management &middot; Real Estate Consultancy</span>
+                <span className="hidden md:inline">
+                  &middot; Project Management &middot; Real Estate Consultancy
+                </span>
               </span>
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                duration: 0.9,
+                delay: 0.25,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               className="text-white"
               style={{ fontSize: "clamp(2.5rem, 7.5vw, 5.5rem)" }}
             >
@@ -96,7 +111,10 @@ export default function Home() {
                 <span className="block">
                   INSPIRE.
                   <span className="block">
-                    BUILD<span className="align-baseline font-serif italic font-normal text-brand-accent-light">.</span>
+                    BUILD
+                    <span className="align-baseline font-serif italic font-normal text-brand-accent-light">
+                      .
+                    </span>
                   </span>
                 </span>
               </span>
@@ -109,9 +127,9 @@ export default function Home() {
               className="mt-7 max-w-xl"
             >
               <p className="text-base font-light leading-relaxed text-white/80 md:text-lg">
-                An integrated architecture, interior design, construction and real estate
-                consultancy in Kolkata — transforming ideas into functional, aesthetically
-                pleasing and value-driven spaces.
+                An integrated architecture, interior design, construction and
+                real estate consultancy in Kolkata — transforming ideas into
+                functional, aesthetically pleasing and value-driven spaces.
               </p>
             </motion.div>
 
@@ -138,11 +156,11 @@ export default function Home() {
                 asChild
                 size="lg"
                 variant="outline-light"
-                className="border-white/50 bg-white/[0.06] backdrop-blur-[6px] transition-all duration-300 hover:-translate-y-1 hover:border-brand-accent-light hover:bg-brand-accent hover:shadow-[0_24px_60px_rgba(0,0,0,0.45)] active:translate-y-0"
+                className="border-white/50 bg-[#EFEBE3]/[0.06] backdrop-blur-[6px] transition-all duration-300 hover:-translate-y-1 hover:border-brand-accent-light hover:bg-brand-accent hover:shadow-[0_24px_60px_rgba(0,0,0,0.45)] active:translate-y-0"
               >
                 <Link href="/projects">
                   Explore Projects
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full border border-white/40 transition-all duration-300 group-hover:border-white/70 group-hover:bg-white/25 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full border border-white/40 transition-all duration-300 group-hover:border-white/70 group-hover:bg-[#EFEBE3]/25 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                     <ArrowUpRight size={13} />
                   </span>
                 </Link>
@@ -167,18 +185,18 @@ export default function Home() {
             className="mt-10 grid max-w-3xl grid-cols-2 gap-px sm:grid-cols-4 md:mt-12"
           >
             {stats.map((s, i) => (
-                <div
-                  key={s.label}
-                  className={`border-t border-white/15 py-5 ${i !== 0 ? "border-l border-white/15 pl-5" : ""} sm:py-6 sm:pl-5`}
-                >
-                  <div className="font-heading text-2xl font-semibold tracking-tight text-white md:text-3xl">
-                    {s.value}
-                  </div>
-                  <div className="mt-1 text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-white/60">
-                    {s.label}
-                  </div>
+              <div
+                key={s.label}
+                className={`border-t border-white/15 py-5 ${i !== 0 ? "border-l border-white/15 pl-5" : ""} sm:py-6 sm:pl-5`}
+              >
+                <div className="font-heading text-2xl font-semibold tracking-tight text-white md:text-3xl">
+                  {s.value}
                 </div>
-              ))}
+                <div className="mt-1 text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-white/60">
+                  {s.label}
+                </div>
+              </div>
+            ))}
           </motion.div>
         </div>
 
@@ -217,7 +235,15 @@ export default function Home() {
         <div className="animate-marquee will-change-transform motion-reduce:animate-none group-hover:[animation-play-state:paused] flex w-max select-none items-center whitespace-nowrap">
           {[0, 1].map((rep) => (
             <div key={rep} className="flex items-center">
-              {["Architecture", "Interior Design", "Construction", "Project Management", "Real Estate Consultancy", "Turnkey Solutions", "Design • Inspire • Build"].map((term) => (
+              {[
+                "Architecture",
+                "Interior Design",
+                "Construction",
+                "Project Management",
+                "Real Estate Consultancy",
+                "Turnkey Solutions",
+                "Design • Inspire • Build",
+              ].map((term) => (
                 <span key={`${rep}-${term}`} className="flex items-center">
                   {term === "Design • Inspire • Build" ? (
                     <span className="mx-9 font-serif text-sm italic tracking-[0.14em] text-brand-accent-light [text-shadow:0_0_24px_rgba(215,188,141,0.45)] md:text-base">
@@ -240,7 +266,10 @@ export default function Home() {
       </div>
 
       {/* ================= ABOUT SWEET HOME ================= */}
-      <section id="about" className="relative overflow-hidden bg-brand-ivory py-10 md:py-14">
+      <section
+        id="about"
+        className="relative overflow-hidden bg-brand-ivory py-10 md:py-14"
+      >
         {/* Subtle background ambient element */}
         <div
           aria-hidden="true"
@@ -250,9 +279,14 @@ export default function Home() {
         <div className="container-custom relative">
           <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
             {/* Left Content */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} variants={stagger}>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              variants={stagger}
+            >
               <motion.div variants={fadeUp}>
-                <div className="inline-flex items-center gap-2 rounded-full border border-brand-accent/30 bg-white/80 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-brand-accent-deep shadow-xs backdrop-blur-sm">
+                <div className="inline-flex items-center gap-2 rounded-full border border-brand-accent/30 bg-[#EFEBE3]/80 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-brand-accent-deep shadow-xs backdrop-blur-sm">
                   <span className="h-1.5 w-1.5 rounded-full bg-brand-accent" />
                   About SWEET HOME
                 </div>
@@ -264,17 +298,34 @@ export default function Home() {
                 </h2>
               </motion.div>
 
-              <motion.div variants={fadeUp} className="mt-4 max-w-xl space-y-3.5">
+              <motion.div
+                variants={fadeUp}
+                className="mt-4 max-w-xl space-y-3.5"
+              >
                 <p className="text-base font-normal leading-relaxed text-brand-charcoal/90 sm:text-lg">
-                  <strong className="font-semibold text-brand-charcoal">Sweet Home Consultancy Services</strong> is a professional Architectural, Interior Design, Construction, and Project Management consultancy dedicated to delivering high-quality design and construction solutions.
+                  <strong className="font-semibold text-brand-charcoal">
+                    Sweet Home Consultancy Services
+                  </strong>{" "}
+                  is a professional Architectural, Interior Design,
+                  Construction, and Project Management consultancy dedicated to
+                  delivering high-quality design and construction solutions.
                 </p>
                 <p className="text-sm font-light leading-relaxed text-brand-muted sm:text-base">
-                  With extensive industry experience in <strong className="font-medium text-brand-charcoal">India and the Gulf region</strong>, we provide practical, cost-effective, and client-focused services for residential, commercial, and renovation projects while ensuring timely execution and complete satisfaction.
+                  With extensive industry experience in{" "}
+                  <strong className="font-medium text-brand-charcoal">
+                    India and the Gulf region
+                  </strong>
+                  , we provide practical, cost-effective, and client-focused
+                  services for residential, commercial, and renovation projects
+                  while ensuring timely execution and complete satisfaction.
                 </p>
               </motion.div>
 
               {/* Key Highlights / Badges - Modern & Compact */}
-              <motion.div variants={fadeUp} className="mt-5 grid grid-cols-2 gap-2.5 sm:flex sm:flex-wrap">
+              <motion.div
+                variants={fadeUp}
+                className="mt-5 grid grid-cols-2 gap-2.5 sm:flex sm:flex-wrap"
+              >
                 {[
                   "Architectural Design",
                   "Interior & Turnkey",
@@ -283,7 +334,7 @@ export default function Home() {
                 ].map((tag) => (
                   <span
                     key={tag}
-                    className="inline-flex items-center gap-1.5 rounded-md border border-brand-stone bg-white/90 px-2.5 py-1.5 text-xs font-medium text-brand-charcoal shadow-2xs"
+                    className="inline-flex items-center gap-1.5 rounded-md border border-brand-stone bg-[#EFEBE3]/90 px-2.5 py-1.5 text-xs font-medium text-brand-charcoal shadow-2xs"
                   >
                     <span className="h-1 w-1 rounded-full bg-brand-accent" />
                     {tag}
@@ -292,15 +343,26 @@ export default function Home() {
               </motion.div>
 
               {/* Action & Direct Call / WhatsApp Row */}
-              <motion.div variants={fadeUp} className="mt-6 flex flex-wrap items-center gap-3 sm:gap-4">
+              <motion.div
+                variants={fadeUp}
+                className="mt-6 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4"
+              >
                 {/* Calling Action Button */}
                 <a
                   href={`tel:${contactInfo.tel1}`}
-                  className="group inline-flex items-center gap-2 rounded-lg bg-brand-charcoal px-4 py-2.5 text-xs font-semibold tracking-wider text-white shadow-md transition-all duration-300 hover:bg-brand-accent-deep hover:shadow-lg sm:text-sm"
+                  className="group inline-flex w-full justify-center items-center gap-2 rounded-lg bg-brand-charcoal px-4 py-2.5 text-xs font-semibold tracking-wider text-white shadow-md transition-all duration-300 hover:bg-brand-accent-deep hover:shadow-lg sm:w-auto sm:text-sm"
                   title="Call SWEET HOME directly"
                 >
-                  <Phone size={15} className="text-brand-accent-light transition-transform duration-300 group-hover:scale-110" />
-                  <span>Call: <strong className="font-bold tracking-normal">{contactInfo.phone1}</strong></span>
+                  <Phone
+                    size={15}
+                    className="text-brand-accent-light transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <span>
+                    Contact :{" "}
+                    <strong className="font-bold tracking-normal">
+                      {contactInfo.phone1}
+                    </strong>
+                  </span>
                 </a>
 
                 {/* WhatsApp Action Button */}
@@ -308,20 +370,37 @@ export default function Home() {
                   href={contactInfo.whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-4 py-2.5 text-xs font-semibold tracking-wider text-white shadow-md transition-all duration-300 hover:bg-[#1eb457] hover:shadow-lg sm:text-sm"
+                  className="group inline-flex w-full justify-center items-center gap-2 rounded-lg bg-[#25D366] px-4 py-2.5 text-xs font-semibold tracking-wider text-white shadow-md transition-all duration-300 hover:bg-[#1eb457] hover:shadow-lg sm:w-auto sm:text-sm"
                   title="Chat on WhatsApp"
                 >
-                  <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:scale-110">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:scale-110"
+                  >
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                   </svg>
-                  <span>WhatsApp: <strong className="font-bold tracking-normal">{contactInfo.phone1}</strong></span>
+                  <span>
+                    WhatsApp:{" "}
+                    <strong className="font-bold tracking-normal">
+                      {contactInfo.phone1}
+                    </strong>
+                  </span>
                 </a>
 
                 {/* About Link */}
-                <Button asChild size="sm" variant="outline" className="group h-10 px-3.5 text-xs font-semibold rounded-xl">
+                <Button
+                  asChild
+                  size="sm"
+                  variant="outline"
+                  className="group flex h-10 w-full items-center justify-center gap-1.5 rounded-xl px-3.5 text-xs font-semibold sm:inline-flex sm:w-auto"
+                >
                   <Link href="/about" className="flex items-center gap-1.5">
                     Discover Process
-                    <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
+                    <ArrowRight
+                      size={14}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
                   </Link>
                 </Button>
               </motion.div>
@@ -344,7 +423,7 @@ export default function Home() {
                   className="object-cover transition-transform duration-[1.2s] ease-out hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/65 via-transparent to-transparent" />
-                
+
                 {/* Overlay Badge at bottom left of image */}
                 <div className="absolute -bottom-1 left-1 rounded-md bg-brand-charcoal/85 px-2.5 py-1 backdrop-blur-md text-white border border-white/10 sm:bottom-4 sm:left-4 sm:px-3 sm:py-1.5">
                   <p className="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-brand-accent-light sm:text-[0.65rem]">
@@ -361,7 +440,10 @@ export default function Home() {
       </section>
 
       {/* ================= SERVICES / OUR EXPERTISE ================= */}
-      <section id="services" className="relative scroll-mt-24 overflow-hidden border-y border-white/10 bg-[#1B1916] py-12 md:py-20 text-white">
+      <section
+        id="services"
+        className="relative scroll-mt-24 overflow-hidden border-y border-brand-stone bg-[#EFEBE3] py-12 md:py-20"
+      >
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -right-[20rem] -top-[16rem] h-[36rem] w-[36rem] rounded-full bg-[radial-gradient(circle,rgba(200,152,14,0.12)_0%,transparent_65%)]"
@@ -374,18 +456,20 @@ export default function Home() {
           <motion.div {...motionProps(0)} className="max-w-3xl">
             <SectionHeading
               eyebrow="Our Expertise"
-              light
               title={
                 <>
                   Integrated services, one{" "}
-                  <em className="font-serif italic font-normal text-brand-accent-light">accountable</em> partner.
+                  <em className="font-serif italic font-normal text-brand-accent-deep">
+                    accountable
+                  </em>{" "}
+                  partner.
                 </>
               }
             />
-            <p className="mt-4 max-w-2xl text-base font-light leading-relaxed text-white/75 sm:text-lg">
-              We own every discipline — architecture, interior design, construction,
-              project management and real estate — so nothing is lost between consultant
-              and contractor.
+            <p className="mt-4 max-w-2xl text-base font-light leading-relaxed text-brand-muted sm:text-lg">
+              We own every discipline — architecture, interior design,
+              construction, project management and real estate — so nothing is
+              lost between consultant and contractor.
             </p>
           </motion.div>
 
@@ -400,7 +484,7 @@ export default function Home() {
               <motion.article
                 key={service.title}
                 variants={fadeUp}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-white/20 bg-white shadow-xl transition-all duration-400 ease-out hover:-translate-y-1.5 hover:border-[#BE9026] hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-white/20 bg-[#EFEBE3] shadow-xl transition-all duration-400 ease-out hover:-translate-y-1.5 hover:border-[#BE9026] hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
               >
                 {/* Top Image & Number Badge */}
                 <div className="relative w-full">
@@ -481,7 +565,10 @@ export default function Home() {
       {/* ================= MARQUEE GALLERY ================= */}
       <section className="relative overflow-hidden border-b border-brand-stone bg-brand-charcoal py-8 md:py-12">
         <div className="container-custom">
-          <motion.div {...motionProps(0)} className="mx-auto flex max-w-3xl flex-col items-center text-center">
+          <motion.div
+            {...motionProps(0)}
+            className="mx-auto flex max-w-3xl flex-col items-center text-center"
+          >
             <SectionHeading
               eyebrow="Our Projects"
               light
@@ -489,7 +576,9 @@ export default function Home() {
               title={
                 <>
                   A look at{" "}
-                  <em className="font-serif italic font-normal text-brand-accent-light">our projects.</em>
+                  <em className="font-serif italic font-normal text-brand-accent-light">
+                    our projects.
+                  </em>
                 </>
               }
             />
@@ -501,21 +590,31 @@ export default function Home() {
       </section>
 
       {/* ================= PROCESS ================= */}
-      <section id="process" className="relative scroll-mt-24 overflow-hidden border-y border-brand-stone bg-white py-8 md:py-12">
+      <section
+        id="process"
+        className="relative scroll-mt-24 overflow-hidden border-y border-brand-stone bg-[#EFEBE3] py-8 md:py-12"
+      >
         <div className="container-custom relative">
-          <motion.div {...motionProps(0)} className="mx-auto flex max-w-3xl flex-col items-center text-center">
+          <motion.div
+            {...motionProps(0)}
+            className="mx-auto flex max-w-3xl flex-col items-center text-center"
+          >
             <SectionHeading
               eyebrow="How We Work"
               align="center"
               title={
                 <>
                   A disciplined path from{" "}
-                  <em className="font-serif italic font-normal text-brand-accent-deep">concept</em> to key handover.
+                  <em className="font-serif italic font-normal text-brand-accent-deep">
+                    concept
+                  </em>{" "}
+                  to key handover.
                 </>
               }
             />
             <p className="mt-5 max-w-xl text-base font-light leading-relaxed text-brand-muted">
-              Six refined stages, meticulously supervised — so every project lands exactly as promised.
+              Six refined stages, meticulously supervised — so every project
+              lands exactly as promised.
             </p>
           </motion.div>
 
@@ -537,8 +636,12 @@ export default function Home() {
               className="grid grid-cols-6 gap-6"
             >
               {processSteps.map((step) => (
-                <motion.div key={step.num} variants={fadeUp} className="group relative pt-14">
-                  <span className="absolute left-0 top-0 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-brand-accent/40 bg-white font-serif text-sm italic text-brand-accent-deep shadow-[0_6px_18px_rgba(27,25,22,0.06)] transition-all duration-500 group-hover:border-brand-accent group-hover:bg-gradient-to-br group-hover:from-brand-accent-light group-hover:via-brand-accent group-hover:to-brand-accent-deep group-hover:text-white group-hover:shadow-[0_10px_28px_rgba(160,120,0,0.45)]">
+                <motion.div
+                  key={step.num}
+                  variants={fadeUp}
+                  className="group relative pt-14"
+                >
+                  <span className="absolute left-0 top-0 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-brand-accent/40 bg-[#EFEBE3] font-serif text-sm italic text-brand-accent-deep shadow-[0_6px_18px_rgba(27,25,22,0.06)] transition-all duration-500 group-hover:border-brand-accent group-hover:bg-gradient-to-br group-hover:from-brand-accent-light group-hover:via-brand-accent group-hover:to-brand-accent-deep group-hover:text-white group-hover:shadow-[0_10px_28px_rgba(160,120,0,0.45)]">
                     {step.num}
                   </span>
                   <span
@@ -574,7 +677,7 @@ export default function Home() {
                   {...motionProps(i * 0.06)}
                   className="group relative pb-9 last:pb-0"
                 >
-                  <span className="absolute left-0 top-0 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full border border-brand-accent/40 bg-white font-serif text-xs italic text-brand-accent-deep shadow-[0_6px_16px_rgba(27,25,22,0.06)] transition-all duration-500 group-hover:border-brand-accent group-hover:bg-brand-accent group-hover:text-white">
+                  <span className="absolute left-0 top-0 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full border border-brand-accent/40 bg-[#EFEBE3] font-serif text-xs italic text-brand-accent-deep shadow-[0_6px_16px_rgba(27,25,22,0.06)] transition-all duration-500 group-hover:border-brand-accent group-hover:bg-brand-accent group-hover:text-white">
                     {step.num}
                   </span>
                   <h3 className="flex items-center gap-2.5 font-heading text-base font-semibold tracking-tight text-brand-charcoal md:text-lg">
@@ -595,7 +698,8 @@ export default function Home() {
           >
             <span className="hidden h-px w-12 bg-brand-accent/40 sm:block" />
             <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-muted">
-              The same disciplined sequence on every project — never left to chance
+              The same disciplined sequence on every project — never left to
+              chance
             </p>
             <span className="hidden h-px w-12 bg-brand-accent/40 sm:block" />
           </motion.div>
@@ -603,10 +707,19 @@ export default function Home() {
       </section>
 
       {/* ================= WHY CHOOSE US ================= */}
-      <section id="why-choose-us" className="relative overflow-hidden bg-brand-charcoal py-8 text-white md:py-12">
-        <div className="pointer-events-none absolute inset-x-0 top-0 mx-auto h-72 max-w-3xl bg-[radial-gradient(closest-side,rgba(215,188,141,0.10),transparent)]" aria-hidden="true" />
+      <section
+        id="why-choose-us"
+        className="relative overflow-hidden bg-brand-charcoal py-8 text-white md:py-12"
+      >
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 mx-auto h-72 max-w-3xl bg-[radial-gradient(closest-side,rgba(215,188,141,0.10),transparent)]"
+          aria-hidden="true"
+        />
         <div className="container-custom relative">
-          <motion.div {...motionProps(0)} className="mx-auto flex max-w-3xl flex-col items-center text-center">
+          <motion.div
+            {...motionProps(0)}
+            className="mx-auto flex max-w-3xl flex-col items-center text-center"
+          >
             <SectionHeading
               eyebrow="Why Choose Us"
               align="center"
@@ -614,7 +727,9 @@ export default function Home() {
               title={
                 <>
                   The SWEET HOME{" "}
-                  <em className="font-serif italic font-normal text-brand-accent-light">advantage.</em>
+                  <em className="font-serif italic font-normal text-brand-accent-light">
+                    advantage.
+                  </em>
                 </>
               }
             />
@@ -631,12 +746,16 @@ export default function Home() {
               <motion.div
                 key={feature.title}
                 variants={fadeUp}
-                className="group relative flex flex-col gap-5 border border-white/10 bg-white/[0.03] p-7 transition-all duration-500 hover:-translate-y-1 hover:border-brand-accent/60 hover:bg-white/[0.06] hover:shadow-[0_24px_60px_rgba(0,0,0,0.35)]"
+                className="group relative flex flex-col gap-5 border border-white/10 bg-[#EFEBE3]/[0.03] p-7 transition-all duration-500 hover:-translate-y-1 hover:border-brand-accent/60 hover:bg-[#EFEBE3]/[0.06] hover:shadow-[0_24px_60px_rgba(0,0,0,0.35)]"
               >
                 <span className="pointer-events-none absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-gradient-to-r from-transparent via-brand-accent-light to-transparent transition-transform duration-500 group-hover:scale-x-100" />
                 <div className="flex items-center justify-between">
                   <span className="relative flex h-12 w-12 items-center justify-center rounded-xl border border-white/15 transition-all duration-300 group-hover:border-brand-accent group-hover:bg-brand-accent">
-                    <feature.icon size={22} strokeWidth={1.5} className="text-brand-accent-light transition-colors duration-300 group-hover:text-white" />
+                    <feature.icon
+                      size={22}
+                      strokeWidth={1.5}
+                      className="text-brand-accent-light transition-colors duration-300 group-hover:text-white"
+                    />
                   </span>
                   <span className="font-serif text-lg italic text-white/25 transition-colors duration-300 group-hover:text-brand-accent-light">
                     0{i + 1}
@@ -671,8 +790,13 @@ export default function Home() {
         </div>
 
         <div className="container-custom relative z-10 py-14 text-center md:py-20">
-          <motion.div {...motionProps(0)} className="mx-auto flex max-w-3xl flex-col items-center">
-            <span className="eyebrow-light mb-6 justify-center">Begin Today</span>
+          <motion.div
+            {...motionProps(0)}
+            className="mx-auto flex max-w-3xl flex-col items-center"
+          >
+            <span className="eyebrow-light mb-6 justify-center">
+              Begin Today
+            </span>
             <h2
               className="text-balance font-semibold leading-[1.05] tracking-tight text-white"
               style={{ fontSize: "clamp(2.4rem, 5.5vw, 4.25rem)" }}
@@ -680,18 +804,25 @@ export default function Home() {
               Have a project in mind?
             </h2>
             <p className="mt-6 max-w-xl text-base font-light leading-relaxed text-white/75 md:text-lg">
-              Let&apos;s transform your idea into a thoughtfully designed and professionally
-              executed space.
+              Let&apos;s transform your idea into a thoughtfully designed and
+              professionally executed space.
             </p>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
               <Button asChild size="lg" variant="gold">
                 <Link href="/contact">
                   Get a Quote
-                  <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <ArrowUpRight
+                    size={16}
+                    className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline-light">
-                <Link href={contactInfo.whatsappLink} target="_blank" rel="noopener noreferrer">
+                <Link
+                  href={contactInfo.whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   WhatsApp Us <Compass size={16} />
                 </Link>
               </Button>

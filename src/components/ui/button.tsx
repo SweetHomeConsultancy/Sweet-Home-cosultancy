@@ -24,11 +24,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
               variant === "gold",
             "btn-gloss btn-sheen border border-brand-accent-light/70 bg-gradient-to-b from-brand-accent-light via-brand-accent to-brand-accent-deep text-white shadow-[0_2px_10px_rgba(143,112,64,0.2)] hover:-translate-y-[2px] hover:border-brand-accent-light hover:from-brand-accent hover:via-brand-accent-light hover:to-brand-accent hover:shadow-[0_4px_12px_rgba(143,112,64,0.3)] active:translate-y-0 active:shadow-[0_2px_8px_rgba(143,112,64,0.2)]":
               variant === "gold-glossy",
-            "btn-sheen border border-brand-ivory bg-brand-ivory text-brand-charcoal hover:-translate-y-[2px] hover:border-white hover:bg-white hover:shadow-[0_18px_40px_rgba(0,0,0,0.35)] active:translate-y-0 active:shadow-none":
+            "btn-sheen border border-brand-ivory bg-brand-ivory text-brand-charcoal hover:-translate-y-[2px] hover:border-white hover:bg-[#EFEBE3] hover:shadow-[0_18px_40px_rgba(0,0,0,0.35)] active:translate-y-0 active:shadow-none":
               variant === "ivory",
             "border border-brand-charcoal/25 bg-transparent text-brand-charcoal hover:-translate-y-[2px] hover:border-brand-charcoal hover:bg-brand-charcoal hover:text-white hover:shadow-[0_14px_30px_rgba(27,25,22,0.14)] active:translate-y-0 active:shadow-none":
               variant === "outline",
-            "border border-white/40 bg-transparent text-white hover:-translate-y-[2px] hover:border-white hover:bg-white hover:text-brand-charcoal hover:shadow-[0_14px_30px_rgba(0,0,0,0.25)] active:translate-y-0 active:shadow-none":
+            "border border-white/40 bg-transparent text-white hover:-translate-y-[2px] hover:border-white hover:bg-[#EFEBE3] hover:text-brand-charcoal hover:shadow-[0_14px_30px_rgba(0,0,0,0.25)] active:translate-y-0 active:shadow-none":
               variant === "outline-light",
             "bg-transparent text-brand-charcoal hover:bg-brand-accent/10 hover:text-brand-accent":
               variant === "ghost",

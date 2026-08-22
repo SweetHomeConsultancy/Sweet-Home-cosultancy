@@ -121,7 +121,7 @@ export default function AboutPage() {
               </motion.div>
 
               {/* Contact Hub with both numbers */}
-              <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-3 rounded-lg border border-brand-stone bg-white/80 p-4 shadow-xs backdrop-blur-xs">
+              <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-3 rounded-lg border border-brand-stone bg-[#EFEBE3]/80 p-4 shadow-xs backdrop-blur-xs">
                 <div className="text-[0.7rem] font-bold uppercase tracking-[0.2em] text-brand-muted">
                   Direct Contact & Consultation Lines
                 </div>
@@ -132,15 +132,15 @@ export default function AboutPage() {
                     title="Call Primary Number"
                   >
                     <Phone size={13} className="text-brand-accent-light" />
-                    <span>Call: {contactInfo.phone1}</span>
+                    <span>Contact : {contactInfo.phone1}</span>
                   </a>
                   <a
                     href={`tel:${contactInfo.tel2}`}
-                    className="inline-flex items-center gap-2 rounded-md border border-brand-charcoal/20 bg-white px-3.5 py-2 text-xs font-semibold text-brand-charcoal shadow-xs transition-colors hover:border-brand-accent hover:bg-brand-ivory"
+                    className="inline-flex items-center gap-2 rounded-md border border-brand-charcoal/20 bg-[#EFEBE3] px-3.5 py-2 text-xs font-semibold text-brand-charcoal shadow-xs transition-colors hover:border-brand-accent hover:bg-brand-ivory"
                     title="Call Secondary Number"
                   >
                     <Phone size={13} className="text-brand-accent" />
-                    <span>Call: {contactInfo.phone2}</span>
+                    <span>Contact : {contactInfo.phone2}</span>
                   </a>
                   <a
                     href={contactInfo.whatsappLink}
@@ -197,7 +197,7 @@ export default function AboutPage() {
           >
             <motion.article
               variants={fadeUp}
-              className="group relative flex flex-col gap-5 border border-brand-stone bg-white p-8 transition-all duration-500 hover:-translate-y-1 hover:border-brand-accent/50 hover:shadow-[0_24px_60px_rgba(27,25,22,0.12)]"
+              className="group relative flex flex-col gap-5 border border-brand-stone bg-[#EFEBE3] p-8 transition-all duration-500 hover:-translate-y-1 hover:border-brand-accent/50 hover:shadow-[0_24px_60px_rgba(27,25,22,0.12)]"
             >
               <span className="pointer-events-none absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-gradient-to-r from-transparent via-brand-accent to-transparent transition-transform duration-500 group-hover:scale-x-100" />
               <span className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-accent/15 text-brand-accent-deep transition-colors duration-300 group-hover:bg-brand-accent group-hover:text-white">
@@ -215,7 +215,7 @@ export default function AboutPage() {
 
             <motion.article
               variants={fadeUp}
-              className="group relative flex flex-col gap-5 border border-brand-stone bg-white p-8 transition-all duration-500 hover:-translate-y-1 hover:border-brand-accent/50 hover:shadow-[0_24px_60px_rgba(27,25,22,0.12)]"
+              className="group relative flex flex-col gap-5 border border-brand-stone bg-[#EFEBE3] p-8 transition-all duration-500 hover:-translate-y-1 hover:border-brand-accent/50 hover:shadow-[0_24px_60px_rgba(27,25,22,0.12)]"
             >
               <span className="pointer-events-none absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-gradient-to-r from-transparent via-brand-accent to-transparent transition-transform duration-500 group-hover:scale-x-100" />
               <span className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-accent/15 text-brand-accent-deep transition-colors duration-300 group-hover:bg-brand-accent group-hover:text-white">
@@ -243,7 +243,7 @@ export default function AboutPage() {
               <motion.span
                 key={value}
                 variants={fadeUp}
-                className="inline-flex items-center gap-2 rounded-full border border-brand-stone bg-white px-5 py-2.5 text-[0.62rem] font-bold uppercase tracking-[0.18em] text-brand-charcoal transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-accent hover:shadow-[0_10px_24px_rgba(27,25,22,0.08)]"
+                className="inline-flex items-center gap-2 rounded-full border border-brand-stone bg-[#EFEBE3] px-5 py-2.5 text-[0.62rem] font-bold uppercase tracking-[0.18em] text-brand-charcoal transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-accent hover:shadow-[0_10px_24px_rgba(27,25,22,0.08)]"
               >
                 <span className="inline-block h-[5px] w-[5px] rotate-45 bg-brand-accent" />
                 {value}
@@ -339,7 +339,7 @@ export default function AboutPage() {
                   {founder.municipalities.map((muni) => (
                     <div
                       key={muni}
-                      className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-2.5 py-2 text-xs font-medium text-white"
+                      className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-[#EFEBE3]/5 px-2.5 py-2 text-xs font-medium text-white"
                     >
                       <CheckCircle2 size={12} className="shrink-0 text-brand-accent" />
                       <span className="truncate" title={muni}>
@@ -499,7 +499,7 @@ export default function AboutPage() {
                 <motion.span
                   key={area}
                   variants={fadeUp}
-                  className="inline-flex items-center gap-2 rounded-full border border-brand-stone bg-white px-5 py-2.5 text-[0.62rem] font-bold uppercase tracking-[0.18em] text-brand-charcoal transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-accent hover:shadow-[0_10px_24px_rgba(27,25,22,0.08)]"
+                  className="inline-flex items-center gap-2 rounded-full border border-brand-stone bg-[#EFEBE3] px-5 py-2.5 text-[0.62rem] font-bold uppercase tracking-[0.18em] text-brand-charcoal transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-accent hover:shadow-[0_10px_24px_rgba(27,25,22,0.08)]"
                 >
                   <MapPin size={12} className="text-brand-accent" />
                   {area}
