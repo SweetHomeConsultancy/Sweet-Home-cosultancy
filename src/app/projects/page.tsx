@@ -113,7 +113,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* Gallery */}
-      <section className="bg-brand-ivory py-8 md:py-14">
+      <section className="bg-white py-8 md:py-14">
         <div className="container-custom">
           {/* Filters */}
           <motion.div

@@ -58,7 +58,7 @@ export default function Home() {
       <section id="home-hero" className="relative flex min-h-svh items-end overflow-hidden bg-brand-navy">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/hero-main.jpg"
+            src="/images/hero-main2.jpeg"
             alt="Premium architectural residence designed and built by SWEET HOME"
             fill
             priority
@@ -91,7 +91,7 @@ export default function Home() {
               className="text-white"
               style={{ fontSize: "clamp(2.5rem, 7.5vw, 5.5rem)" }}
             >
-              <span className="block font-semibold leading-[0.92] tracking-tight">
+              <span className="block font-semibold leading-[1.05] sm:leading-[0.92]  tracking-tight">
                 DESIGN.
                 <span className="block">
                   INSPIRE.
@@ -335,7 +335,7 @@ export default function Home() {
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="relative mx-auto w-full max-w-md lg:max-w-none"
             >
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-brand-gray shadow-xl sm:aspect-[16/11]">
+              <div className="relative aspect-[4/3] w-full rounded-lg bg-brand-gray shadow-xl sm:aspect-[16/11]">
                 <Image
                   src="/images/cta/Sweet_Home_section_image_aboutpage.jpeg"
                   alt="SWEET HOME Architectural & Interior Design Project"
@@ -345,23 +345,14 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/65 via-transparent to-transparent" />
                 
-                {/* Overlay Badge at bottom of image */}
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between rounded-md bg-brand-charcoal/85 p-3 backdrop-blur-md text-white border border-white/10 sm:bottom-4 sm:left-4 sm:right-4">
-                  <div>
-                    <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-brand-accent-light">
-                      SWEET HOME
-                    </p>
-                    <p className="text-xs font-semibold text-white sm:text-sm">
-                      Kolkata • India & Gulf
-                    </p>
-                  </div>
-                  <a
-                    href={`tel:${contactInfo.tel1}`}
-                    className="flex items-center gap-1.5 rounded bg-brand-accent px-2.5 py-1.5 text-[0.7rem] font-bold text-brand-charcoal transition-colors hover:bg-brand-accent-light"
-                  >
-                    <Phone size={12} />
-                    <span>{contactInfo.phone1}</span>
-                  </a>
+                {/* Overlay Badge at bottom left of image */}
+                <div className="absolute -bottom-1 left-1 rounded-md bg-brand-charcoal/85 px-2.5 py-1 backdrop-blur-md text-white border border-white/10 sm:bottom-4 sm:left-4 sm:px-3 sm:py-1.5">
+                  <p className="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-brand-accent-light sm:text-[0.65rem]">
+                    SWEET HOME
+                  </p>
+                  <p className="text-[0.7rem] font-semibold text-white sm:text-xs">
+                    Kolkata • India
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -370,27 +361,28 @@ export default function Home() {
       </section>
 
       {/* ================= SERVICES / OUR EXPERTISE ================= */}
-      <section id="services" className="relative scroll-mt-24 overflow-hidden bg-brand-gray py-12 md:py-16">
+      <section id="services" className="relative scroll-mt-24 overflow-hidden border-y border-white/10 bg-[#1B1916] py-12 md:py-20 text-white">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -right-[20rem] -top-[16rem] h-[36rem] w-[36rem] rounded-full bg-[radial-gradient(circle,rgba(173,138,84,0.14)_0%,transparent_65%)]"
+          className="pointer-events-none absolute -right-[20rem] -top-[16rem] h-[36rem] w-[36rem] rounded-full bg-[radial-gradient(circle,rgba(200,152,14,0.12)_0%,transparent_65%)]"
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -bottom-[18rem] -left-[18rem] h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,rgba(173,138,84,0.10)_0%,transparent_65%)]"
+          className="pointer-events-none absolute -bottom-[18rem] -left-[18rem] h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,rgba(200,152,14,0.08)_0%,transparent_65%)]"
         />
         <div className="container-custom relative">
           <motion.div {...motionProps(0)} className="max-w-3xl">
             <SectionHeading
               eyebrow="Our Expertise"
+              light
               title={
                 <>
                   Integrated services, one{" "}
-                  <em className="font-serif italic font-normal text-brand-accent-deep">accountable</em> partner.
+                  <em className="font-serif italic font-normal text-brand-accent-light">accountable</em> partner.
                 </>
               }
             />
-            <p className="mt-4 max-w-2xl text-base font-normal leading-relaxed text-brand-muted sm:text-lg">
+            <p className="mt-4 max-w-2xl text-base font-light leading-relaxed text-white/75 sm:text-lg">
               We own every discipline — architecture, interior design, construction,
               project management and real estate — so nothing is lost between consultant
               and contractor.
@@ -402,13 +394,13 @@ export default function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
-            className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 md:gap-5 lg:gap-6"
+            className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
           >
             {services.map((service, i) => (
               <motion.article
                 key={service.title}
                 variants={fadeUp}
-                className="group relative flex flex-col justify-between overflow-hidden border border-stone-200/80 bg-[#FAF9F5] shadow-xs transition-all duration-400 ease-out hover:-translate-y-1 hover:border-[#BE9026]/50 hover:shadow-lg"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-white/20 bg-white shadow-xl transition-all duration-400 ease-out hover:-translate-y-1.5 hover:border-[#BE9026] hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
               >
                 {/* Top Image & Number Badge */}
                 <div className="relative w-full">
@@ -422,7 +414,7 @@ export default function Home() {
                     />
                   </div>
                   {/* Number Badge Half on Image, Half Below, Space from Right */}
-                  <div className="absolute -bottom-4 right-4 z-10 flex h-9 w-11 items-center justify-center bg-[#BE9026] text-sm font-bold tracking-wider text-white shadow-md sm:-bottom-5 sm:right-5 sm:h-10 sm:w-12 sm:text-base">
+                  <div className="absolute -bottom-4 right-4 z-10 flex h-9 w-11 items-center justify-center rounded-sm bg-[#BE9026] text-sm font-bold tracking-wider text-white shadow-md sm:-bottom-5 sm:right-5 sm:h-10 sm:w-12 sm:text-base">
                     0{i + 1}
                   </div>
                 </div>
@@ -431,33 +423,33 @@ export default function Home() {
                 <div className="flex flex-1 flex-col justify-between p-5 pt-6 sm:p-6 sm:pt-7">
                   <div>
                     {/* Eyebrow / Tagline */}
-                    <div className="flex items-center gap-2 text-[0.62rem] font-bold uppercase tracking-[0.2em] text-[#8C6D23] sm:text-[0.65rem]">
+                    <div className="flex items-center gap-2 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#8C6D23] sm:text-xs">
                       <span className="inline-block h-1.5 w-1.5 rotate-45 bg-[#BE9026]" />
                       <span>{service.tagline}</span>
                     </div>
 
                     {/* Title */}
-                    <h3 className="mt-2.5 font-heading text-lg font-bold tracking-tight text-brand-charcoal sm:text-xl">
+                    <h3 className="mt-2.5 font-heading text-lg font-bold tracking-tight text-brand-charcoal sm:text-xl lg:text-lg xl:text-xl">
                       {service.title}
                     </h3>
 
                     {/* Description Paragraph */}
-                    <p className="mt-2.5 text-xs font-normal leading-relaxed text-brand-charcoal/75 sm:text-[0.85rem]">
+                    <p className="mt-3 text-[15px] font-normal leading-[26px] text-brand-muted md:text-[16px] md:leading-[27px]">
                       {service.description}
                     </p>
 
                     {/* Divider */}
-                    <div className="my-4 h-px w-full bg-stone-200/80 sm:my-5" />
+                    <div className="my-4 h-px w-full bg-stone-200/90 sm:my-5" />
 
                     {/* Deliverables / Bullet Points */}
-                    <ul className="flex flex-col gap-2">
+                    <ul className="flex flex-col gap-2.5 sm:gap-3">
                       {service.items.map((item) => (
                         <li
                           key={item}
-                          className="flex items-start gap-2 text-xs font-medium leading-snug text-brand-charcoal/85 sm:text-[0.8rem]"
+                          className="flex items-start gap-2.5 text-[14px] font-normal leading-[24px] text-brand-charcoal/85 sm:text-[15px] sm:leading-[25px]"
                         >
-                          <span className="mt-0.5 flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#BE9026] text-white shadow-2xs">
-                            <Check size={9} strokeWidth={3.5} />
+                          <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#BE9026] text-white shadow-2xs">
+                            <Check size={10} strokeWidth={3} />
                           </span>
                           <span>{item}</span>
                         </li>
@@ -466,16 +458,16 @@ export default function Home() {
                   </div>
 
                   {/* Card Action Link */}
-                  <div className="mt-4 pt-1">
+                  <div className="mt-5 pt-1 sm:mt-6">
                     <Link
                       href="/contact"
-                      className="group/btn relative flex w-full items-center justify-between rounded-lg border border-stone-300/80 bg-white/90 px-3 py-1 shadow-2xs transition-all duration-300 ease-out hover:border-[#BE9026] hover:bg-gradient-to-r hover:from-[#BE9026] hover:to-[#A97E1B] hover:text-white hover:shadow-md active:scale-[0.98] sm:px-3.5 sm:py-1.5"
+                      className="group/btn relative flex w-full items-center justify-between rounded-lg border border-stone-300/90 bg-stone-50/80 px-3.5 py-2.5 text-brand-charcoal shadow-2xs transition-all duration-300 ease-out hover:border-[#BE9026] hover:bg-gradient-to-r hover:from-[#BE9026] hover:to-[#A97E1B] hover:text-white hover:shadow-md active:scale-[0.98] sm:px-4 sm:py-3"
                     >
-                      <span className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-brand-charcoal transition-colors duration-300 group-hover/btn:text-white sm:text-[0.68rem]">
+                      <span className="text-xs font-bold uppercase tracking-[0.14em] text-brand-charcoal transition-colors duration-300 group-hover/btn:text-white">
                         Explore Service
                       </span>
-                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#FAF6EE] text-[#BE9026] shadow-2xs transition-all duration-300 group-hover/btn:bg-white/20 group-hover/btn:text-white group-hover/btn:translate-x-1 sm:h-5 sm:w-5">
-                        <ArrowRight size={10} strokeWidth={2.5} />
+                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#FAF6EE] text-[#BE9026] shadow-2xs transition-all duration-300 group-hover/btn:bg-white/20 group-hover/btn:text-white group-hover/btn:translate-x-1 sm:h-6 sm:w-6">
+                        <ArrowRight size={12} strokeWidth={2.5} />
                       </span>
                     </Link>
                   </div>
@@ -509,11 +501,7 @@ export default function Home() {
       </section>
 
       {/* ================= PROCESS ================= */}
-      <section id="process" className="relative scroll-mt-24 overflow-hidden border-y border-brand-stone bg-brand-ivory py-8 md:py-12">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute right-0 top-0 h-80 w-80 translate-x-1/3 -translate-y-1/3 rounded-full bg-[radial-gradient(circle,rgba(173,138,84,0.10)_0%,transparent_65%)]"
-        />
+      <section id="process" className="relative scroll-mt-24 overflow-hidden border-y border-brand-stone bg-white py-8 md:py-12">
         <div className="container-custom relative">
           <motion.div {...motionProps(0)} className="mx-auto flex max-w-3xl flex-col items-center text-center">
             <SectionHeading
@@ -550,7 +538,7 @@ export default function Home() {
             >
               {processSteps.map((step) => (
                 <motion.div key={step.num} variants={fadeUp} className="group relative pt-14">
-                  <span className="absolute left-0 top-0 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-brand-accent/40 bg-brand-ivory font-serif text-sm italic text-brand-accent-deep shadow-[0_6px_18px_rgba(27,25,22,0.06)] transition-all duration-500 group-hover:border-brand-accent group-hover:bg-gradient-to-br group-hover:from-brand-accent-light group-hover:via-brand-accent group-hover:to-brand-accent-deep group-hover:text-white group-hover:shadow-[0_10px_28px_rgba(160,120,0,0.45)]">
+                  <span className="absolute left-0 top-0 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-brand-accent/40 bg-white font-serif text-sm italic text-brand-accent-deep shadow-[0_6px_18px_rgba(27,25,22,0.06)] transition-all duration-500 group-hover:border-brand-accent group-hover:bg-gradient-to-br group-hover:from-brand-accent-light group-hover:via-brand-accent group-hover:to-brand-accent-deep group-hover:text-white group-hover:shadow-[0_10px_28px_rgba(160,120,0,0.45)]">
                     {step.num}
                   </span>
                   <span
@@ -586,7 +574,7 @@ export default function Home() {
                   {...motionProps(i * 0.06)}
                   className="group relative pb-9 last:pb-0"
                 >
-                  <span className="absolute left-0 top-0 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full border border-brand-accent/40 bg-brand-ivory font-serif text-xs italic text-brand-accent-deep shadow-[0_6px_16px_rgba(27,25,22,0.06)] transition-all duration-500 group-hover:border-brand-accent group-hover:bg-brand-accent group-hover:text-white">
+                  <span className="absolute left-0 top-0 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full border border-brand-accent/40 bg-white font-serif text-xs italic text-brand-accent-deep shadow-[0_6px_16px_rgba(27,25,22,0.06)] transition-all duration-500 group-hover:border-brand-accent group-hover:bg-brand-accent group-hover:text-white">
                     {step.num}
                   </span>
                   <h3 className="flex items-center gap-2.5 font-heading text-base font-semibold tracking-tight text-brand-charcoal md:text-lg">
@@ -762,18 +750,18 @@ function MarqueeCard({ project }: { project: (typeof projects)[number] }) {
           className="object-cover opacity-90 transition-all duration-[1.4s] ease-out group-hover:scale-[1.06] group-hover:opacity-100"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/15 to-transparent" />
-        <span className="absolute left-3 top-3 rounded-full border border-white/15 bg-black/30 px-2.5 py-1 text-[0.52rem] font-bold uppercase tracking-[0.18em] text-white/85 backdrop-blur-sm">
+        <span className="absolute left-3.5 top-3.5 rounded-full border border-white/20 bg-black/40 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-md sm:px-3.5 sm:py-1.5 sm:text-sm">
           {project.category}
         </span>
         <div className="absolute inset-x-0 bottom-0 p-4 md:p-5">
           <div className="flex items-center justify-between gap-3">
-            <p className="flex items-center gap-1.5 text-[0.65rem] font-light tracking-wide text-white/65">
-              <MapPin size={11} className="text-brand-accent-light" />
-              {project.location}
+            <p className="flex items-center gap-2 text-sm font-medium tracking-normal text-white/90 sm:text-base md:text-[17px]">
+              <MapPin size={17} className="shrink-0 text-brand-accent-light" />
+              <span>{project.location}</span>
             </p>
             <ArrowUpRight
-              size={13}
-              className="text-brand-accent-light opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100"
+              size={18}
+              className="shrink-0 text-brand-accent-light opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100"
             />
           </div>
         </div>

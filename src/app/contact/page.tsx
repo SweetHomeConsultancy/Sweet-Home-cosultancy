@@ -46,14 +46,14 @@ const steps = [
   { title: "Free Consultation", description: "A considered first consultation and a clear path to your build." },
 ];
 
-const baseInputDark =
-  "w-full rounded-lg border bg-white/[0.06] text-white placeholder:text-white/35 transition-all focus:outline-none focus:ring-2";
-const normalInputDark = "border-white/15 focus:border-brand-accent focus:ring-brand-accent/40";
-const errorInputDark = "border-red-400/70 focus:border-red-400 focus:ring-red-400/30";
+const baseInputLight =
+  "w-full rounded-lg border bg-[#FAF8F5] text-brand-charcoal placeholder:text-brand-muted/60 transition-all duration-200 focus:bg-white focus:outline-none focus:ring-2";
+const normalInputLight = "border-brand-stone hover:border-brand-sand focus:border-brand-accent focus:ring-brand-accent/25";
+const errorInputLight = "border-red-400 bg-red-50/40 text-brand-charcoal focus:border-red-500 focus:ring-red-300/40";
 
-const iconFieldClass = cn(baseInputDark, normalInputDark, "h-12 pl-11 pr-10");
-const labelClass = "text-[0.65rem] font-bold uppercase tracking-[0.18em] text-brand-accent-light";
-const fieldIconClass = "pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-white/40";
+const iconFieldClass = cn(baseInputLight, normalInputLight, "h-12 pl-11 pr-10 text-sm");
+const labelClass = "text-[0.68rem] font-bold uppercase tracking-[0.16em] text-brand-charcoal/90";
+const fieldIconClass = "pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-brand-muted/70";
 
 export default function ContactPage() {
   const {
@@ -80,7 +80,7 @@ export default function ContactPage() {
     { icon: MapPin, title: "Visit Our Studio", body: [contactInfo.addressLine1, contactInfo.addressLine2], href: "https://www.google.com/maps/search/?api=1&query=Titagarh,+Kolkata" },
     { icon: Phone, title: "Call Us", body: [`+91 ${contactInfo.phone1}`, `+91 ${contactInfo.phone2}`], href: `tel:${contactInfo.tel1}` },
     { icon: Mail, title: "Email Us", body: [contactInfo.email], href: `mailto:${contactInfo.email}` },
-    { icon: Clock, title: "Working Hours", body: [contactInfo.hours, contactInfo.closed, contactInfo.consultation] },
+    { icon: Clock, title: "Working Hours", body: [contactInfo.hoursSlot1, contactInfo.hoursSlot2, contactInfo.closed] },
   ];
 
   return (
@@ -211,22 +211,22 @@ export default function ContactPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="relative overflow-hidden border border-brand-charcoal/10 bg-brand-charcoal p-8 text-white shadow-[0_30px_70px_rgba(27,25,22,0.28)] ring-1 ring-inset ring-white/5 md:p-12"
+              className="relative overflow-hidden border border-brand-stone bg-white p-6 sm:p-8 md:p-12 shadow-[0_20px_50px_rgba(27,25,22,0.06)]"
             >
               <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-brand-accent to-transparent" aria-hidden="true" />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.07] via-transparent to-brand-accent/[0.12]" aria-hidden="true" />
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(200,152,14,0.04),transparent_60%)]" aria-hidden="true" />
 
-              <div className="relative mb-9 flex flex-wrap items-start justify-between gap-4">
+              <div className="relative mb-8 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4 md:mb-9">
                 <div className="flex flex-col gap-2">
-                  <span className="eyebrow-light">Enquiry</span>
-                  <h2 className="font-heading text-2xl font-semibold tracking-tight text-white md:text-3xl">
+                  <span className="eyebrow">Enquiry</span>
+                  <h2 className="font-heading text-2xl font-semibold tracking-tight text-brand-charcoal md:text-3xl">
                     Send a Brief
                   </h2>
                 </div>
-                <span className="flex items-center gap-2 rounded-full border border-brand-accent/40 bg-brand-accent/10 px-4 py-2 text-[0.58rem] font-bold uppercase tracking-[0.18em] text-brand-accent-light">
+                <span className="inline-flex w-fit items-center gap-2 rounded-full border border-brand-accent/30 bg-brand-accent/10 px-3.5 py-1.5 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-brand-accent-deep">
                   <span className="relative flex h-1.5 w-1.5">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-accent-light opacity-75" />
-                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand-accent-light" />
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-accent opacity-75" />
+                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand-accent" />
                   </span>
                   Response within 24 hours
                 </span>
@@ -234,14 +234,14 @@ export default function ContactPage() {
 
               <div className="relative">
                 {isSubmitSuccessful ? (
-                  <div className="rounded-xl border border-brand-accent/40 bg-brand-accent/15 p-7">
-                    <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:text-left">
+                  <div className="rounded-xl border border-brand-accent/30 bg-brand-accent/10 p-6 sm:p-7">
+                    <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
                       <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-accent text-brand-charcoal">
                         <CheckCircle2 size={28} />
                       </span>
                       <div>
-                        <h3 className="text-lg font-semibold text-white">Thank You!</h3>
-                        <p className="mt-1 text-sm font-light leading-relaxed text-white/70">
+                        <h3 className="text-lg font-semibold text-brand-charcoal">Thank You!</h3>
+                        <p className="mt-1 text-sm font-light leading-relaxed text-brand-muted">
                           Your message has been prepared and opened in WhatsApp. Our team will
                           respond shortly — usually within 24 hours.
                         </p>
@@ -251,9 +251,9 @@ export default function ContactPage() {
                 ) : (
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
                     <div className="grid gap-5 sm:grid-cols-2">
-                      <div className="space-y-2.5">
+                      <div className="space-y-2">
                         <label htmlFor="name" className={labelClass}>
-                          Full Name <span className="text-brand-accent-light">*</span>
+                          Full Name <span className="text-brand-accent-deep">*</span>
                         </label>
                         <div className="relative">
                           <User size={15} strokeWidth={1.6} className={fieldIconClass} />
@@ -264,15 +264,15 @@ export default function ContactPage() {
                             aria-invalid={!!errors.name}
                             aria-describedby={errors.name ? "name-error" : undefined}
                             {...register("name")}
-                            className={cn(iconFieldClass, errors.name && errorInputDark)}
+                            className={cn(iconFieldClass, errors.name && errorInputLight)}
                             placeholder="John Doe"
                           />
                         </div>
-                        {errors.name && <p id="name-error" className="text-xs font-medium text-red-400">{errors.name.message}</p>}
+                        {errors.name && <p id="name-error" className="text-xs font-medium text-red-500">{errors.name.message}</p>}
                       </div>
-                      <div className="space-y-2.5">
+                      <div className="space-y-2">
                         <label htmlFor="phone" className={labelClass}>
-                          Phone Number <span className="text-brand-accent-light">*</span>
+                          Phone Number <span className="text-brand-accent-deep">*</span>
                         </label>
                         <div className="relative">
                           <Phone size={15} strokeWidth={1.6} className={fieldIconClass} />
@@ -284,17 +284,17 @@ export default function ContactPage() {
                             aria-invalid={!!errors.phone}
                             aria-describedby={errors.phone ? "phone-error" : undefined}
                             {...register("phone")}
-                            className={cn(iconFieldClass, errors.phone && errorInputDark)}
+                            className={cn(iconFieldClass, errors.phone && errorInputLight)}
                             placeholder="+91 90000 00000"
                           />
                         </div>
-                        {errors.phone && <p id="phone-error" className="text-xs font-medium text-red-400">{errors.phone.message}</p>}
+                        {errors.phone && <p id="phone-error" className="text-xs font-medium text-red-500">{errors.phone.message}</p>}
                       </div>
                     </div>
 
-                    <div className="space-y-2.5">
+                    <div className="space-y-2">
                       <label htmlFor="email" className={labelClass}>
-                        Email Address <span className="text-brand-accent-light">*</span>
+                        Email Address <span className="text-brand-accent-deep">*</span>
                       </label>
                       <div className="relative">
                         <Mail size={15} strokeWidth={1.6} className={fieldIconClass} />
@@ -305,17 +305,17 @@ export default function ContactPage() {
                           aria-invalid={!!errors.email}
                           aria-describedby={errors.email ? "email-error" : undefined}
                           {...register("email")}
-                          className={cn(iconFieldClass, errors.email && errorInputDark)}
+                          className={cn(iconFieldClass, errors.email && errorInputLight)}
                           placeholder="john@example.com"
                         />
                       </div>
-                      {errors.email && <p id="email-error" className="text-xs font-medium text-red-400">{errors.email.message}</p>}
+                      {errors.email && <p id="email-error" className="text-xs font-medium text-red-500">{errors.email.message}</p>}
                     </div>
 
                     <div className="grid gap-5 sm:grid-cols-2">
-                      <div className="space-y-2.5">
+                      <div className="space-y-2">
                         <label htmlFor="projectType" className={labelClass}>
-                          Project Type <span className="text-brand-accent-light">*</span>
+                          Project Type <span className="text-brand-accent-deep">*</span>
                         </label>
                         <div className="relative">
                           <Building2 size={15} strokeWidth={1.6} className={fieldIconClass} />
@@ -324,7 +324,7 @@ export default function ContactPage() {
                             aria-invalid={!!errors.projectType}
                             aria-describedby={errors.projectType ? "projectType-error" : undefined}
                             {...register("projectType")}
-                            className={cn(iconFieldClass, "appearance-none bg-brand-charcoal [&>option]:bg-brand-charcoal", errors.projectType && errorInputDark)}
+                            className={cn(iconFieldClass, "appearance-none bg-[#FAF8F5] cursor-pointer focus:bg-white [&>option]:bg-white [&>option]:text-brand-charcoal", errors.projectType && errorInputLight)}
                           >
                             <option value="">Select Project Type</option>
                             <option value="architecture">Architectural Design</option>
@@ -333,13 +333,13 @@ export default function ContactPage() {
                             <option value="turnkey">Turnkey Project</option>
                             <option value="consultation">Consultation Only</option>
                           </select>
-                          <ChevronDown size={15} className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-white/40" />
+                          <ChevronDown size={15} className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-brand-muted/70" />
                         </div>
-                        {errors.projectType && <p id="projectType-error" className="text-xs font-medium text-red-400">{errors.projectType.message}</p>}
+                        {errors.projectType && <p id="projectType-error" className="text-xs font-medium text-red-500">{errors.projectType.message}</p>}
                       </div>
-                      <div className="space-y-2.5">
+                      <div className="space-y-2">
                         <label htmlFor="budget" className={labelClass}>
-                          Estimated Budget <span className="text-brand-accent-light">*</span>
+                          Estimated Budget <span className="text-brand-accent-deep">*</span>
                         </label>
                         <div className="relative">
                           <Banknote size={15} strokeWidth={1.6} className={fieldIconClass} />
@@ -348,24 +348,25 @@ export default function ContactPage() {
                             aria-invalid={!!errors.budget}
                             aria-describedby={errors.budget ? "budget-error" : undefined}
                             {...register("budget")}
-                            className={cn(iconFieldClass, "appearance-none bg-brand-charcoal [&>option]:bg-brand-charcoal", errors.budget && errorInputDark)}
+                            className={cn(iconFieldClass, "appearance-none bg-[#FAF8F5] cursor-pointer focus:bg-white [&>option]:bg-white [&>option]:text-brand-charcoal", errors.budget && errorInputLight)}
                           >
                             <option value="">Select Budget Range</option>
-                            <option value="under_10l">Under ₹10 Lakhs</option>
+                            <option value="under_5l">Under ₹5 Lakhs</option>
+                            <option value="5l_10l">₹5 Lakhs - ₹10 Lakhs</option>
                             <option value="10l_50l">₹10 Lakhs - ₹50 Lakhs</option>
                             <option value="50l_1cr">₹50 Lakhs - ₹1 Crore</option>
                             <option value="above_1cr">Above ₹1 Crore</option>
                             <option value="not_sure">Not Sure</option>
                           </select>
-                          <ChevronDown size={15} className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-white/40" />
+                          <ChevronDown size={15} className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-brand-muted/70" />
                         </div>
-                        {errors.budget && <p id="budget-error" className="text-xs font-medium text-red-400">{errors.budget.message}</p>}
+                        {errors.budget && <p id="budget-error" className="text-xs font-medium text-red-500">{errors.budget.message}</p>}
                       </div>
                     </div>
 
-                    <div className="space-y-2.5">
+                    <div className="space-y-2">
                       <label htmlFor="location" className={labelClass}>
-                        Project Location <span className="text-brand-accent-light">*</span>
+                        Project Location <span className="text-brand-accent-deep">*</span>
                       </label>
                       <div className="relative">
                         <MapPin size={15} strokeWidth={1.6} className={fieldIconClass} />
@@ -376,35 +377,35 @@ export default function ContactPage() {
                           aria-invalid={!!errors.location}
                           aria-describedby={errors.location ? "location-error" : undefined}
                           {...register("location")}
-                          className={cn(iconFieldClass, errors.location && errorInputDark)}
+                          className={cn(iconFieldClass, errors.location && errorInputLight)}
                           placeholder="e.g. New Town, Kolkata"
                         />
                       </div>
-                      {errors.location && <p id="location-error" className="text-xs font-medium text-red-400">{errors.location.message}</p>}
+                      {errors.location && <p id="location-error" className="text-xs font-medium text-red-500">{errors.location.message}</p>}
                     </div>
 
-                    <div className="space-y-2.5">
+                    <div className="space-y-2">
                       <label htmlFor="message" className={labelClass}>
-                        Project Details <span className="text-brand-accent-light">*</span>
+                        Project Details <span className="text-brand-accent-deep">*</span>
                       </label>
                       <div className="relative">
-                        <MessageSquareText size={15} strokeWidth={1.6} className="absolute left-4 top-3.5 text-white/40" />
+                        <MessageSquareText size={15} strokeWidth={1.6} className="absolute left-4 top-3.5 text-brand-muted/70" />
                         <textarea
                           id="message"
                           aria-invalid={!!errors.message}
                           aria-describedby={errors.message ? "message-error" : undefined}
                           {...register("message")}
-                          className={cn(baseInputDark, errors.message ? errorInputDark : normalInputDark, "h-32 resize-none p-4 pl-11")}
+                          className={cn(baseInputLight, errors.message ? errorInputLight : normalInputLight, "h-32 resize-none p-4 pl-11 text-sm")}
                           placeholder="Tell us about your requirements..."
                         />
                       </div>
-                      {errors.message && <p id="message-error" className="text-xs font-medium text-red-400">{errors.message.message}</p>}
+                      {errors.message && <p id="message-error" className="text-xs font-medium text-red-500">{errors.message.message}</p>}
                     </div>
 
-                    <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                    <Button type="submit" size="lg" variant="default" className="w-full" disabled={isSubmitting}>
                       {isSubmitting ? "Preparing…" : "Send Message"} <Send size={16} />
                     </Button>
-                    <p className="flex items-center justify-center gap-2 text-center text-xs font-light text-white/45">
+                    <p className="flex items-center justify-center gap-2 text-center text-xs font-light text-brand-muted">
                       <ShieldCheckIcon />
                       Opens WhatsApp with your enquiry pre-filled — the fastest way to reach our team.
                     </p>
@@ -493,7 +494,7 @@ function ShieldCheckIcon() {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="shrink-0 text-brand-accent-light"
+      className="shrink-0 text-brand-accent-deep"
       aria-hidden="true"
     >
       <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />

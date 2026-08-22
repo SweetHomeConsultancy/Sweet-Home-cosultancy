@@ -39,8 +39,10 @@ export const contactInfo = {
   whatsapp: "919007567100",
   whatsappLink: "https://wa.me/919007567100",
   email: "info@sweethomeprojects.com",
-  hours: "Mon – Sat: 9:00 AM – 7:00 PM",
-  closed: "Sunday: By Appointment",
+  hoursSlot1: "10:00 AM – 02:00 PM",
+  hoursSlot2: "05:00 PM – 09:00 PM",
+  hours: "10:00 AM – 02:00 PM & 05:00 PM – 09:00 PM",
+  closed: "Friday: Closed",
   consultation: "Consultation: Available by Appointment",
 };
 
@@ -61,16 +63,63 @@ export const serviceAreas = [
 ];
 
 export const founder = {
-  name: "Tanweer Alam",
-  title: "Founder & Principal Consultant",
+  name: "Mr. Tanweer Alam",
+  shortName: "Tanweer Alam",
+  title: "Architectural & L.B.S. Engineer",
+  designation: "Founder & Principal Consultant",
+  municipalities: [
+    "Barrackpore Municipality",
+    "Khardaha Municipality",
+    "Titagarh Municipality",
+  ],
+  municipalitiesText: "Barrackpore, Khardaha & Titagarh Municipalities",
+  experienceYears: "16+",
+  experienceSummary: "16+ Years of Indian and Gulf (GCC) Countries Experience",
+  regions: ["India (Kolkata & Suburbs)", "Gulf / GCC (Saudi Arabia, Bahrain)"],
   summary:
-    "An experienced professional with qualifications in Architecture and Construction Project Management, offering comprehensive consultancy services from concept design to project completion.",
+    "Architectural & L.B.S. Engineer with 16+ years of extensive hands-on experience across India and Gulf (GCC) countries. Enlisted under Barrackpore, Khardaha, and Titagarh Municipalities, offering end-to-end expertise in architectural design, interior aesthetics, municipal sanctions, and construction project management.",
   qualifications: [
-    "Diploma in Architecture",
-    "Graduate in Arts (B.A.)",
-    "Post Graduate in Construction & Project Management",
-    "Experience in Architecture, Interior Design, and Construction",
-    "GCC and India Project Experience",
+    "Diploma in ARCHITECTURE & INTERIOR DESIGN",
+    "Graduation in BACHELORS IN ARTS",
+    "Post Graduate in CONSTRUCTION AND PROJECT MANAGEMENTS",
+    "16+ Years Experience in Indian & Gulf (GCC) Countries",
+    "L.B.S. Engineer (Barrackpore, Khardaha & Titagarh Municipalities)",
+  ],
+  detailedQualifications: [
+    {
+      title: "Diploma in ARCHITECTURE & INTERIOR DESIGN",
+      tag: "Design & Interior Specialization",
+      level: "Professional Diploma",
+      desc: "Complete expertise in architectural spatial planning, 2D working drawings, 3D elevation modeling, and luxury residential & commercial interior styling.",
+      highlights: ["House Planning & 2D Layouts", "3D Interior & Elevation Visualization", "Building Renovation Planning"],
+    },
+    {
+      title: "Graduation in BACHELORS IN ARTS",
+      tag: "Academic Graduation (B.A.)",
+      level: "Bachelor's Degree",
+      desc: "Academic foundation supporting strategic problem solving, statutory project documentation, client advisory, and transparent stakeholder communication.",
+      highlights: ["Project Documentation", "Client Advisory & Strategy", "Regulatory Correspondence"],
+    },
+    {
+      title: "Post Graduate in CONSTRUCTION AND PROJECT MANAGEMENTS",
+      tag: "Advanced Project Leadership",
+      level: "Post Graduate (PGCPM)",
+      desc: "Advanced qualification in on-site construction supervision, BOQ estimation, quality control protocols, contractor management, and scheduled project delivery.",
+      highlights: ["BOQ & Cost Estimation", "Construction Supervision", "Quality Control & Timeline Management"],
+    },
+    {
+      title: "16+ Years Experience in Indian & Gulf (GCC) Countries",
+      tag: "Cross-Border Expertise",
+      level: "16+ Years Track Record",
+      desc: "Over 16 years of proven excellence leading architectural, interior, commercial, institutional, and residential projects across India and Gulf nations (Saudi Arabia & Bahrain).",
+      highlights: ["Gulf/GCC (Saudi Arabia & Bahrain)", "India (Kolkata & Municipal Regions)", "150+ Handed-Over Projects"],
+    },
+  ],
+  authorityHighlights: [
+    { label: "Municipal Enlistment", value: "3 Municipalities", desc: "Barrackpore, Khardaha & Titagarh" },
+    { label: "Total Experience", value: "16+ Years", desc: "India & Gulf (GCC) Countries" },
+    { label: "Core Competency", value: "Architecture & L.B.S.", desc: "Sanction Plans & Supervision" },
+    { label: "Client Satisfaction", value: "100%", desc: "Quality & Timely Execution" },
   ],
 };
 
@@ -99,7 +148,7 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    title: "Architecture & Lanscaping",
+    title: "Architecture & Landscaping",
     tagline: "Design & Engineering",
     description:
       "House planning, working drawings and municipal-ready documentation — precise, buildable and compliant architectural design.",
@@ -179,6 +228,7 @@ export const services: Service[] = [
       "Plot Development Guidance",
       "Residential Project Consultation",
       "Property Investment Guidance",
+      "Land Survey & Plotting",
       "Urban Development",
     ],
   },
@@ -232,9 +282,7 @@ export const projectCategories = [
 ] as const;
 
 export const projects: Project[] = [
-  { id: "P01", title: "3D Architectual View Of Apartments Kolkata, year 2018-2014", category: "Residential", location: "Kolkata", image: "/images/projects/3D%20Architectual%20View%20Of%20Apartments%20Kolkata%2C%20year%202018-2014/Kolkata_Residential1.png", images: ["/images/projects/3D%20Architectual%20View%20Of%20Apartments%20Kolkata%2C%20year%202018-2014/Kolkata_Residential1.png", "/images/projects/3D%20Architectual%20View%20Of%20Apartments%20Kolkata%2C%20year%202018-2014/Kolkata_Residential2.png", "/images/projects/3D%20Architectual%20View%20Of%20Apartments%20Kolkata%2C%20year%202018-2014/Kolkata_Residential3.png", "/images/projects/3D%20Architectual%20View%20Of%20Apartments%20Kolkata%2C%20year%202018-2014/Kolkata_Residential4.png"], aspect: "aspect-[4/3]" },
-  { id: "P02", title: "3D Architectual View of House, Barrackpore, Kolkata, year 2018", category: "Residential", location: "Barrackpore, Kolkata", image: "/images/projects/3D%20Architectual%20View%20of%20House%2C%20Barrackpore%2C%20Kolkata%2C%20year%202018/Screenshot%202026-08-18%20124340.png", images: ["/images/projects/3D%20Architectual%20View%20of%20House%2C%20Barrackpore%2C%20Kolkata%2C%20year%202018/Screenshot%202026-08-18%20124340.png", "/images/projects/3D%20Architectual%20View%20of%20House%2C%20Barrackpore%2C%20Kolkata%2C%20year%202018/Screenshot%202026-08-18%20124352.png", "/images/projects/3D%20Architectual%20View%20of%20House%2C%20Barrackpore%2C%20Kolkata%2C%20year%202018/Screenshot%202026-08-18%20124359.png"], aspect: "aspect-[4/3]" },
-  { id: "P03", title: "3D Architecture View Of G+3 Building & Open Tarrace Garden, Khardaha, Kolkata, year 2024", category: "Residential", location: "Khardaha, Kolkata", image: "/images/projects/3D%20Architecture%20View%20Of%20G%2B3%20Building%20%26%20Open%20Tarrace%20Garden%2C%20Khardaha%2C%20Kolkata%2C%20year%202024/Khardaha_Kolkata1.png", images: ["/images/projects/3D%20Architecture%20View%20Of%20G%2B3%20Building%20%26%20Open%20Tarrace%20Garden%2C%20Khardaha%2C%20Kolkata%2C%20year%202024/Khardaha_Kolkata1.png", "/images/projects/3D%20Architecture%20View%20Of%20G%2B3%20Building%20%26%20Open%20Tarrace%20Garden%2C%20Khardaha%2C%20Kolkata%2C%20year%202024/Khardaha_Kolkata2.png", "/images/projects/3D%20Architecture%20View%20Of%20G%2B3%20Building%20%26%20Open%20Tarrace%20Garden%2C%20Khardaha%2C%20Kolkata%2C%20year%202024/Khardaha_Kolkata3.png"], aspect: "aspect-[4/3]" },
+ { id: "P03", title: "3D Architecture View Of G+3 Building & Open Tarrace Garden, Khardaha, Kolkata, year 2024", category: "Residential", location: "Khardaha, Kolkata", image: "/images/projects/3D%20Architecture%20View%20Of%20G%2B3%20Building%20%26%20Open%20Tarrace%20Garden%2C%20Khardaha%2C%20Kolkata%2C%20year%202024/Khardaha_Kolkata1.png", images: ["/images/projects/3D%20Architecture%20View%20Of%20G%2B3%20Building%20%26%20Open%20Tarrace%20Garden%2C%20Khardaha%2C%20Kolkata%2C%20year%202024/Khardaha_Kolkata1.png", "/images/projects/3D%20Architecture%20View%20Of%20G%2B3%20Building%20%26%20Open%20Tarrace%20Garden%2C%20Khardaha%2C%20Kolkata%2C%20year%202024/Khardaha_Kolkata2.png", "/images/projects/3D%20Architecture%20View%20Of%20G%2B3%20Building%20%26%20Open%20Tarrace%20Garden%2C%20Khardaha%2C%20Kolkata%2C%20year%202024/Khardaha_Kolkata3.png"], aspect: "aspect-[4/3]" },
   { id: "P04", title: "3D Architecture Views Of Hotel & Restaurant & Shop, Al Rass Saudi Arabia year 2014-2015", category: "Commercial", location: "Al Rass, Saudi Arabia", image: "/images/projects/3D%20Architecture%20Views%20Of%20Hotel%20%26%20Restaurant%20%26%20Shop%2C%20Al%20Rass%20Saudi%20Arabia%20year%202014-2015/Commercial1.png", images: ["/images/projects/3D%20Architecture%20Views%20Of%20Hotel%20%26%20Restaurant%20%26%20Shop%2C%20Al%20Rass%20Saudi%20Arabia%20year%202014-2015/Commercial1.png", "/images/projects/3D%20Architecture%20Views%20Of%20Hotel%20%26%20Restaurant%20%26%20Shop%2C%20Al%20Rass%20Saudi%20Arabia%20year%202014-2015/Commercial2.png", "/images/projects/3D%20Architecture%20Views%20Of%20Hotel%20%26%20Restaurant%20%26%20Shop%2C%20Al%20Rass%20Saudi%20Arabia%20year%202014-2015/Commercial3.png", "/images/projects/3D%20Architecture%20Views%20Of%20Hotel%20%26%20Restaurant%20%26%20Shop%2C%20Al%20Rass%20Saudi%20Arabia%20year%202014-2015/Commercial4.png"], aspect: "aspect-[4/3]" },
   { id: "P05", title: "Al Rajhi Bank Clading Design Al Rass in the year of 2013", category: "Commercial", location: "Al Rass, Saudi Arabia", image: "/images/projects/Al%20Rajhi%20Bank%20Clading%20Design%20Al%20Rass%20in%20the%20year%20of%202013/WhatsApp%20Image%202026-08-18%20at%202.28.18%20AM.jpeg", images: ["/images/projects/Al%20Rajhi%20Bank%20Clading%20Design%20Al%20Rass%20in%20the%20year%20of%202013/WhatsApp%20Image%202026-08-18%20at%202.28.18%20AM.jpeg", "/images/projects/Al%20Rajhi%20Bank%20Clading%20Design%20Al%20Rass%20in%20the%20year%20of%202013/WhatsApp%20Image%202026-08-18%20at%202.28.18.1%20AM.jpeg"], aspect: "aspect-[4/3]" },
   { id: "P06", title: "Axis Bank Interrior Kolkata, India, Upto 2024", category: "Interior", location: "Kolkata, India", image: "/images/projects/Axis%20Bank%20Interrior%20Kolkata%2C%20India%2C%20Upto%202024/Interior1.png", images: ["/images/projects/Axis%20Bank%20Interrior%20Kolkata%2C%20India%2C%20Upto%202024/Interior1.png", "/images/projects/Axis%20Bank%20Interrior%20Kolkata%2C%20India%2C%20Upto%202024/Interior2.png", "/images/projects/Axis%20Bank%20Interrior%20Kolkata%2C%20India%2C%20Upto%202024/Interior3.png", "/images/projects/Axis%20Bank%20Interrior%20Kolkata%2C%20India%2C%20Upto%202024/Interior4.png", "/images/projects/Axis%20Bank%20Interrior%20Kolkata%2C%20India%2C%20Upto%202024/Interior5.png"], aspect: "aspect-[4/3]" },
@@ -251,7 +299,6 @@ export const projects: Project[] = [
   { id: "P17", title: "Masjid E Masroor, C.C  Road, Titagarh, Kolkata-700119, (W.B) India year-2017", category: "Institutional", location: "Titagarh, Kolkata", image: "/images/projects/Masjid%20E%20Masroor%2C%20C.C%20%20Road%2C%20Titagarh%2C%20Kolkata-700119%2C%20(W.B)%20India%20year-2017/Screenshot%202026-08-18%20121214.png", images: ["/images/projects/Masjid%20E%20Masroor%2C%20C.C%20%20Road%2C%20Titagarh%2C%20Kolkata-700119%2C%20(W.B)%20India%20year-2017/Screenshot%202026-08-18%20121214.png", "/images/projects/Masjid%20E%20Masroor%2C%20C.C%20%20Road%2C%20Titagarh%2C%20Kolkata-700119%2C%20(W.B)%20India%20year-2017/Screenshot%202026-08-18%20121220.png"], aspect: "aspect-[4/3]" },
   { id: "P18", title: "Master Bed Room Customers, AL, Rass, K.S.A", category: "Interior", location: "Al Rass, Saudi Arabia", image: "/images/projects/Master%20Bed%20Room%20Customers%2C%20AL%2C%20Rass%2C%20K.S.A/Screenshot%202026-08-18%20134726.png", images: ["/images/projects/Master%20Bed%20Room%20Customers%2C%20AL%2C%20Rass%2C%20K.S.A/Screenshot%202026-08-18%20134726.png", "/images/projects/Master%20Bed%20Room%20Customers%2C%20AL%2C%20Rass%2C%20K.S.A/Screenshot%202026-08-18%20134732.png", "/images/projects/Master%20Bed%20Room%20Customers%2C%20AL%2C%20Rass%2C%20K.S.A/Screenshot%202026-08-18%20134737.png"], aspect: "aspect-[4/3]" },
   { id: "P19", title: "Master Bed Room Customers, Kolkata, India", category: "Interior", location: "Kolkata, India", image: "/images/projects/Master%20Bed%20Room%20Customers%2C%20Kolkata%2C%20India/Screenshot%202026-08-18%20134824.png", images: ["/images/projects/Master%20Bed%20Room%20Customers%2C%20Kolkata%2C%20India/Screenshot%202026-08-18%20134824.png", "/images/projects/Master%20Bed%20Room%20Customers%2C%20Kolkata%2C%20India/Screenshot%202026-08-18%20134830.png", "/images/projects/Master%20Bed%20Room%20Customers%2C%20Kolkata%2C%20India/Screenshot%202026-08-18%20134836.png", "/images/projects/Master%20Bed%20Room%20Customers%2C%20Kolkata%2C%20India/Screenshot%202026-08-18%20134842.png"], aspect: "aspect-[4/3]" },
-  { id: "P20", title: "Maulana Azad National Park For Kids and Comunity Hall year 2018", category: "Landscape", location: "Kolkata", image: "/images/projects/Maulana%20Azad%20National%20Park%20For%20Kids%20and%20Comunity%20Hall%20year%202018/Screenshot%202026-08-18%20120212.png", images: ["/images/projects/Maulana%20Azad%20National%20Park%20For%20Kids%20and%20Comunity%20Hall%20year%202018/Screenshot%202026-08-18%20120212.png", "/images/projects/Maulana%20Azad%20National%20Park%20For%20Kids%20and%20Comunity%20Hall%20year%202018/Screenshot%202026-08-18%20120226.png", "/images/projects/Maulana%20Azad%20National%20Park%20For%20Kids%20and%20Comunity%20Hall%20year%202018/Screenshot%202026-08-18%20120328.png", "/images/projects/Maulana%20Azad%20National%20Park%20For%20Kids%20and%20Comunity%20Hall%20year%202018/Screenshot%202026-08-18%20120336.png"], aspect: "aspect-[4/3]" },
   { id: "P21", title: "New Market Complex In Al-Rass - Saudi Arabiya year 2012", category: "Commercial", location: "Al Rass, Saudi Arabia", image: "/images/projects/New%20Market%20Complex%20In%20Al-Rass%20-%20Saudi%20Arabiya%20year%202012/WhatsApp%20Image%202026-08-18%20at%202.28.18%20AM.jpeg", images: ["/images/projects/New%20Market%20Complex%20In%20Al-Rass%20-%20Saudi%20Arabiya%20year%202012/WhatsApp%20Image%202026-08-18%20at%202.28.18%20AM.jpeg", "/images/projects/New%20Market%20Complex%20In%20Al-Rass%20-%20Saudi%20Arabiya%20year%202012/WhatsApp%20Image%202026-08-18%20at%202.28.18.1%20AM.jpeg"], aspect: "aspect-[4/3]" },
   { id: "P22", title: "Petrol Pump Al Qassim Saudi Arabiya year 2014", category: "Commercial", location: "Al Qassim, Saudi Arabia", image: "/images/projects/Petrol%20Pump%20Al%20Qassim%20Saudi%20Arabiya%20year%202014/WhatsApp%20Image%202026-08-18%20at%202.28.18%20AM.jpeg", images: ["/images/projects/Petrol%20Pump%20Al%20Qassim%20Saudi%20Arabiya%20year%202014/WhatsApp%20Image%202026-08-18%20at%202.28.18%20AM.jpeg", "/images/projects/Petrol%20Pump%20Al%20Qassim%20Saudi%20Arabiya%20year%202014/WhatsApp%20Image%202026-08-18%20at%202.28.18.1%20AM.jpeg"], aspect: "aspect-[4/3]" },
   { id: "P23", title: "Qasar 3D View Customer, Al Qasim year 2014", category: "Residential", location: "Al Qassim, Saudi Arabia", image: "/images/projects/Qasar%203D%20View%20Customer%2C%20Al%20Qasim%20year%202014/Screenshot%202026-08-18%20122322.png", images: ["/images/projects/Qasar%203D%20View%20Customer%2C%20Al%20Qasim%20year%202014/Screenshot%202026-08-18%20122322.png", "/images/projects/Qasar%203D%20View%20Customer%2C%20Al%20Qasim%20year%202014/Screenshot%202026-08-18%20122326.png"], aspect: "aspect-[4/3]" },
