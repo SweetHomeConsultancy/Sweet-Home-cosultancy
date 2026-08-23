@@ -71,7 +71,9 @@ export function Footer() {
       <div className="container-custom grid gap-10 pb-16 pt-16 md:grid-cols-2 md:gap-12 lg:grid-cols-[1.3fr_0.8fr_0.9fr_1.1fr]">
         {/* Brand */}
         <div className="flex flex-col gap-5">
-          <Logo light />
+          <div className="inline-flex w-fit items-center justify-center rounded-lg bg-[#EFEBE3] px-2 py-1 sm:px-2 sm:py-2 lg:px-3 lg:py-3">
+            <Logo />
+          </div>
           <p className="max-w-sm text-sm font-light leading-relaxed text-brand-gray/70">
             Architecture, interior design, construction, project management and real
             estate consultancy in Kolkata — one accountable studio from first sketch to

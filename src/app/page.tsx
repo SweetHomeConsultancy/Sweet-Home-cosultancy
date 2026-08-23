@@ -63,7 +63,7 @@ export default function Home() {
       {/* ================= HERO ================= */}
       <section
         id="home-hero"
-        className="relative flex min-h-svh items-end overflow-hidden bg-brand-navy"
+        className="relative flex min-h-[90svh] sm:min-h-svh items-end overflow-hidden bg-brand-navy"
       >
         <div className="absolute inset-0 z-0">
           <Image
@@ -72,26 +72,23 @@ export default function Home() {
             fill
             priority
             sizes="100vw"
-            className="animate-slow-zoom object-cover object-center"
+            className="animate-slow-zoom object-cover object-[center_28%] sm:object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-navy/85 via-brand-navy/55 to-brand-charcoal/35" />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/70 via-transparent to-brand-charcoal/20" />
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-navy/70 via-brand-navy/45 to-brand-charcoal/30 sm:from-brand-navy/85 sm:via-brand-navy/55 sm:to-brand-charcoal/35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/60 via-transparent to-brand-charcoal/10 sm:from-brand-charcoal/70 sm:to-brand-charcoal/20" />
         </div>
 
-        <div className="container-custom relative z-10 pb-10 pt-24 md:pb-16 md:pt-40">
+        <div className="container-custom relative z-10 pb-10 pt-24 sm:pb-12 sm:pt-28 md:pb-16 md:pt-40">
           <div className="max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="mb-6 flex items-center gap-3"
+              className="mb-5 sm:mb-6 flex items-center gap-2 sm:gap-3 max-w-md sm:max-w-lg"
             >
-              <span className="inline-flex flex-wrap items-center gap-3 text-[0.65rem] font-bold uppercase tracking-[0.28em] text-brand-accent-light sm:text-[0.7rem] sm:tracking-[0.32em]">
-                <span className="hidden h-px w-10 bg-brand-accent-light sm:block" />
-                Architecture &middot; Interior Design &middot; Construction
-                <span className="hidden md:inline">
-                  &middot; Project Management &middot; Real Estate Consultancy
-                </span>
+              <span className="inline-flex flex-wrap items-center gap-2 sm:gap-3 text-[0.56rem] font-bold uppercase tracking-[0.2em] text-brand-accent-light sm:text-[0.7rem] sm:tracking-[0.32em] leading-relaxed">
+                <span className="inline-block h-px w-5 sm:w-6 bg-brand-accent-light shrink-0" />
+                Architecture &middot; Interior Design &middot; Construction &middot; Project Management &middot; Real Estate Consultancy
               </span>
             </motion.div>
 
@@ -104,7 +101,7 @@ export default function Home() {
                 ease: [0.22, 1, 0.36, 1],
               }}
               className="text-white"
-              style={{ fontSize: "clamp(2.5rem, 7.5vw, 5.5rem)" }}
+              style={{ fontSize: "clamp(2.3rem, 7.5vw, 5.5rem)" }}
             >
               <span className="block font-semibold leading-[1.05] sm:leading-[0.92]  tracking-tight">
                 DESIGN.
@@ -124,9 +121,9 @@ export default function Home() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.55 }}
-              className="mt-7 max-w-xl"
+              className="mt-5 sm:mt-7 max-w-xl"
             >
-              <p className="text-base font-light leading-relaxed text-white/80 md:text-lg">
+              <p className="text-sm sm:text-base font-light leading-relaxed text-white/80 md:text-lg">
                 An integrated architecture, interior design, construction and
                 real estate consultancy in Kolkata — transforming ideas into
                 functional, aesthetically pleasing and value-driven spaces.
@@ -137,7 +134,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.7 }}
-              className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center"
+              className="mt-6 sm:mt-8 flex flex-col gap-3 sm:gap-4 sm:flex-row sm:items-center"
             >
               <Button
                 asChild
@@ -171,7 +168,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.85, ease: "easeOut" }}
-              className="mt-6 flex items-center gap-3 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-white/55"
+              className="mt-5 sm:mt-6 flex items-center gap-3 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-white/55"
             >
               <span className="h-px w-8 bg-brand-accent-light" />
               Free consultation &middot; No obligation
@@ -182,7 +179,7 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1 }}
-            className="mt-10 grid max-w-3xl grid-cols-2 gap-px sm:grid-cols-4 md:mt-12"
+            className="mt-10 hidden sm:grid max-w-3xl grid-cols-2 gap-px sm:grid-cols-4 md:mt-12"
           >
             {stats.map((s, i) => (
               <div
@@ -218,6 +215,27 @@ export default function Home() {
             <MoveDown size={16} className="text-brand-accent-light" />
           </motion.span>
         </motion.div>
+      </section>
+
+      {/* ================= MOBILE STATS (#39332A Backdrop Blur) ================= */}
+      <section className="relative z-10 border-y border-white/10 bg-[#39332A]/80 backdrop-blur-2xl py-5 px-3 xs:px-4 sm:hidden">
+        <div className="w-full max-w-lg mx-auto">
+          <div className="grid grid-cols-2 gap-2.5 xs:gap-3.5">
+            {stats.map((s) => (
+              <div
+                key={s.label}
+                className="relative overflow-hidden rounded-xl border border-white/15 bg-white/[0.06] p-4 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.25)]"
+              >
+                <div className="font-heading text-2xl font-bold tracking-tight text-white">
+                  {s.value}
+                </div>
+                <div className="mt-1 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-brand-accent-light">
+                  {s.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ================= SERVICES TICKER ================= */}
@@ -383,7 +401,7 @@ export default function Home() {
                   <span>
                     WhatsApp:{" "}
                     <strong className="font-bold tracking-normal">
-                      {contactInfo.phone1}
+                      {contactInfo.whatsappNum}
                     </strong>
                   </span>
                 </a>
