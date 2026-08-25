@@ -109,9 +109,6 @@ export default function Home() {
                   INSPIRE.
                   <span className="block">
                     BUILD
-                    <span className="align-baseline font-serif italic font-normal text-brand-accent-light">
-                      .
-                    </span>
                   </span>
                 </span>
               </span>

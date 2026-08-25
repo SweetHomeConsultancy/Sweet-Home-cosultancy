@@ -74,12 +74,26 @@ export default function ContactPage() {
   const infoItems: Array<{
     icon: typeof MapPin;
     title: string;
-    body: string[];
+    body: React.ReactNode[];
     href?: string;
   }> = [
     { icon: MapPin, title: "Visit Our Studio", body: [contactInfo.addressLine1, contactInfo.addressLine2], href: "https://www.google.com/maps/search/?api=1&query=Titagarh,+Kolkata" },
-    { icon: Phone, title: "Call Us", body: [`+91 ${contactInfo.phone1}`, `+91 ${contactInfo.phone2}`], href: `tel:${contactInfo.tel1}` },
-    { icon: Mail, title: "Email Us", body: [contactInfo.email], href: `mailto:${contactInfo.email}` },
+    { 
+      icon: Phone, 
+      title: "Call Us", 
+      body: [
+        <a key="tel1" href={`tel:${contactInfo.tel1}`} className="hover:text-brand-accent transition-colors">+91 {contactInfo.phone1}</a>,
+        <a key="tel2" href={`tel:${contactInfo.tel2}`} className="hover:text-brand-accent transition-colors">+91 {contactInfo.phone2}</a>
+      ] 
+    },
+    { 
+      icon: Mail, 
+      title: "Email Us", 
+      body: [
+        <a key="mail1" href={`mailto:${contactInfo.email}`} className="hover:text-brand-accent transition-colors">{contactInfo.email}</a>,
+        <a key="mail2" href="mailto:alam.tanweer007@gmail.com" className="hover:text-brand-accent transition-colors">alam.tanweer007@gmail.com</a>
+      ] 
+    },
     { icon: Clock, title: "Working Hours", body: [contactInfo.hoursSlot1, contactInfo.hoursSlot2, contactInfo.closed] },
   ];
 
@@ -174,10 +188,10 @@ export default function ContactPage() {
                           {item.title}
                         </h3>
                         <div className="mt-2 space-y-1">
-                          {item.body.map((line) => (
-                            <p key={line} className="text-sm font-light leading-relaxed text-brand-muted">
+                          {item.body.map((line, i) => (
+                            <div key={i} className="text-sm font-light leading-relaxed text-brand-muted">
                               {line}
-                            </p>
+                            </div>
                           ))}
                         </div>
                       </div>
