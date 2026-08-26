@@ -47,13 +47,13 @@ const steps = [
 ];
 
 const baseInputLight =
-  "w-full rounded-lg border bg-[#FAF8F5] text-brand-charcoal placeholder:text-brand-muted/60 transition-all duration-200 focus:bg-[#EFEBE3] focus:outline-none focus:ring-2";
-const normalInputLight = "border-brand-stone hover:border-brand-sand focus:border-brand-accent focus:ring-brand-accent/25";
+  "w-full rounded-lg border-2 bg-[#FAF8F5] text-brand-charcoal placeholder:text-brand-muted/60 transition-all duration-200 focus:bg-[#EFEBE3] focus:outline-none focus:ring-2";
+const normalInputLight = "border-brand-sand hover:border-brand-accent/50 focus:border-brand-accent focus:ring-brand-accent/25";
 const errorInputLight = "border-red-400 bg-red-50/40 text-brand-charcoal focus:border-red-500 focus:ring-red-300/40";
 
 const iconFieldClass = cn(baseInputLight, normalInputLight, "h-12 pl-11 pr-10 text-sm");
-const labelClass = "text-[0.68rem] font-bold uppercase tracking-[0.16em] text-brand-charcoal/90";
-const fieldIconClass = "pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-brand-muted/70";
+const labelClass = "text-[0.8rem] font-bold uppercase tracking-[0.16em] text-brand-charcoal/90";
+const fieldIconClass = "pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-brand-charcoal/70";
 
 export default function ContactPage() {
   const {
@@ -145,7 +145,7 @@ export default function ContactPage() {
                   <h3 className="font-heading text-base font-semibold tracking-tight text-brand-charcoal">
                     {step.title}
                   </h3>
-                  <p className="mt-1.5 text-sm font-light leading-relaxed text-brand-muted">
+                  <p className="mt-1.5 text-[0.95rem] font-normal leading-relaxed text-brand-charcoal/75">
                     {step.description}
                   </p>
                 </div>
@@ -162,7 +162,7 @@ export default function ContactPage() {
           <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
             {/* Info */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} variants={fadeUp} className="flex flex-col gap-10">
-              <div className="space-y-2">
+              <div className="space-y-3">
                 <h2 className="font-heading text-2xl font-semibold tracking-tight text-brand-charcoal md:text-3xl">
                   Our Office
                 </h2>
@@ -184,12 +184,12 @@ export default function ContactPage() {
                         <IconComp size={19} strokeWidth={1.6} />
                       </span>
                       <div>
-                        <h3 className="text-[0.62rem] font-bold uppercase tracking-[0.22em] text-brand-charcoal">
+                        <h3 className="text-[0.8rem] font-bold uppercase tracking-[0.2em] text-brand-charcoal">
                           {item.title}
                         </h3>
-                        <div className="mt-2 space-y-1">
+                        <div className="mt-2.5 space-y-1.5">
                           {item.body.map((line, i) => (
-                            <div key={i} className="text-sm font-light leading-relaxed text-brand-muted">
+                            <div key={i} className="text-[0.95rem] font-normal leading-relaxed text-brand-charcoal/80">
                               {line}
                             </div>
                           ))}
@@ -265,7 +265,7 @@ export default function ContactPage() {
                 ) : (
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
                     <div className="grid gap-5 sm:grid-cols-2">
-                      <div className="space-y-2">
+                      <div className="space-y-3">
                         <label htmlFor="name" className={labelClass}>
                           Full Name <span className="text-brand-accent-deep">*</span>
                         </label>
@@ -284,7 +284,7 @@ export default function ContactPage() {
                         </div>
                         {errors.name && <p id="name-error" className="text-xs font-medium text-red-500">{errors.name.message}</p>}
                       </div>
-                      <div className="space-y-2">
+                      <div className="space-y-3">
                         <label htmlFor="phone" className={labelClass}>
                           Phone Number <span className="text-brand-accent-deep">*</span>
                         </label>
@@ -306,7 +306,7 @@ export default function ContactPage() {
                       </div>
                     </div>
 
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                       <label htmlFor="email" className={labelClass}>
                         Email Address <span className="text-brand-accent-deep">*</span>
                       </label>
@@ -327,7 +327,7 @@ export default function ContactPage() {
                     </div>
 
                     <div className="grid gap-5 sm:grid-cols-2">
-                      <div className="space-y-2">
+                      <div className="space-y-3">
                         <label htmlFor="projectType" className={labelClass}>
                           Project Type <span className="text-brand-accent-deep">*</span>
                         </label>
@@ -351,7 +351,7 @@ export default function ContactPage() {
                         </div>
                         {errors.projectType && <p id="projectType-error" className="text-xs font-medium text-red-500">{errors.projectType.message}</p>}
                       </div>
-                      <div className="space-y-2">
+                      <div className="space-y-3">
                         <label htmlFor="budget" className={labelClass}>
                           Estimated Budget <span className="text-brand-accent-deep">*</span>
                         </label>
@@ -378,7 +378,7 @@ export default function ContactPage() {
                       </div>
                     </div>
 
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                       <label htmlFor="location" className={labelClass}>
                         Project Location <span className="text-brand-accent-deep">*</span>
                       </label>
@@ -398,12 +398,12 @@ export default function ContactPage() {
                       {errors.location && <p id="location-error" className="text-xs font-medium text-red-500">{errors.location.message}</p>}
                     </div>
 
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                       <label htmlFor="message" className={labelClass}>
                         Project Details <span className="text-brand-accent-deep">*</span>
                       </label>
                       <div className="relative">
-                        <MessageSquareText size={15} strokeWidth={1.6} className="absolute left-4 top-3.5 text-brand-muted/70" />
+                        <MessageSquareText size={15} strokeWidth={1.6} className="absolute left-4 top-3.5 text-brand-charcoal/70" />
                         <textarea
                           id="message"
                           aria-invalid={!!errors.message}
@@ -445,14 +445,10 @@ export default function ContactPage() {
               <h2 className="font-heading text-2xl font-semibold tracking-tight text-brand-charcoal md:text-3xl">
                 Visit Our Studio
               </h2>
-              <p className="mt-2 font-light text-brand-muted">
+              <p className="mt-2 font-normal text-brand-charcoal/80">
                 {contactInfo.addressLine1}, {contactInfo.addressLine2} — {contactInfo.city}
               </p>
             </div>
-            <span className="hidden items-center gap-3 text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-brand-muted sm:flex">
-              <span className="h-px w-10 bg-brand-accent" />
-              Open directions
-            </span>
           </motion.div>
 
           <motion.div

@@ -18,16 +18,16 @@ export function Logo({ light = false, className }: LogoProps) {
       )}
     >
       {/* Emblem Icon */}
-      <div className="relative shrink-0 flex items-center">
+      <div className="relative shrink-0 flex items-end self-end mt-2 sm:mt-2.5">
         <Image
           src="/sweet-home.png"
           alt="SWEET HOME Emblem"
           width={550}
           height={460}
           priority
-          sizes="(max-width: 640px) 60px, (max-width: 768px) 70px, 80px"
+          sizes="(max-width: 640px) 68px, (max-width: 768px) 78px, 92px"
           className={cn(
-            "h-14 sm:h-16 md:h-16 lg:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105",
+            "h-16 sm:h-18 md:h-19 lg:h-22 w-auto object-contain transition-transform duration-300 group-hover:scale-105",
             light
               ? "drop-shadow-[0_2px_12px_rgba(200,152,14,0.35)]"
               : "drop-shadow-[0_2px_8px_rgba(0,0,0,0.12)]"
@@ -85,7 +85,7 @@ export function Logo({ light = false, className }: LogoProps) {
         <div
           className={cn(
             "flex items-center justify-between gap-1 text-[7.5px] sm:text-[8.5px] md:text-[8.5px] lg:text-[9px] font-semibold uppercase tracking-[0.1em] sm:tracking-[0.14em] transition-colors duration-300 leading-none whitespace-nowrap",
-            light ? "text-white/80" : "text-brand-muted"
+            light ? "text-white/80" : "text-brand-charcoal/85"
           )}
         >
           <span>ARCHITECTURAL</span>

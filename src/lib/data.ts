@@ -66,7 +66,7 @@ export const serviceAreas = [
 export const founder = {
   name: "Mr. Tanweer Alam",
   shortName: "Tanweer Alam",
-  title: "Architectural & L.B.S. Engineer",
+  title: "Architectural & L.B.S Engineer",
   designation: "Founder & Principal Consultant",
   municipalities: [
     "Barrackpore Municipality",
@@ -78,13 +78,13 @@ export const founder = {
   experienceSummary: "16+ Years of Indian and Gulf (GCC) Countries Experience",
   regions: ["India (Kolkata & Suburbs)", "Gulf / GCC (Saudi Arabia, Bahrain)"],
   summary:
-    "Architectural & L.B.S. Engineer with 16+ years of extensive hands-on experience across India and Gulf (GCC) countries. Enlisted under Barrackpore, Khardaha, and Titagarh Municipalities, offering end-to-end expertise in architectural design, interior aesthetics, municipal sanctions, and construction project management.",
+    "Architectural & L.B.S Engineer with 16+ years of extensive hands-on experience across India and Gulf (GCC) countries. Enlisted under Barrackpore, Khardaha, and Titagarh Municipalities, offering end-to-end expertise in architectural design, interior aesthetics, municipal sanctions, and construction project management.",
   qualifications: [
     "Diploma in ARCHITECTURE & INTERIOR DESIGN",
     "Graduation in BACHELORS IN ARTS",
     "Post Graduate in CONSTRUCTION AND PROJECT MANAGEMENTS",
     "16+ Years Experience in Indian & Gulf (GCC) Countries",
-    "L.B.S. Engineer (Barrackpore, Khardaha & Titagarh Municipalities)",
+    "L.B.S Engineer (Barrackpore, Khardaha & Titagarh Municipalities)",
   ],
   detailedQualifications: [
     {
@@ -119,7 +119,7 @@ export const founder = {
   authorityHighlights: [
     { label: "Municipal Enlistment", value: "3 Municipalities", desc: "Barrackpore, Khardaha & Titagarh" },
     { label: "Total Experience", value: "16+ Years", desc: "India & Gulf (GCC) Countries" },
-    { label: "Core Competency", value: "Architecture & L.B.S.", desc: "Sanction Plans & Supervision" },
+    { label: "Core Competency", value: "Architecture & L.B.S", desc: "Sanction Plans & Supervision" },
     { label: "Client Satisfaction", value: "100%", desc: "Quality & Timely Execution" },
   ],
 };

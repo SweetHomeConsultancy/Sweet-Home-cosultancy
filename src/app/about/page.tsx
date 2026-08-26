@@ -102,7 +102,7 @@ export default function AboutPage() {
                 <p className="text-base font-light leading-relaxed text-brand-muted">
                   Founded and led by{" "}
                   <strong className="font-medium text-brand-charcoal">
-                    {founder.name} (Architectural & L.B.S. Engineer)
+                    {founder.name} (Architectural & L.B.S Engineer)
                   </strong>
                   , empaneled under Barrackpore, Khardaha, and Titagarh Municipalities, our practice
                   delivers comprehensive consultancy from concept design and municipal sanctioning to
@@ -322,7 +322,7 @@ export default function AboutPage() {
               <div className="mt-5 rounded-xl border border-brand-accent/30 bg-brand-accent/5 p-4">
                 <div className="flex items-center gap-2 text-[0.7rem] font-bold uppercase tracking-[0.16em] text-brand-accent-light">
                   <Landmark size={13} className="text-brand-accent" />
-                  <span>Enlisted L.B.S. Municipalities</span>
+                  <span>Enlisted L.B.S Municipalities</span>
                 </div>
 
                 <div className="mt-2.5 grid grid-cols-1 gap-2 sm:grid-cols-3">
@@ -549,7 +549,7 @@ export default function AboutPage() {
                 <h3 className="mt-5 font-heading text-lg font-semibold tracking-tight text-white">
                   {item.title}
                 </h3>
-                <p className="mt-2.5 text-sm font-light leading-relaxed text-brand-gray/60">
+                <p className="mt-2.5 text-base font-light leading-relaxed text-brand-gray/60">
                   {item.description}
                 </p>
               </motion.div>
