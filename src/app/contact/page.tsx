@@ -15,13 +15,14 @@ import {
   Banknote,
   MessageSquareText,
   ChevronDown,
+  Globe,
 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, type Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { contactInfo } from "@/lib/data";
+import { contactInfo, brand } from "@/lib/data";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -77,7 +78,7 @@ export default function ContactPage() {
     body: React.ReactNode[];
     href?: string;
   }> = [
-    { icon: MapPin, title: "Visit Our Studio", body: [contactInfo.addressLine1, contactInfo.addressLine2], href: "https://www.google.com/maps/search/?api=1&query=Titagarh,+Kolkata" },
+    { icon: MapPin, title: "Visit Our Studio", body: [contactInfo.addressLine1], href: "https://www.google.com/maps/search/?api=1&query=Titagarh,+Kolkata" },
     { 
       icon: Phone, 
       title: "Call Us", 
@@ -95,6 +96,7 @@ export default function ContactPage() {
       ] 
     },
     { icon: Clock, title: "Working Hours", body: [contactInfo.hoursSlot1, contactInfo.hoursSlot2, contactInfo.closed] },
+    { icon: Globe, title: "Visit Our Website", body: [brand.website], href: `https://${brand.website}` },
   ];
 
   return (
@@ -171,7 +173,7 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <address className="grid gap-4 not-italic sm:grid-cols-2">
+              <address className="grid gap-4 not-italic sm:grid-cols-2 [&>*:last-child]:sm:col-span-2">
                 {infoItems.map((item, idx) => {
                   const IconComp = item.icon;
                   const href = item.href;
@@ -446,7 +448,7 @@ export default function ContactPage() {
                 Visit Our Studio
               </h2>
               <p className="mt-2 font-normal text-brand-charcoal/80">
-                {contactInfo.addressLine1}, {contactInfo.addressLine2} — {contactInfo.city}
+                {contactInfo.addressLine1} — {contactInfo.city}
               </p>
             </div>
           </motion.div>

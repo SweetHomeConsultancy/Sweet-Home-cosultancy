@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPin, Phone, Mail, ArrowUpRight } from "lucide-react";
+import { MapPin, Phone, Mail, Globe, ArrowUpRight } from "lucide-react";
 import { contactInfo, brand } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/ui/logo";
@@ -154,8 +154,6 @@ export function Footer() {
               <span className="leading-relaxed text-brand-gray/70">
                 {contactInfo.addressLine1}
                 <br />
-                {contactInfo.addressLine2}
-                <br />
                 {contactInfo.city}
               </span>
             </li>
@@ -178,6 +176,17 @@ export function Footer() {
                 className="break-all text-brand-gray/70 transition-colors duration-300 hover:text-brand-accent-light"
               >
                 {contactInfo.email}
+              </a>
+            </li>
+            <li className="flex items-center gap-3">
+              <Globe size={16} className="shrink-0 text-brand-accent" />
+              <a
+                href={`https://${brand.website}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-brand-gray/70 transition-colors duration-300 hover:text-brand-accent-light"
+              >
+                {brand.website}
               </a>
             </li>
           </ul>
