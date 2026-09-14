@@ -38,10 +38,10 @@ export function Logo({ light = false, className }: LogoProps) {
       {/* Brand Text Stack */}
       <div className="flex flex-col justify-center items-center leading-none tracking-normal">
         {/* Line 1: SWEET HOME (Black/White) + PROJECTS (Gold) */}
-        <div className="flex items-center gap-1.5 leading-none -ml-2">
+        <div className="flex items-center gap-1.5 leading-none -ml-2 whitespace-nowrap">
           <span
             className={cn(
-              "font-heading font-black text-base sm:text-lg md:text-lg lg:text-[1.3rem] uppercase tracking-[0.06em] sm:tracking-[0.08em] transition-colors duration-300",
+              "font-heading font-black text-base sm:text-lg md:text-lg lg:text-[1.3rem] uppercase tracking-[0.06em] sm:tracking-[0.08em] transition-colors duration-300 whitespace-nowrap",
               light ? "text-white" : "text-brand-charcoal"
             )}
           >
@@ -49,7 +49,7 @@ export function Logo({ light = false, className }: LogoProps) {
           </span>
           <span
             className={cn(
-              "font-heading font-black text-base sm:text-lg md:text-lg lg:text-[1.3rem] uppercase tracking-[0.06em] sm:tracking-[0.08em] transition-colors duration-300",
+              "font-heading font-black text-base sm:text-lg md:text-lg lg:text-[1.3rem] uppercase tracking-[0.06em] sm:tracking-[0.08em] transition-colors duration-300 whitespace-nowrap",
               light ? "text-brand-accent-light" : "text-brand-accent-deep"
             )}
           >
