@@ -741,7 +741,7 @@ export default function Home() {
               light
               title={
                 <>
-                  The SWEET HOME{" "}
+                  The SWEET HOME PROJECTS{" "}
                   <em className="font-serif italic font-normal text-brand-accent-light">
                     advantage.
                   </em>

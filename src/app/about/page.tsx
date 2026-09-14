@@ -125,14 +125,6 @@ export default function AboutPage() {
                     <span>Contact : {contactInfo.phone1}</span>
                   </a>
                   <a
-                    href={`tel:${contactInfo.tel2}`}
-                    className="inline-flex w-full justify-center sm:w-auto items-center gap-2 rounded-md border border-brand-charcoal/20 bg-[#EFEBE3] px-3.5 py-2 text-xs font-semibold text-brand-charcoal shadow-xs transition-colors hover:border-brand-accent hover:bg-brand-ivory"
-                    title="Call Secondary Number"
-                  >
-                    <Phone size={13} className="text-brand-accent" />
-                    <span>Contact : {contactInfo.phone2}</span>
-                  </a>
-                  <a
                     href={contactInfo.whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -270,7 +262,7 @@ export default function AboutPage() {
               style={{ fontSize: "clamp(2rem, 4vw, 3.1rem)" }}
             >
               About the Owner of{" "}
-              <span className="text-brand-accent-light">SWEET HOME</span>
+              <span className="text-brand-accent-light">SWEET HOME PROJECTS</span>
             </h2>
             <p className="mt-4 text-base font-light leading-relaxed text-white/70 md:text-lg">
               Meet the visionary engineer behind Sweet Home Consultancy — blending 16+ years of
@@ -292,14 +284,19 @@ export default function AboutPage() {
 
               {/* Owner Header / Identity */}
               <div className="flex flex-col items-center text-center sm:flex-row sm:text-left gap-4 sm:gap-5">
-                {/* Monogram Badge */}
-                <div className="relative flex h-16 w-16 sm:h-20 sm:w-20 shrink-0 items-center justify-center rounded-2xl border-2 border-brand-accent/50 bg-gradient-to-br from-brand-charcoal to-[#302b23] shadow-inner">
-                  <div className="absolute -inset-0.5 rounded-2xl bg-brand-accent/20 blur-[6px]" />
-                  <span className="relative font-serif text-2xl sm:text-3xl font-bold tracking-tight text-brand-accent-light">
-                    TA
-                  </span>
-                  <span className="absolute -bottom-1.5 -right-1.5 flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-brand-accent text-brand-charcoal shadow-md">
-                    <ShieldCheck size={13} strokeWidth={2.5} />
+                {/* Founder Photo */}
+                <div className="relative h-28 w-28 sm:h-32 sm:w-32 shrink-0">
+                  <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-2xl border-2 border-brand-accent/50 bg-gradient-to-br from-brand-charcoal to-[#302b23] shadow-inner">
+                    <Image
+                      src="/images/tanweer-alam.jpg"
+                      alt={founder.name}
+                      fill
+                      sizes="128px"
+                      className="object-cover object-top"
+                    />
+                  </div>
+                  <span className="absolute -bottom-2 -right-2 z-10 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-brand-accent text-brand-charcoal shadow-md">
+                    <ShieldCheck size={16} strokeWidth={2.5} />
                   </span>
                 </div>
 
@@ -524,7 +521,7 @@ export default function AboutPage() {
               light
               title={
                 <>
-                  The SWEET HOME{" "}
+                  The SWEET HOME PROJECTS{" "}
                   <em className="font-serif italic font-normal text-brand-accent-light">advantage.</em>
                 </>
               }

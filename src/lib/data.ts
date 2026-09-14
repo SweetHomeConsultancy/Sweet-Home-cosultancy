@@ -29,9 +29,8 @@ export const navLinks = [
 ];
 
 export const contactInfo = {
-  addressLine1: "75, G. C. Road, Titagarh",
-  addressLine2: "(Near Safdar Palace)",
-  city: "Kolkata - 700119 (W.B)",
+  addressLine1: "75(54), G. C. Road, Titagarh",
+  city: "Kolkata - 700119 (W.B.)",
   phone1: "9804725100",
   tel1: "+919804725100",
   phone2: "9007567100",

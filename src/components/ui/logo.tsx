@@ -11,7 +11,7 @@ export function Logo({ light = false, className }: LogoProps) {
   return (
     <Link
       href="/"
-      aria-label="SWEET HOME Consultancy Services — Architectural, Interior, Construction"
+      aria-label="SWEET HOME PROJECTS Engineering Consultancy — Architectural, Interior, Construction"
       className={cn(
         "group inline-flex shrink-0 items-center gap-2 sm:gap-2.5 md:gap-3 transition-opacity duration-300 hover:opacity-90 select-none",
         className
@@ -37,7 +37,7 @@ export function Logo({ light = false, className }: LogoProps) {
 
       {/* Brand Text Stack */}
       <div className="flex flex-col justify-center items-center leading-none tracking-normal">
-        {/* Line 1: SWEET (Black/White) + HOME (Gold) */}
+        {/* Line 1: SWEET HOME (Black/White) + PROJECTS (Gold) */}
         <div className="flex items-center gap-1.5 leading-none -ml-2">
           <span
             className={cn(
@@ -45,7 +45,7 @@ export function Logo({ light = false, className }: LogoProps) {
               light ? "text-white" : "text-brand-charcoal"
             )}
           >
-            SWEET
+            SWEET HOME
           </span>
           <span
             className={cn(
@@ -53,11 +53,11 @@ export function Logo({ light = false, className }: LogoProps) {
               light ? "text-brand-accent-light" : "text-brand-accent-deep"
             )}
           >
-            HOME
+            PROJECTS
           </span>
         </div>
 
-        {/* Line 2: —— CONSULTANCY SERVICES —— */}
+        {/* Line 2: —— ENGINEERING CONSULTANCY —— */}
         <div className="flex items-center justify-center gap-1 sm:gap-1.5 my-[2px] sm:my-[3px] w-full">
           <span
             className={cn(
@@ -71,7 +71,7 @@ export function Logo({ light = false, className }: LogoProps) {
               light ? "text-brand-accent-light" : "text-brand-accent-deep"
             )}
           >
-            CONSULTANCY SERVICES
+            ENGINEERING CONSULTANCY
           </span>
           <span
             className={cn(

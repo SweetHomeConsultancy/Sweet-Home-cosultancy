@@ -105,7 +105,7 @@ const localBusinessSchema = {
   priceRange: "₹₹",
   address: {
     "@type": "PostalAddress",
-    streetAddress: `${contactInfo.addressLine1}, ${contactInfo.addressLine2}`,
+    streetAddress: contactInfo.addressLine1,
     addressLocality: "Titagarh",
     addressRegion: "West Bengal",
     postalCode: "700119",

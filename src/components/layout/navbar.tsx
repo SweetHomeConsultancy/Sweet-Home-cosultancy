@@ -138,7 +138,7 @@ export function Navbar() {
             <button
               type="button"
               className={cn(
-                "flex h-11 w-11 items-center justify-center transition-colors duration-300 lg:hidden",
+                "-mr-2 flex h-11 w-11 items-center justify-center transition-colors duration-300 lg:hidden",
                 isHeroState ? "text-white" : "text-brand-charcoal"
               )}
               onClick={() => setIsMobileMenuOpen((v) => !v)}
