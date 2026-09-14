@@ -78,7 +78,7 @@ export default function ContactPage() {
     body: React.ReactNode[];
     href?: string;
   }> = [
-    { icon: MapPin, title: "Visit Our Studio", body: [contactInfo.addressLine1], href: "https://www.google.com/maps/search/?api=1&query=Titagarh,+Kolkata" },
+    { icon: MapPin, title: "Visit Our Studio", body: [contactInfo.addressLine1, contactInfo.city], href: "https://www.google.com/maps/search/?api=1&query=Titagarh,+Kolkata" },
     { 
       icon: Phone, 
       title: "Call Us", 
