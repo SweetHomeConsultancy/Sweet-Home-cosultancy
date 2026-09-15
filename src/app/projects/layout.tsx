@@ -3,12 +3,12 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Our Projects — Architecture & Interior Design Portfolio, Kolkata",
   description:
-    "Explore completed architecture, interior design and construction projects across Kolkata, Titagarh, Barrackpore, Khardah, New Town and Salt Lake by Sweet Home Consultancy Services.",
+    "Explore completed architecture, interior design and construction projects across Kolkata, Titagarh, Barrackpore, Khardah, New Town and Salt Lake by Sweet Home Projects.",
   alternates: {
     canonical: "/projects",
   },
   openGraph: {
-    title: "Projects — Sweet Home Consultancy Services",
+    title: "Projects — Sweet Home Projects",
     description:
       "Residential, commercial and interior design projects completed across Kolkata and North 24 Parganas.",
     url: "/projects",

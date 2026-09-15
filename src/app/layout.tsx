@@ -26,11 +26,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default:
-      "Sweet Home Consultancy Services — Architects, Interior Designers & Contractors in Kolkata, Titagarh & Barrackpore",
-    template: "%s | Sweet Home Consultancy Services",
+      "Sweet Home Projects — Architects, Interior Designers & Contractors in Kolkata, Titagarh & Barrackpore",
+    template: "%s | Sweet Home Projects",
   },
   description:
-    "Sweet Home Consultancy Services is a professional architecture, interior design, construction, project management and real estate consultancy serving Kolkata, Titagarh, Barrackpore, Khardah, Sodpur, New Town, Salt Lake and North 24 Parganas. 16+ years of experience — free consultation.",
+    "Sweet Home Projects is a professional architecture, interior design, construction, project management and real estate consultancy serving Kolkata, Titagarh, Barrackpore, Khardah, Sodpur, New Town, Salt Lake and North 24 Parganas. 16+ years of experience — free consultation.",
   keywords: [
     "architects in Kolkata",
     "interior designer in Kolkata",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     "real estate consultancy",
     ...locationList,
   ],
-  authors: [{ name: "Sweet Home Consultancy Services" }],
+  authors: [{ name: "Sweet Home Projects" }],
   alternates: {
     canonical: "/",
   },
@@ -65,25 +65,25 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Sweet Home Consultancy Services — Architecture, Interior Design & Construction in Kolkata",
+    title: "Sweet Home Projects — Architecture, Interior Design & Construction in Kolkata",
     description:
       "Architecture • Interior Design • Construction • Project Management • Real Estate Consultancy serving Kolkata, Titagarh, Barrackpore, Khardah, Sodpur and North 24 Parganas.",
     type: "website",
     locale: "en_IN",
-    siteName: "Sweet Home Consultancy Services",
+    siteName: "Sweet Home Projects",
     url: siteUrl,
     images: [
       {
         url: "/images/hero-main2.jpeg",
         width: 1600,
         height: 900,
-        alt: "Sweet Home Consultancy Services — Architecture & Interior Design in Kolkata",
+        alt: "Sweet Home Projects — Architecture & Interior Design in Kolkata",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sweet Home Consultancy Services — Design • Inspire • Build",
+    title: "Sweet Home Projects — Design • Inspire • Build",
     description:
       "Architecture, interior design, construction, project management and real estate consultancy in Kolkata, Titagarh & Barrackpore.",
     images: ["/images/hero-main2.jpeg"],
@@ -94,7 +94,7 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": ["HomeAndConstructionBusiness", "ProfessionalService"],
   name: brand.name,
-  alternateName: "Sweet Home Consultancy",
+  alternateName: "Sweet Home Consultancy Services",
   description:
     "Architecture, interior design, construction, project management and real estate consultancy serving Kolkata and surrounding North 24 Parganas areas.",
   url: siteUrl,

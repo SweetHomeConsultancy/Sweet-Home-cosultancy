@@ -319,7 +319,7 @@ export default function Home() {
               >
                 <p className="text-base font-normal leading-relaxed text-brand-charcoal/90 sm:text-lg">
                   <strong className="font-semibold text-brand-charcoal">
-                    Sweet Home Consultancy Services
+                    Sweet Home Projects
                   </strong>{" "}
                   is a professional Architectural, Interior Design,
                   Construction, and Project Management consultancy dedicated to

@@ -44,7 +44,7 @@ export default function AboutPage() {
         <div className="pointer-events-none absolute inset-x-0 top-0 mx-auto h-56 max-w-3xl bg-[radial-gradient(closest-side,rgba(215,188,141,0.10),transparent)]" aria-hidden="true" />
         <div className="container-custom relative">
           <motion.div initial="hidden" animate="visible" variants={fadeUp} className="max-w-4xl">
-            <span className="eyebrow-light mb-4">About SWEET HOME</span>
+            <span className="eyebrow-light mb-4">About SWEET HOME PROJECTS</span>
             <h1
               className="max-w-4xl text-balance font-semibold tracking-tight text-white"
               style={{ fontSize: "clamp(1.9rem, 4vw, 3.2rem)" }}
@@ -89,7 +89,7 @@ export default function AboutPage() {
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger} className="lg:col-span-7">
               <motion.div variants={fadeUp} className="flex flex-col gap-6">
                 <p className="text-xl font-light leading-relaxed text-brand-charcoal md:text-2xl">
-                  <strong className="font-semibold">Sweet Home Consultancy Services</strong>{" "}
+                  <strong className="font-semibold">Sweet Home Projects</strong>{" "}
                   is a premier Architectural, Interior Design, Construction, and Project
                   Management firm dedicated to delivering high-quality, regulation-compliant
                   and visionary built spaces.
@@ -265,7 +265,7 @@ export default function AboutPage() {
               <span className="text-brand-accent-light">SWEET HOME PROJECTS</span>
             </h2>
             <p className="mt-4 text-base font-light leading-relaxed text-white/70 md:text-lg">
-              Meet the visionary engineer behind Sweet Home Consultancy — blending 16+ years of
+              Meet the visionary engineer behind Sweet Home Projects — blending 16+ years of
               Indian & Gulf (GCC) project mastery with authorized municipal engineering credentials.
             </p>
           </motion.div>

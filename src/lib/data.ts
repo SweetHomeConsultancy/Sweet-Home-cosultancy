@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 export const brand = {
-  name: "Sweet Home Consultancy Services",
+  name: "Sweet Home Projects",
   tagline:
     "Architecture • Interior Design • Construction • Project Management • Real Estate Consultancy",
   motto: "Designing Better Spaces, Building Better Futures.",

@@ -201,7 +201,7 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10">
         <div className="container-custom flex flex-col items-center justify-between gap-3 py-7 text-xs font-light text-brand-gray/50 md:flex-row">
-          <p>&copy; {currentYear} Sweet Home Consultancy Services. All rights reserved.</p>
+          <p>&copy; {currentYear} Sweet Home Projects. All rights reserved.</p>
           <p className="flex items-center gap-2">
             <span className="text-brand-accent">&bull;</span>
             {brand.motto}
