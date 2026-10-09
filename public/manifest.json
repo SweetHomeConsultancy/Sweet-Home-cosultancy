@@ -1,0 +1,21 @@
+{
+  "name": "Sweet Home Projects",
+  "short_name": "Sweet Home Projects",
+  "description": "Architecture, Interior Design, Construction & Project Management — Kolkata",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FDFCFA",
+  "theme_color": "#FDFCFA",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

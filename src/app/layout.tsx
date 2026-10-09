@@ -24,6 +24,8 @@ const locationList = serviceAreas.filter((a) => a !== "and nearby areas");
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  applicationName: brand.name,
+  manifest: "/manifest.json",
   title: {
     default:
       "Sweet Home Projects — Architects, Interior Designers & Contractors in Kolkata, Titagarh & Barrackpore",
@@ -53,6 +55,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  // Set GOOGLE_SITE_VERIFICATION in your hosting env vars with the content
+  // value from Search Console's "HTML tag" verification method, e.g. "abc123xyz"
+  ...(process.env.GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
+    : {}),
   robots: {
     index: true,
     follow: true,
@@ -94,7 +101,6 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": ["HomeAndConstructionBusiness", "ProfessionalService"],
   name: brand.name,
-  alternateName: "Sweet Home Consultancy Services",
   description:
     "Architecture, interior design, construction, project management and real estate consultancy serving Kolkata and surrounding North 24 Parganas areas.",
   url: siteUrl,
